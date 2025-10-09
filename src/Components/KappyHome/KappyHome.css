@@ -1,0 +1,94 @@
+.kappy-home-main {
+  padding-block: 2rem;
+}
+
+.kappy-home-first-sec {
+  text-align: center;
+  max-width: 888px;
+  width: 90%;
+  margin: 0 auto;
+  margin-block: 2rem;
+}
+
+.kappy-home-first-sec h1 {
+  font: Nunito;
+  /* margin: 2rem 0; */
+  background: linear-gradient(to bottom, #1973f9, #051d40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 800;
+}
+
+.kappy-home-first-sec h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: medium;
+}
+
+.kappy-home-first-sec p {
+  margin: 2rem 0;
+  color: #767575;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.kappy-home-first-sec div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.kappy-home-btn-1 {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  border: 0;
+  font-weight: 900;
+  font-size: 1.25rem;
+  background: #ffffff;
+  box-shadow: 2px 8px 2px #aeb8c887;
+}
+
+.kappy-home-btn-2 {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  border: 0;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #f1f1f1;
+  background-color: #073171;
+}
+
+.kappy-home-second-sec {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kappy-home-third-sec {
+  display: flex;
+  align-items: center;
+  background-image: url("put your photo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 949px;
+  max-width: 1920px;
+}
+
+.kappy-home-third-sec div {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #d9d9d9;
+  height: 683px;
+  max-width: 1330px;
+  text-align: center;
+  border-radius: 32px;
+}
