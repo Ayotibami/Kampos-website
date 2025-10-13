@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,4 +11,11 @@
 
 img {
   max-width: 100%;
+}
+
+button {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-size: 1.25rem;
+  font-weight: 900;
 }

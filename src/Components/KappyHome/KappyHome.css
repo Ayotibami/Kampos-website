@@ -1,6 +1,14 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+}
+
 .kappy-home-main {
   padding-block: 2rem;
 }
+
+/* First Section */
 
 .kappy-home-first-sec {
   text-align: center;
@@ -11,7 +19,8 @@
 }
 
 .kappy-home-first-sec h1 {
-  font: Nunito;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
   /* margin: 2rem 0; */
   background: linear-gradient(to bottom, #1973f9, #051d40);
   -webkit-background-clip: text;
@@ -30,6 +39,7 @@
   margin: 2rem 0;
   color: #767575;
   font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 32px;
 }
 
 .kappy-home-first-sec div {
@@ -46,11 +56,16 @@
   align-items: center;
   padding: 1.5rem 2.5rem;
   border-radius: 16px;
-  border: 0;
+  border: 2px solid #073171;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   background: #ffffff;
-  box-shadow: 2px 8px 2px #aeb8c887;
+  /* box-shadow: 2px 8px 2px #aeb8c887; */
+}
+
+.kappy-home-btn-1 img {
+  width: 60px;
+  height: 34px;
 }
 
 .kappy-home-btn-2 {
@@ -62,10 +77,17 @@
   border-radius: 16px;
   border: 0;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #f1f1f1;
   background-color: #073171;
 }
+
+.kappy-home-btn-2 img {
+  width: 29px;
+  height: 34px;
+}
+
+/* Second Section */
 
 .kappy-home-second-sec {
   width: 90%;
@@ -73,8 +95,11 @@
   text-align: center;
 }
 
+/* Third Section */
+
 .kappy-home-third-sec {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-image: url("put your photo.png");
   background-size: cover;
@@ -91,4 +116,132 @@
   max-width: 1330px;
   text-align: center;
   border-radius: 32px;
+}
+
+/* Fourth Section */
+
+/* Fifth Section */
+.kappy-home-fifth-sec {
+  width: 90%;
+  max-width: 1201px;
+  margin: 0 auto;
+  text-align: center;
+  margin-block: 3rem;
+}
+
+.kappy-home-fifth-sec-div-1 {
+  max-width: 658px;
+  margin: auto;
+}
+
+.kappy-home-fifth-sec-div-1 h1 {
+  color: #2f2e2e;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(1rem, 3vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.kappy-home-fifth-sec-div-1 p {
+  color: #767575;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.kappy-home-fifth-sec-div-2 {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+}
+
+/* Sixth Section */
+
+.kappy-home-sixth-sec {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("put your photo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 935px;
+  max-width: 1920px;
+}
+
+.kappy-home-sixth-sec-div-1 {
+  max-width: 898px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  color: #f9fafb;
+}
+
+.kappy-home-sixth-sec-div-1 h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(1rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+}
+
+.kappy-home-sixth-sec-div-1 p {
+  font-weight: 400;
+  line-height: 2rem;
+  font-size: 1.25rem;
+}
+
+.kappy-home-sixth-sec-div-2 {
+  margin-top: 4.5rem;
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* Seventh Section */
+
+.kappy-home-seventh-sec {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 1159px;
+  margin: 5.6rem auto 0 auto;
+}
+
+.kappy-home-seventh-sec figure {
+  width: 404px;
+  height: 366px;
+}
+
+.kappy-home-seventh-sec div {
+  max-width: 665px;
+}
+
+.kappy-home-seventh-sec h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(1rem, 5vw, 3rem);
+  color: #2f2e2e;
+}
+
+.kappy-home-seventh-sec p {
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #767575;
+  line-height: 2rem;
+  margin: 2rem 0;
+}
+
+.kappy-home-seventh-sec button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background-color: #165abf;
+  color: #ffffff;
+  border: 0;
+  border-radius: 16px;
+  letter-spacing: 0.1rem;
 }

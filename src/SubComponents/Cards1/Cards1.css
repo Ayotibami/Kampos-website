@@ -1,0 +1,40 @@
+.cards1-div {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  max-height: 882px;
+
+  border: 2px solid #3a87f8b2;
+
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cards1-div div {
+  padding: 1.5rem;
+}
+
+.cards1-div h4 {
+  color: #000000;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.cards1-div p {
+  color: #767575;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  line-height: 2rem;
+}
+
+.cards1-div figure {
+  width: 350px;
+  height: 144px;
+  margin-top: auto;
+}
+
+.cards1-div figure {
+  align-self: flex-end;
+}
