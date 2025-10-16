@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Medium.ttf") format("truetype");
+  font-style: normal;
+}
+
+.kappy-home-footer {
+  background-color: #111212;
+  color: #ffffff;
+}
+
+.kappy-home-footer-main {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.kappy-home-footer section {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem;
+}
+
+.kappy-home-footer-main li {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  list-style-type: none;
+}
+
+.kappy-home-footer-main li + li {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+.kappy-home-footer-main li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.kappy-home-footer-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.kappy-home-footer-div img {
+  width: 46px;
+  height: 46px;
+}

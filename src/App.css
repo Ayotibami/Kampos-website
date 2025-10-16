@@ -14,8 +14,11 @@ img {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  font-size: 1.25rem;
-  font-weight: 900;
+  font-size: 1rem;
+  /* font-weight: 900; */
 }
