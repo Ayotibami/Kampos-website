@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Bold.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
+  font-style: normal;
+}
+
 .kappy-header {
   display: flex;
   align-items: center;
@@ -7,6 +19,8 @@
 }
 
 .kappy-header-div {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,4 +45,7 @@
 .kappy-header-nav a {
   text-decoration: none;
   color: #252528;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
