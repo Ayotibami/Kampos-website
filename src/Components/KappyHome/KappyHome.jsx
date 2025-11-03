@@ -1,4 +1,5 @@
 import "./KappyHome.css";
+import "./KappyHome1.css";
 import Header from "../../SubComponents/Header/Header";
 import Cards1 from "../../SubComponents/Cards1/Cards1";
 import Card2 from "../../SubComponents/Card2/Card2";
@@ -127,19 +128,17 @@ const KappyHome = () => {
         <div className="kappy-home-sixth-sec-div-2">
           <Card2 />
           <Card2 />
-          <Card2 />
-          <Card2 />
-          <Card2 />
         </div>
       </section>
 
       <section className="kappy-home-seventh-sec">
+        <h1 className="kappy-home-seventh-sec-mobile-h1">Who are we?</h1>
         <figure>
           <img src="Images/chefs.png" alt="kappy " />
         </figure>
 
         <div>
-          <h1>Who are we?</h1>
+          <h1 className="kappy-home-seventh-sec-h1">Who are we?</h1>
           <p>
             Kampos is built by students, for students.We built Kampos because we
             knew students truly needed a space that actually feels like campus —
@@ -166,29 +165,36 @@ const KappyHome = () => {
       </section>
 
       <section className="kappy-home-ninth-sec">
+        <h1 className="kappy-home-ninth-sec-mobile-h1">
+          Ready to vibe with your campus?
+        </h1>
         <div>
-          <h1>Ready to vibe with your campus?</h1>
-          <button className="kappy-home-ninth-sec-btn-1">
-            <img src="Images/play store.png" alt="" />
-            Download on playstore
-          </button>
-
-          <div className="kappy-home-ninth-sec-btn-div">
-            <button className="kappy-home-ninth-sec-btn-2">
-              <img src="Images/apple.png" alt="" />
-              Download on IOS store
+          <div>
+            <h1 className="kappy-home-ninth-sec-h1">
+              Ready to vibe with your campus?
+            </h1>
+            <button className="kappy-home-ninth-sec-btn-1">
+              <img src="Images/play store.png" alt="" />
+              Download on playstore
             </button>
 
-            <button className="kappy-home-ninth-sec-btn-2">
-              <img src="Images/kappy 1.png" alt="kappy" />
-              Join WaitList
-            </button>
+            <div className="kappy-home-ninth-sec-btn-div">
+              <button className="kappy-home-ninth-sec-btn-2">
+                <img src="Images/apple.png" alt="" />
+                Download on IOS store
+              </button>
+
+              <button className="kappy-home-ninth-sec-btn-3">
+                <img src="Images/kappy 1.png" alt="kappy" />
+                Join WaitList
+              </button>
+            </div>
           </div>
-        </div>
 
-        <figure>
-          <img src="Images/phone.png" alt="kappy" />
-        </figure>
+          <figure>
+            <img src="Images/phone.png" alt="kappy" />
+          </figure>
+        </div>
       </section>
       <KappyHomeFooter />
     </main>

@@ -4,34 +4,35 @@
   font-style: normal;
 }
 
-.card3-div {
+.card-3-div {
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  min-width: 1198px;
+  width: 1198px;
   padding: 2rem;
   border-radius: 32px;
   margin-top: 3rem;
 }
 
-.card3-div > figure img {
+.card-3-div > figure img {
   width: 375px;
   height: 375px;
 }
 
-.card3-div > figure {
+.card-3-div > figure {
   text-align: center;
 }
 
-.card-div-div-1 {
+.card-3-div-div-1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card-div-div-1 h2 {
+.card-3-div-div-1 h2 {
   text-align: center;
   margin: 0 auto;
   color: #f9fafb;
+  font-size: clamp(1.1rem, 5vw, 2.5rem);
 }
 
 .card-div-div-1 figure {
@@ -39,18 +40,18 @@
   height: 47px;
 }
 
-.card-div-div-2 {
+.card-3-div-div-2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card-div-num-div {
+.card-3-div-num-div {
   display: flex;
   gap: 2rem;
 }
 
-.card-div-num-div div {
+.card-3-div-num-div div {
   font-size: 1.25rem;
   font-weight: 900;
   display: flex;
@@ -59,6 +60,11 @@
   width: 64px;
   height: 64px;
   border-radius: 100%;
+}
+
+/* For mobile */
+.card-3-div-div-2-mobile {
+  display: none;
 }
 
 .numSelected {
@@ -71,7 +77,55 @@
   color: #000000;
 }
 
-.card-div-div-2 p {
+.card-3-div-div-2 p {
   max-width: 491px;
   color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+  .card-3-div {
+    width: 280px;
+  }
+
+  .card-3-div > figure img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .card-3-div-num-div {
+    display: none;
+    /* visibility: hidden; */
+  }
+
+  .card-3-div-div-2-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .card-3-div-div-2-mobile div {
+    font-size: 1rem;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+
+  .numNotSelected {
+    background-color: #165abf;
+    color: #d9d9d9;
+  }
+
+  .c {
+    width: 17px;
+    height: 17px;
+  }
+
+  .card-3-div-div-2 p {
+    text-align: center;
+  }
 }

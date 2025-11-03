@@ -12,6 +12,7 @@
 .kappy-home-footer-main {
   margin: 0 auto;
   width: 90%;
+  padding-bottom: 3rem;
 }
 
 .kappy-home-footer section {
@@ -24,11 +25,11 @@
   font-family: "Nunito", sans-serif;
   font-style: normal;
   list-style-type: none;
+  font-size: 1.25rem;
 }
 
 .kappy-home-footer-main li + li {
   margin-top: 2rem;
-  font-size: 1.25rem;
 }
 
 .kappy-home-footer-main li a {
@@ -36,14 +37,32 @@
   text-decoration: none;
 }
 
-.kappy-home-footer-div {
+.kappy-home-footer-div,
+.kappy-home-footer-div div {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 2rem;
 }
 
+.kappy-home-footer-div div {
+  width: 80%;
+}
+
 .kappy-home-footer-div img {
   width: 46px;
   height: 46px;
+}
+
+@media (max-width: 1000px) {
+  .kappy-home-footer section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .kappy-home-footer-div {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 2rem;
+  }
 }

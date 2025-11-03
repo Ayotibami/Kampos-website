@@ -1,0 +1,198 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+}
+
+.chefs-main {
+  margin-top: 2rem;
+}
+
+/* First Section */
+.chefs-first-sec {
+  text-align: center;
+  width: 90%;
+  max-width: 888px;
+  margin: 3rem auto;
+}
+
+.chefs-first-sec h1 {
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  color: #1973f9;
+  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.chefs-first-sec h1::after {
+  content: "Students";
+  background: linear-gradient(to bottom, #1973f9, #051d40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chefs-first-sec div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Second Section */
+.chefs-second-sec {
+}
+
+.chefs-second-sec > figure {
+  width: 1177px;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.chefs-second-sec-div {
+  background-image: url("middle section.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 549px;
+}
+
+.chefs-second-sec-div > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.chefs-second-sec-child-div {
+  max-width: 658px;
+}
+
+.chefs-second-sec-child-div h1 {
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #f9fafb;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.chefs-second-sec-child-div p {
+  line-height: 2rem;
+  color: #f9fafb;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* Fourth Section */
+.chefs-fourth-sec {
+  background-image: url("middle section.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.chefs-fourth-sec > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.chefs-fourth-sec figure {
+  width: 387px;
+}
+
+.chefs-fourth-sec h1 {
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #f9fafb;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.chefs-fourth-sec p {
+  line-height: 2rem;
+  color: #f9fafb;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* Fifth Section */
+.chefs-fifth-sec {
+  margin: 6rem auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chefs-fifth-sec-div-1 {
+  max-width: 728px;
+  text-align: center;
+}
+
+.chefs-fifth-sec-div-1 h1 {
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #2f2e2e;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.chefs-fifth-sec-div-1 p {
+  line-height: 2rem;
+  color: #767575;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.chefs-fifth-sec-div-2 {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+}
+
+/* Sixth Section */
+.chefs-sixth-sec {
+  display: flex;
+  justify-content: space-around;
+  margin: 6rem auto;
+  width: 90%;
+}
+
+.chefs-sixth-sec > div {
+  max-width: 486px;
+}
+
+.chefs-sixth-sec h1 {
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #2f2e2e;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  text-align: center;
+}
+
+.chefs-sixth-sec p {
+  line-height: 2rem;
+  color: #767575;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.chefs-sixth-sec button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+  margin-top: 2rem;
+  background-color: #165abf;
+  color: #ffffff;
+  padding: 1.5rem 2.5rem;
+  border: 0;
+  border-radius: 16px;
+}

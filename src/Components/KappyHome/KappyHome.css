@@ -183,7 +183,7 @@
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   margin-bottom: 3rem;
 }
 
@@ -209,6 +209,10 @@
   margin: 5.6rem auto 0 auto;
 }
 
+.kappy-home-seventh-sec-mobile-h1 {
+  display: none;
+}
+
 .kappy-home-seventh-sec figure {
   width: 404px;
   height: 366px;
@@ -222,7 +226,7 @@
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   color: #2f2e2e;
 }
 
@@ -235,6 +239,7 @@
 }
 
 .kappy-home-seventh-sec button {
+  /* margin: 0 auto; */
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -258,9 +263,24 @@
 .kappy-home-ninth-sec {
   margin: 5rem auto;
   width: 90%;
+}
+
+.kappy-home-ninth-sec > div {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.kappy-home-ninth-sec h1 {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: #2f2e2e;
+}
+
+.kappy-home-ninth-sec-mobile-h1 {
+  display: none;
 }
 
 .kappy-home-ninth-sec-btn-div {
@@ -284,10 +304,21 @@
 }
 
 .kappy-home-ninth-sec-btn-2 {
-  gap: 1rem;
   padding: 1.5rem 2.5rem;
   background-color: #165abf;
   border: 0;
   color: #ffffff;
   border-radius: 16px;
+}
+
+.kappy-home-ninth-sec-btn-3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2.5rem;
+  background-color: #165abf;
+  border: 0;
+  color: #ffffff;
+  border-radius: 16px;
+  max-width: 248px;
 }

@@ -18,6 +18,10 @@
   margin: 0 auto;
 }
 
+.kappy-mobile-header-div {
+  display: none;
+}
+
 .kappy-header-div {
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -33,6 +37,10 @@
   font-weight: 900;
 }
 
+.kappy-header-mobile-nav {
+  display: none;
+}
+
 .kappy-header-nav {
   display: flex;
   gap: 8rem;
@@ -44,8 +52,16 @@
 
 .kappy-header-nav a {
   text-decoration: none;
-  color: #252528;
   font-family: "Nunito", sans-serif;
   font-style: normal;
+
   font-weight: 700;
+}
+
+.active-link {
+  color: #1555b3;
+}
+
+.link {
+  color: #252528;
 }

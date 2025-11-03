@@ -5,7 +5,8 @@ font-face {
 }
 
 .card2-div {
-  max-width: 372px;
+  /* max-width: 372px; */
+  width: 372px;
   background-color: #29292d;
   color: #767575;
   border-radius: 16px;

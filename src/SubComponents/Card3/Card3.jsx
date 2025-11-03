@@ -15,32 +15,46 @@ const Card3 = ({ title, text, logo, img, bg, numSelect }) => {
   const className3 = currentNum === 2 ? "numSelected" : "numNotSelected";
 
   return (
-    <div className="card3-div" style={{ backgroundColor: bg }}>
-      <div className="card-div-div-1">
-        <h2>{title}</h2>
-        <figure>
-          <img src={`Images/${logo}.png`} alt="kappy" />
-        </figure>
-      </div>
-      <figure>
-        <img src={`Images/${img}.png`} alt="kappy" />
-      </figure>
-
-      <div className="card-div-div-2">
-        <div className="card-div-num-div">
-          <div onClick={() => handleClick(0)} className={className1}>
-            01
-          </div>
-          <div onClick={() => handleClick(1)} className={className2}>
-            02
-          </div>
-          <div onClick={() => handleClick(2)} className={className3}>
-            03
-          </div>
+    <>
+      <div className="card-3-div" style={{ backgroundColor: bg }}>
+        <div className="card-3-div-div-1">
+          <h2>{title}</h2>
+          <figure className="c">
+            <img src={`Images/${logo}.png`} alt="kappy" />
+          </figure>
         </div>
-        <p>{text}</p>
+        <figure>
+          <img src={`Images/${img}.png`} alt="kappy" />
+        </figure>
+
+        <div className="card-3-div-div-2">
+          <div className="card-3-div-num-div">
+            <div onClick={() => handleClick(0)} className={className1}>
+              01
+            </div>
+            <div onClick={() => handleClick(1)} className={className2}>
+              02
+            </div>
+            <div onClick={() => handleClick(2)} className={className3}>
+              03
+            </div>
+          </div>
+          <p>{text}</p>
+        </div>
       </div>
-    </div>
+
+      <div className="card-3-div-div-2-mobile">
+        <div onClick={() => handleClick(0)} className={className1}>
+          01
+        </div>
+        <div onClick={() => handleClick(1)} className={className2}>
+          02
+        </div>
+        <div onClick={() => handleClick(2)} className={className3}>
+          03
+        </div>
+      </div>
+    </>
   );
 };
 

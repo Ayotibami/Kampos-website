@@ -1,0 +1,56 @@
+@media (max-width: 1000px) {
+  /* First Section */
+  .chefs-first-sec div {
+    flex-direction: column;
+  }
+
+  /* Second Section */
+  .chefs-second-sec-div figure {
+    width: 251px;
+    margin: 4rem 0;
+  }
+
+  .chefs-second-sec-div > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chefs-second-sec-child-div {
+    text-align: center;
+    margin-top: 3rem;
+    align-self: center;
+  }
+
+  /* Fourth Section */
+  .chefs-fourth-sec > div {
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .chefs-fourth-sec figure {
+    width: 186px;
+  }
+
+  /* Fifth Section */
+  .chefs-fifth-sec-div-2 {
+    display: block;
+  }
+
+  .chefs-fifth-sec-div-2 div + div {
+    margin-top: 3rem;
+  }
+
+  /* Sixth Section */
+  .chefs-sixth-sec {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .chefs-sixth-sec button {
+    margin: 3rem auto;
+  }
+}

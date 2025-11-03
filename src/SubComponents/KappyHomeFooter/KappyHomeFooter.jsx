@@ -48,10 +48,12 @@ const KappyHomeFooter = () => {
 
         <div className="kappy-home-footer-div">
           <p>© 2025 Ayoti. All rights reserved.</p>
-          <img src="Images/x.png" alt="X" />
-          <img src="Images/instagram.png" alt="instagram" />
-          <img src="Images/whatsapp.png" alt="Whatsapp" />
-          <img src="Images/msg.png" alt="msg" />
+          <div>
+            <img src="Images/x.png" alt="X" />
+            <img src="Images/instagram.png" alt="instagram" />
+            <img src="Images/whatsapp.png" alt="Whatsapp" />
+            <img src="Images/msg.png" alt="msg" />
+          </div>
         </div>
       </main>
     </footer>

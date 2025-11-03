@@ -1,4 +1,5 @@
 import "./Header.css";
+import "./Header1.css";
 
 import { NavLink } from "react-router-dom";
 
@@ -9,10 +10,33 @@ const Header = () => {
         <img src="Images/kappy.png" alt="" />
         Kampos
       </div>
+      <div className="kappy-mobile-header-div">
+        <img src="Images/kappy.png" alt="" />
+      </div>
       <nav className="kappy-header-nav">
-        <NavLink>Waitlist</NavLink>
-        <NavLink to="/chefs">The Chefs</NavLink>
-        <NavLink>Hit Us up</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
+          Waitlist
+        </NavLink>
+        <NavLink
+          to="/chefs"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
+          The Chefs
+        </NavLink>
+        <NavLink
+          to="/contactPage"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
+          Hit Us up
+        </NavLink>
+      </nav>
+      <nav className="kappy-header-mobile-nav">
+        <button>
+          <img src="Images/burger.png" alt="" />
+        </button>
       </nav>
     </header>
   );

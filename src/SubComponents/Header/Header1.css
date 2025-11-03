@@ -1,0 +1,26 @@
+@media (max-width: 1000px) {
+  .kappy-header-mobile-nav {
+    display: block;
+  }
+
+  .kappy-header {
+    justify-content: space-between;
+  }
+
+  .kappy-header-div {
+    display: none;
+  }
+
+  .kappy-header-nav {
+    display: none;
+  }
+
+  .kappy-mobile-header-div {
+    display: block;
+  }
+
+  .kappy-header-mobile-nav button {
+    background: transparent;
+    border: 0;
+  }
+}

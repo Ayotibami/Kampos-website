@@ -1,0 +1,41 @@
+@media (max-width: 1000px) {
+  /* Second Section */
+  .contact-page-second-sec h1 {
+    text-align: center;
+  }
+
+  .contact-page-second-sec-input-div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Third Section */
+  .contact-page-third-sec {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-page-third-sec > div {
+    text-align: center;
+  }
+
+  .contact-page-third-sec button {
+    /* display: block; */
+    margin: auto;
+  }
+
+  /* Fourth Section */
+  .contact-page-fourth-sec {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .contact-page-fourth-sec > div {
+    text-align: center;
+  }
+
+  .contact-page-fourth-sec button {
+    /* display: block; */
+    margin: auto;
+  }
+}

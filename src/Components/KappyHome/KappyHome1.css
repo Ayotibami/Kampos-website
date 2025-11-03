@@ -1,0 +1,87 @@
+@media (max-width: 1000px) {
+  .kappy-home-first-sec div {
+    flex-direction: column;
+  }
+
+  /* .kappy-home-first-sec div button img {
+    width: 40px;
+    height: 40px;
+  } */
+
+  /* Fifth Section */
+  .kappy-home-fifth-sec-div-2 {
+    flex-direction: column;
+  }
+
+  /* Sixth Section */
+  .kappy-home-sixth-sec {
+    background-image: none;
+  }
+
+  .kappy-home-sixth-sec-div-1 h1 {
+    color: #2f2e2e;
+  }
+  .kappy-home-sixth-sec-div-1 p {
+    color: #767575;
+  }
+
+  /* Seventh Section */
+  .kappy-home-seventh-sec {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .kappy-home-seventh-sec figure {
+    width: 281px;
+    height: 254px;
+    margin: 3rem auto;
+    text-align: center;
+  }
+
+  .kappy-home-seventh-sec-mobile-h1 {
+    display: block;
+  }
+  .kappy-home-seventh-sec-h1 {
+    display: none;
+  }
+  .kappy-home-seventh-sec p {
+    margin: 0;
+  }
+  .kappy-home-seventh-sec button {
+    margin: 2rem auto;
+  }
+
+  /* Eighth Section */
+  .kappy-home-eighth-sec {
+    width: 50%;
+  }
+
+  /* Ninth Section */
+  .kappy-home-ninth-sec > div {
+    flex-direction: column-reverse;
+  }
+
+  .kappy-home-ninth-sec-h1 {
+    display: none;
+  }
+
+  .kappy-home-ninth-sec-mobile-h1 {
+    display: block;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .kappy-home-ninth-sec-btn-div {
+    flex-direction: column;
+  }
+
+  .kappy-home-ninth-sec figure {
+    margin-top: 3rem;
+  }
+
+  .kappy-home-ninth-sec-btn-3 {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
