@@ -23,10 +23,10 @@ const linkTargets = {
 };
 
 const socials = [
-  { icon: FaXTwitter, label: "X" },
-  { icon: FaInstagram, label: "Instagram" },
-  { icon: FaWhatsapp, label: "WhatsApp" },
-  { icon: FaEnvelope, label: "Email" },
+  { icon: FaXTwitter, label: "X", href: "https://x.com" },
+  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me" },
+  { icon: FaEnvelope, label: "Email", href: "mailto:hello@kampos.app" },
 ];
 
 const KappyHomeFooter = () => {
@@ -66,8 +66,8 @@ const KappyHomeFooter = () => {
         <div className="kappy-footer-bottom">
           <p>© {new Date().getFullYear()} Ayoti. All rights reserved.</p>
           <div className="kappy-footer-socials">
-            {socials.map(({ icon: Icon, label }) => (
-              <a href="#" aria-label={label} key={label} className="kappy-footer-social">
+            {socials.map(({ icon: Icon, label, href }) => (
+              <a href={href} aria-label={label} key={label} className="kappy-footer-social">
                 <Icon />
               </a>
             ))}
