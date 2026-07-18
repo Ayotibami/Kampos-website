@@ -19,25 +19,27 @@
 }
 
 .contact-page-first-sec-h1-1 {
-  font-size: clamp(2.25rem, 5vw, 5rem);
-  color: #1973f9;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  color: #165abf;
   font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
 
 .contact-page-first-sec-h1-2 {
-  background: linear-gradient(to bottom, #1973f9, #051d40);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: clamp(2.25rem, 5vw, 5rem);
+  color: #165abf;
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
 
 .contact-page-first-sec p {
-  line-height: 2.25rem;
+  line-height: 2rem;
   color: #767575;
   font-size: clamp(1rem, 2vw, 1.25rem);
   margin: 3rem 0;
