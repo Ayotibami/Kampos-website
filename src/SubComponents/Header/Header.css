@@ -1,40 +1,29 @@
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-Bold.ttf") format("truetype");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
-  font-style: normal;
-}
-
 .kappy-header {
+  position: relative;
+  z-index: 9999;
   display: flex;
   align-items: center;
-  gap: 8em;
+  justify-content: space-between;
   width: 90%;
+  max-width: 1400px;
   margin: 0 auto;
+  padding-block: 1.5rem;
 }
 
-.kappy-mobile-header-div {
-  display: none;
-}
-
-.kappy-header-div {
-  font-family: "Nunito", sans-serif;
-  font-style: normal;
+.kappy-header-logo-badge {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 0.9rem;
-  background-color: #e6e8eb;
-  padding: 0.75rem 1.5rem;
-  border-radius: 34px;
-  color: #165abf;
-  font-size: 20px;
-  font-weight: 900;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(56px, 7vw, 92px);
+  height: clamp(56px, 7vw, 92px);
+  border-radius: 50%;
+  background-color: #165abf;
+}
+
+.kappy-header-logo {
+  height: clamp(32px, 4vw, 52px);
+  width: auto;
 }
 
 .kappy-header-mobile-nav {
@@ -43,11 +32,12 @@
 
 .kappy-header-nav {
   display: flex;
-  gap: 8rem;
+  gap: clamp(1.5rem, 5vw, 5rem);
   background-color: #dae5f4;
-  padding: 1.25rem 3.1rem;
+  padding: 1.25rem clamp(1.5rem, 4vw, 3.1rem);
   border-radius: 42px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .kappy-header-nav a {
@@ -64,4 +54,113 @@
 
 .link {
   color: #252528;
+}
+
+.kappy-header-korner {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #165abf;
+  color: #165abf;
+  background-color: #ffffff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.kappy-header-menu-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 5%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #ffffff;
+  opacity: 1;
+  border: 2px solid #165abf;
+  box-sizing: border-box;
+  width: clamp(56px, 7vw, 92px);
+  height: clamp(56px, 7vw, 92px);
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(22, 90, 191, 0.25);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.kappy-header-menu-btn-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.kappy-header-menu-icon-wrap {
+  position: relative;
+  width: clamp(30px, 3.8vw, 50px);
+  height: clamp(30px, 3.8vw, 50px);
+}
+
+.kappy-header-menu-icon-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kappy-header-menu-icon {
+  width: clamp(30px, 3.8vw, 50px);
+  height: clamp(30px, 3.8vw, 50px);
+  color: #165abf;
+  stroke-width: 1.75;
+}
+
+.kappy-header-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 1000;
+}
+
+.kappy-header-menu-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: max-content;
+  background-color: #ffffff;
+  padding: 1.5rem 1.75rem;
+  border-radius: 20px 0 0 0;
+  box-shadow: -16px -16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.kappy-header-menu-panel a {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.kappy-header-menu-panel a:last-child {
+  border-bottom: 0;
+}
+
+.kappy-header-menu-panel-korner {
+  color: #252528;
+}
+
+.kappy-header-menu-panel-korner:visited {
+  color: #1555b3;
 }

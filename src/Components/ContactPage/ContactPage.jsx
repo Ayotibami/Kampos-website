@@ -1,10 +1,20 @@
 import "./ContactPage.css";
 import "./ContactPage1.css";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../../SubComponents/Header/Header";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
 
 const ContactPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, [location]);
+
   return (
     <main className="contact-page-main">
       <Header />
@@ -29,7 +39,7 @@ const ContactPage = () => {
       </section>
 
       {/* Second Section */}
-      <section className="contact-page-second-sec">
+      <section id="contact-form" className="contact-page-second-sec">
         <div>
           <h1>Contact form</h1>
           {/* <p>

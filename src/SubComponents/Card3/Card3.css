@@ -1,131 +1,102 @@
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
-  font-style: normal;
-}
-
 .card-3-div {
   font-family: "Nunito", sans-serif;
   font-style: normal;
-  width: 1198px;
-  padding: 2rem;
+  width: 100%;
+  max-width: 640px;
+  min-height: clamp(380px, 62vw, 500px);
+  margin-inline: auto;
+  box-sizing: border-box;
+  padding: clamp(2rem, 5vw, 3.5rem);
   border-radius: 32px;
-  margin-top: 3rem;
-}
-
-.card-3-div > figure img {
-  width: 375px;
-  height: 375px;
-}
-
-.card-3-div > figure {
-  text-align: center;
-}
-
-.card-3-div-div-1 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-}
-
-.card-3-div-div-1 h2 {
-  text-align: center;
-  margin: 0 auto;
-  color: #f9fafb;
-  font-size: clamp(1.1rem, 5vw, 2.5rem);
-}
-
-.card-div-div-1 figure {
-  width: 47px;
-  height: 47px;
-}
-
-.card-3-div-div-2 {
-  display: flex;
   justify-content: space-between;
+  text-align: center;
+  gap: 1rem;
+  transition: background-color 0.6s ease;
+}
+
+.card-3-timer-row {
+  display: flex;
   align-items: center;
-}
-
-.card-3-div-num-div {
-  display: flex;
-  gap: 2rem;
-}
-
-.card-3-div-num-div div {
-  font-size: 1.25rem;
-  font-weight: 900;
-  display: flex;
   justify-content: center;
+  gap: 0.9rem;
+  flex-shrink: 0;
+}
+
+.card-3-timer {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 100%;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
 }
 
-/* For mobile */
-.card-3-div-div-2-mobile {
-  display: none;
+.card-3-timer svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
 }
 
-.numSelected {
-  background-color: #1a222f;
-  color: #d9d9d9;
+.card-3-timer-track {
+  stroke: rgba(255, 255, 255, 0.35);
+  transition: stroke 0.2s ease;
 }
 
-.numNotSelected {
-  background-color: #ffffff;
-  color: #000000;
+.card-3-timer:hover .card-3-timer-track {
+  stroke: rgba(255, 255, 255, 0.7);
 }
 
-.card-3-div-div-2 p {
-  max-width: 491px;
+.card-3-timer-progress {
+  stroke: #ffffff;
+}
+
+.card-3-timer-number {
+  position: relative;
   color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 1000px) {
-  .card-3-div {
-    width: 280px;
-  }
+.card-3-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
-  .card-3-div > figure img {
-    width: 105px;
-    height: 105px;
-  }
+.card-3-icon {
+  width: clamp(140px, 24vw, 220px);
+  margin: 0;
+}
 
-  .card-3-div-num-div {
-    display: none;
-    /* visibility: hidden; */
-  }
+.card-3-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-  .card-3-div-div-2-mobile {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 4rem;
-  }
+.card-3-content h2 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
 
-  .card-3-div-div-2-mobile div {
-    font-size: 1rem;
-    font-weight: 900;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-  }
-
-  .numNotSelected {
-    background-color: #165abf;
-    color: #d9d9d9;
-  }
-
-  .c {
-    width: 17px;
-    height: 17px;
-  }
-
-  .card-3-div-div-2 p {
-    text-align: center;
-  }
+.card-3-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0;
 }

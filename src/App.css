@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
-  font-style: normal;
-}
-
 * {
   margin: 0;
   padding: 0;

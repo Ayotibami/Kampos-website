@@ -7,20 +7,12 @@
     justify-content: space-between;
   }
 
-  .kappy-header-div {
-    display: none;
-  }
-
   .kappy-header-nav {
     display: none;
   }
 
-  .kappy-mobile-header-div {
-    display: block;
+  .kappy-header-korner {
+    display: none;
   }
 
-  .kappy-header-mobile-nav button {
-    background: transparent;
-    border: 0;
-  }
 }

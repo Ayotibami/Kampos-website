@@ -1,11 +1,10 @@
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-ExtraBold.ttf") format("truetype");
-  font-style: normal;
+.chefs-main {
+  margin-top: 1rem;
+  overflow-x: hidden;
 }
 
-.chefs-main {
-  margin-top: 2rem;
+.chefs-main img {
+  max-width: 100%;
 }
 
 /* First Section */
@@ -13,40 +12,35 @@
   text-align: center;
   width: 90%;
   max-width: 888px;
-  margin: 3rem auto;
+  margin: 0 auto;
+  margin-block: 0.75rem 1.5rem;
 }
 
 .chefs-first-sec h1 {
-  font-size: clamp(2.25rem, 5vw, 5rem);
-  color: #1973f9;
-  font-weight: 800;
   font-family: "Nunito", sans-serif;
   font-style: normal;
+  color: #165abf;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .chefs-first-sec h1::after {
   content: "Students";
-  background: linear-gradient(to bottom, #1973f9, #051d40);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #165abf;
 }
 
-.chefs-first-sec div {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
+/* Hero orbit illustration */
+.chefs-hero-orbit-sec {
+  width: 90%;
+  margin: 1.5rem auto 0;
 }
 
 /* Second Section */
 .chefs-second-sec {
-}
-
-.chefs-second-sec > figure {
-  width: 1177px;
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
+  margin-top: 1.5rem;
 }
 
 .chefs-second-sec-div {
@@ -54,6 +48,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 549px;
+  display: flex;
+  align-items: center;
+  padding-block: 3rem;
 }
 
 .chefs-second-sec-div > div {
@@ -68,10 +65,15 @@
   max-width: 658px;
 }
 
+.chefs-second-sec-div figure {
+  width: clamp(220px, 26vw, 340px);
+  margin: 0;
+}
+
 .chefs-second-sec-child-div h1 {
   font-size: clamp(1.25rem, 4vw, 3rem);
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   color: #f9fafb;
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -83,12 +85,40 @@
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
+/* Third Section */
+.chefs-third-sec {
+  width: 90%;
+  max-width: 1080px;
+  margin: 6rem auto;
+  text-align: center;
+}
+
+.chefs-third-intro {
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.chefs-third-intro h1 {
+  font-size: clamp(1.25rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #2f2e2e;
+  font-family: "Nunito", sans-serif;
+}
+
+.chefs-third-intro p {
+  line-height: 2rem;
+  color: #767575;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
 /* Fourth Section */
 .chefs-fourth-sec {
   background-image: url("middle section.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 600px;
+  min-height: 600px;
+  padding-block: 3rem;
   display: flex;
   align-items: center;
 }
@@ -150,10 +180,34 @@
 }
 
 .chefs-fifth-sec-div-2 {
-  margin-top: 5rem;
+  margin-top: 4rem;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  grid-template-columns: repeat(2, minmax(0, 350px));
+  justify-content: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Chefs-only: show the new transparent icons prominent, centered and uniformly
+   scaled on rounded cards (does not affect the shared Cards1 on the landing page). */
+.chefs-fifth-sec-div-2 .cards1-div {
+  border-radius: 16px;
+  padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.chefs-fifth-sec-div-2 .cards1-div figure {
+  background: transparent;
+  width: 100%;
+  height: clamp(190px, 24vw, 260px);
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+}
+
+.chefs-fifth-sec-div-2 .cards1-div figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0;
 }
 
 /* Sixth Section */
@@ -166,6 +220,15 @@
 
 .chefs-sixth-sec > div {
   max-width: 486px;
+}
+
+/* Hand + phone bleeds off the left screen edge (ignores the section padding)
+   and slides in from the edge. */
+.chefs-sixth-sec > figure {
+  width: clamp(280px, 46vw, 520px);
+  margin: 0;
+  margin-left: -9vw;
+  flex-shrink: 0;
 }
 
 .chefs-sixth-sec h1 {
@@ -184,15 +247,29 @@
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
-.chefs-sixth-sec button {
-  display: flex;
+.chefs-sixth-sec button,
+.chefs-sixth-sec .chefs-contact-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
   margin-left: auto;
   margin-top: 2rem;
+  padding: 1rem 2.75rem;
   background-color: #165abf;
   color: #ffffff;
-  padding: 1.5rem 2.5rem;
   border: 0;
-  border-radius: 16px;
+  border-radius: 999px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  text-decoration: none;
+  width: fit-content;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(22, 90, 191, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chefs-sixth-sec .chefs-contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(22, 90, 191, 0.45);
 }

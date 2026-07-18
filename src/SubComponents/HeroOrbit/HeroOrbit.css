@@ -1,0 +1,261 @@
+.hero-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  aspect-ratio: 1119 / 486;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.hero-orbit-kappy {
+  position: absolute;
+  top: 12%;
+  left: 49%;
+  transform: translateX(-50%);
+  width: 44%;
+  height: auto;
+  z-index: 5;
+  filter: drop-shadow(0 20px 30px rgba(6, 20, 48, 0.25));
+}
+
+.hero-orbit-float {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  container-type: inline-size;
+}
+
+/* thin out the orbit on small screens so it doesn't get cluttered */
+@media (max-width: 700px) {
+  .hero-orbit-hide-mobile {
+    display: none;
+  }
+}
+
+/* Shared card chrome */
+
+.hero-card {
+  font-family: "Nunito", sans-serif;
+  border-radius: 1.3em;
+  box-shadow: 0 0.9em 1.8em rgba(6, 20, 48, 0.16);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+}
+
+.hero-card-avatar {
+  flex-shrink: 0;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+}
+
+.hero-card-id {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-card-name {
+  margin: 0;
+  font-weight: 800;
+  font-size: 0.76em;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-card-name-dark {
+  color: #111212;
+}
+
+.hero-card-subrow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.hero-card-handle {
+  margin: 0.1em 0 0 0;
+  font-weight: 400;
+  font-size: 0.52em;
+  color: #9aa1b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-card-subrow .hero-card-handle {
+  flex-shrink: 1;
+}
+
+.hero-card-school {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.5em;
+  color: #9aa1b0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hero-card-meta {
+  text-align: right;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.hero-card-time {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.48em;
+  color: #9aa1b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-card-tag {
+  margin: 0.15em 0 0 0;
+  font-weight: 700;
+  font-size: 0.5em;
+  color: #9aa1b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-card-tag-blue {
+  color: #165abf;
+}
+
+.hero-card-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4em;
+  margin-top: 0.65em;
+  font-size: 0.48em;
+  color: #767575;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.hero-stat svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+@container (max-width: 135px) {
+  .hero-stat-label {
+    display: none;
+  }
+
+  .hero-card-stats {
+    gap: 0.6em;
+  }
+}
+
+@container (max-width: 100px) {
+  .hero-card-school {
+    display: none;
+  }
+}
+
+@container (max-width: 75px) {
+  .hero-card-stats {
+    display: none;
+  }
+}
+
+/* Dark reply card (Obinna / Titilayo / Fola_shade) */
+
+.hero-reply-card {
+  background-color: #1e2a52;
+  padding: 1em 1.1em;
+  font-size: clamp(9px, 5.5cqw, 16px);
+  border-radius: 0.15em 1.3em 1.3em 1.3em;
+}
+
+.hero-reply-card .hero-card-avatar {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.hero-reply-text {
+  margin: 0.55em 0 0 0;
+  font-size: 0.56em;
+  line-height: 1.5;
+  color: #eaf1fc;
+}
+
+/* White photo card (Tresy Jane / Lookay) */
+
+.hero-photo-card {
+  background-color: #ffffff;
+  padding: 0.85em 0.9em;
+  font-size: clamp(9px, 5.5cqw, 16px);
+}
+
+.hero-photo-text {
+  margin: 0.5em 0 0 0;
+  font-size: 0.48em;
+  line-height: 1.45;
+  color: #2f2e2e;
+}
+
+.hero-photo-placeholder {
+  margin-top: 0.55em;
+  border-radius: 0.9em;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #cfd8e6, #9fb0c9);
+}
+
+/* White text-box card (Josiah / Ayomide) */
+
+.hero-text-card {
+  background-color: #ffffff;
+  padding: 0.85em 0.9em;
+  font-size: clamp(9px, 5.5cqw, 16px);
+}
+
+.hero-text-box {
+  margin-top: 0.6em;
+  border-radius: 0.9em;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6em;
+  text-align: center;
+  background-repeat: repeat;
+  background-size: 6em 6em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.16'%3E%3Cpath d='M20 6 L23 15 L32 15 L25 20 L27 29 L20 24 L13 29 L15 20 L8 15 L17 15 Z'/%3E%3Cpath d='M118 12 L128 22 L118 32 L108 22 Z'/%3E%3Cpath d='M27 96 L27 112 M19 104 L35 104'/%3E%3Cpath d='M88 98 a16 16 0 0 1 32 0'/%3E%3Cpath d='M94 105 a9 9 0 0 1 20 0'/%3E%3Ccircle cx='104' cy='113' r='2.5' fill='white' stroke='none'/%3E%3Crect x='52' y='128' width='22' height='18' rx='3'/%3E%3Cpath d='M52 134 L74 134 M63 128 L63 146'/%3E%3Ccircle cx='142' cy='140' r='8'/%3E%3Ccircle cx='142' cy='140' r='2.5' fill='white' stroke='none'/%3E%3C/g%3E%3Ctext x='58' y='45' font-family='Arial, sans-serif' font-size='24' fill='white' opacity='0.16'%3E?%3C/text%3E%3Ctext x='135' y='55' font-family='Arial, sans-serif' font-size='22' fill='white' opacity='0.16'%3E!%3C/text%3E%3Ctext x='128' y='120' font-family='Arial, sans-serif' font-size='20' fill='white' opacity='0.16'%3E$%3C/text%3E%3C/svg%3E");
+}
+
+.hero-text-box p {
+  margin: 0;
+  font-weight: 800;
+  font-size: 0.82em;
+  line-height: 1.35;
+  color: #ffffff;
+  position: relative;
+}
+
+.hero-text-box-navy {
+  background-color: #1e2a52;
+}
+
+.hero-text-box-olive {
+  background-color: #565c2e;
+}
+

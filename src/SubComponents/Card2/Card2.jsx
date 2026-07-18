@@ -1,15 +1,11 @@
 import "./Card2.css";
 
-const Card2 = () => {
+const Card2 = ({ quote, name }) => {
   return (
     <div className="card2-div">
-      <p>
-        Before, I had to rely on WhatsApp groups for updates. Now, I just check
-        Kampos and I’m good.
-      </p>
+      <p>{quote}</p>
       <div>
-        <img src="Images/user.png" alt="kappy " />
-        <p>Ifeanyi, 100L Medicine</p>
+        <p>{name}</p>
       </div>
     </div>
   );

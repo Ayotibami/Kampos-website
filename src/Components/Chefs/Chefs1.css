@@ -1,9 +1,4 @@
 @media (max-width: 1000px) {
-  /* First Section */
-  .chefs-first-sec div {
-    flex-direction: column;
-  }
-
   /* Second Section */
   .chefs-second-sec-div figure {
     width: 251px;
@@ -22,6 +17,11 @@
     align-self: center;
   }
 
+  /* Fifth Section */
+  .chefs-fifth-sec-div-2 {
+    grid-template-columns: minmax(0, 350px);
+  }
+
   /* Fourth Section */
   .chefs-fourth-sec > div {
     flex-direction: column;
@@ -34,15 +34,6 @@
     width: 186px;
   }
 
-  /* Fifth Section */
-  .chefs-fifth-sec-div-2 {
-    display: block;
-  }
-
-  .chefs-fifth-sec-div-2 div + div {
-    margin-top: 3rem;
-  }
-
   /* Sixth Section */
   .chefs-sixth-sec {
     flex-direction: column;
@@ -50,7 +41,8 @@
     text-align: center;
   }
 
-  .chefs-sixth-sec button {
-    margin: 3rem auto;
+  .chefs-sixth-sec button,
+  .chefs-sixth-sec .chefs-contact-btn {
+    margin: 3rem auto 0 auto;
   }
 }

@@ -1,12 +1,5 @@
-font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-Regular.ttf") format("truetype");
-  font-style: normal;
-}
-
 .card2-div {
-  /* max-width: 372px; */
-  width: 372px;
+  width: min(372px, 88vw);
   background-color: #29292d;
   color: #767575;
   border-radius: 16px;
@@ -17,24 +10,20 @@ font-face {
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
 }
 
 .card2-div div {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .card2-div div p {
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 1.25rem;
-}
-
-.card2-div div img {
-  width: 50px;
-  height: 50px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
 }

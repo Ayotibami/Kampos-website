@@ -1,8 +1,8 @@
 .cards1-div {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 350px;
-  /* max-height: 882px; */
 
   border: 2px solid #3a87f8b2;
 
@@ -18,25 +18,29 @@
 
 .cards1-div h4 {
   color: #000000;
-  font-size: 1.25rem;
-  line-height: 2rem;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.4;
   text-align: center;
 }
 
 .cards1-div p {
   color: #767575;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   margin: 1rem 0;
   line-height: 2rem;
   text-align: center;
 }
 
 .cards1-div figure {
-  /* width: 350px; */
-  /* height: 144px; */
-  margin-top: auto;
+  margin: auto 0 0 0;
+  align-self: flex-end;
+  width: 100%;
+  background-color: #ffffff;
 }
 
-.cards1-div figure {
-  align-self: flex-end;
+.cards1-div figure img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

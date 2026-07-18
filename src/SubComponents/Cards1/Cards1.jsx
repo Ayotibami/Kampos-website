@@ -8,8 +8,8 @@ const Cards1 = ({ card1Heading, card1Text, card1Img }) => {
         <p>{card1Text}</p>
       </div>
 
-      <figure>
-        <img src={`Images/${card1Img}.png`} alt="" />
+      <figure className="cards1-figure">
+        {card1Img && <img src={`Images/${card1Img}.png`} alt="" />}
       </figure>
     </div>
   );

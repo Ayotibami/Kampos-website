@@ -1,0 +1,58 @@
+.testimonial-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.testimonial-marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: max-content;
+  padding: 1rem 0.5rem;
+  animation-name: testimonial-marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.testimonial-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-marquee .card2-div {
+  flex-shrink: 0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+    opacity 0.35s ease, filter 0.35s ease;
+}
+
+.testimonial-marquee .card2-div:hover {
+  transform: scale(1.08) translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-marquee-track:has(.card2-div:hover)
+  .card2-div:not(:hover) {
+  opacity: 0.4;
+  filter: blur(1.5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee-track {
+    animation: none;
+  }
+}

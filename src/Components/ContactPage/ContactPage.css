@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Nunito";
-  src: url("/public/fonts/Nunito-ExtraBold.ttf") format("truetype");
-  font-style: normal;
-}
-
 .contact-page-main {
   margin-top: 2rem;
 }

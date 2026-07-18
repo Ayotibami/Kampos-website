@@ -8,9 +8,18 @@
     height: 40px;
   } */
 
+  /* Fourth Section */
+  .kappy-home-fourth-sec {
+    width: 100%;
+  }
+
+  .kappy-home-why-card {
+    width: 95vw;
+  }
+
   /* Fifth Section */
   .kappy-home-fifth-sec-div-2 {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 350px);
   }
 
   /* Sixth Section */
@@ -50,11 +59,6 @@
   }
   .kappy-home-seventh-sec button {
     margin: 2rem auto;
-  }
-
-  /* Eighth Section */
-  .kappy-home-eighth-sec {
-    width: 50%;
   }
 
   /* Ninth Section */

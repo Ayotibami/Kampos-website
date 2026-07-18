@@ -1,0 +1,41 @@
+.chef-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 1120 / 640;
+  overflow: hidden;
+}
+
+/* Kappy sits centred at the bottom and is oversized so his lower
+   body is cropped by the container's overflow, like the landing hero. */
+.chef-orbit-kappy {
+  position: absolute;
+  left: 50%;
+  bottom: -46%;
+  transform: translateX(-50%);
+  width: 42%;
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 18px 26px rgba(6, 20, 48, 0.22));
+}
+
+/* Everything below is a percentage of the container box, so the whole
+   composition scales uniformly at any width — the arc keeps clearing
+   Kappy's head on desktop and mobile alike. */
+.chef-orbit-avatar {
+  position: absolute;
+  width: 10.5%;
+  min-width: 44px;
+  max-width: 92px;
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+}
+
+.chef-orbit-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 12px rgba(6, 20, 48, 0.18));
+}

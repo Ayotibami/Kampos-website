@@ -1,34 +1,36 @@
 import "./Chefs.css";
 import "./Chefs1.css";
 
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion, useReducedMotion, useInView } from "framer-motion";
 import Header from "../../SubComponents/Header/Header";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
+import ChefOrbit from "../../SubComponents/ChefOrbit/ChefOrbit";
 import Cards1 from "../../SubComponents/Cards1/Cards1";
+import ChefsRoster from "../../SubComponents/ChefsRoster/ChefsRoster";
 
 const Chefs = () => {
+  const reduce = useReducedMotion();
+  const handRef = useRef(null);
+  const handInView = useInView(handRef, { once: true, amount: 0.2 });
   return (
     <main className="chefs-main">
       <Header />
 
       <section className="chefs-first-sec">
         <h1>Built by Students, for </h1>
-        <div>
-          <button className="kappy-home-btn-1">
-            <img src="Images/play store.png" alt="" />
-            Download on playstore
-          </button>
-          <button className="kappy-home-btn-2">
-            <img src="Images/apple.png" alt="" />
-            Download on IOS store
-          </button>
-        </div>
+        <Link to="/" className="kappy-home-cta-btn">
+          Hop into Kampos
+        </Link>
+      </section>
+
+      <section className="chefs-hero-orbit-sec">
+        <ChefOrbit />
       </section>
 
       {/* Second Section */}
       <section className="chefs-second-sec">
-        <figure>
-          <img src="Images/chef group.png" alt="" />
-        </figure>
         <div className="chefs-second-sec-div">
           <div>
             <div className="chefs-second-sec-child-div">
@@ -41,15 +43,25 @@ const Chefs = () => {
                 life
               </p>
             </div>
-            <figure>
-              <img src="Images/stickers target.png" alt="stickers target" />
-            </figure>
+            <motion.figure
+              initial={{ opacity: 0, scale: 0.7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ type: "spring", stiffness: 170, damping: 15 }}
+            >
+              <motion.img
+                src="Images/mission-target-3d.png"
+                alt="Mission target"
+                animate={reduce ? {} : { y: [0, -14, 0], rotate: [0, 3, 0, -3, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.figure>
           </div>
         </div>
       </section>
       {/* Third Section */}
-      <section>
-        <div>
+      <section className="chefs-third-sec">
+        <div className="chefs-third-intro">
           <h1>Meet the Chefs</h1>
           <p>
             Kampos would have been like the sci-fi time machine — the one that
@@ -59,6 +71,7 @@ const Chefs = () => {
             wonderful crew making it happen.
           </p>
         </div>
+        <ChefsRoster />
       </section>
 
       {/* Fourth Section */}
@@ -68,9 +81,19 @@ const Chefs = () => {
             <h1>Vision Statement</h1>
             <p>To make campus life smarter, fun, and more connected</p>
           </div>
-          <figure>
-            <img src="Images/lightbulb.png" alt="stickers target" />
-          </figure>
+          <motion.figure
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ type: "spring", stiffness: 170, damping: 15 }}
+          >
+            <motion.img
+              src="Images/vision-bulb-3d.png"
+              alt="Vision lightbulb"
+              animate={reduce ? {} : { y: [0, -10, 0], scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.figure>
         </div>
       </section>
 
@@ -90,30 +113,38 @@ const Chefs = () => {
           <Cards1
             card1Heading="Connect with students on your campus"
             card1Text="Build meaningful interactions with peers across different levels and departments, fostering a stronger sense of community."
-            card1Img="frame 4"
+            card1Img="card-globe"
           />
           <Cards1
             card1Heading="Catch every trending story"
             card1Text="Stay engaged with the latest conversations, stories, and happenings that define campus life."
-            card1Img="frame 5"
+            card1Img="card-chat"
           />
           <Cards1
             card1Heading="Share your voice and creativity"
             card1Text="Post stories, opinions, and content, giving students a platform to express themselves and be heard."
-            card1Img="frame 6"
+            card1Img="card-pencil"
           />
           <Cards1
             card1Heading="Stay updated on school news"
-            card1Text="Get the latest updates, circulars, and information  — no more being left out of what’s happening."
-            card1Img="frame 7"
+            card1Text="Get the latest updates, circulars, and information — no more being left out of what's happening."
+            card1Img="card-clock"
           />
         </div>
       </section>
 
       {/* Sixth Section */}
       <section className="chefs-sixth-sec">
-        <figure>
-          <img src="Images/mobile.png" alt="Mobile phone" />
+        <figure className="chefs-hand-figure" ref={handRef}>
+          <motion.img
+            src="Images/hand-phone-3d.png"
+            alt="Kappy holding a phone"
+            initial={{ opacity: reduce ? 1 : 0, x: reduce ? 0 : "-80%" }}
+            animate={
+              handInView || reduce ? { opacity: 1, x: 0 } : undefined
+            }
+            transition={{ type: "spring", stiffness: 80, damping: 15 }}
+          />
         </figure>
 
         <div>
@@ -122,10 +153,9 @@ const Chefs = () => {
             Got ideas, feedback, or just pure vibes? Hit us up anytime — we’ll
             always reply. After all, Kampos is something we’re building together
           </p>
-          <button>
-            <img src="Images/kappy 1.png" alt="kappy" />
+          <Link to="/contactPage#contact-form" className="chefs-contact-btn">
             Contact us
-          </button>
+          </Link>
         </div>
       </section>
       <KappyHomeFooter />

@@ -1,0 +1,20 @@
+.post-marquee {
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+  height: clamp(220px, 32vh, 320px);
+  margin: clamp(0.6rem, 2vh, 1.1rem) 0;
+  overflow: hidden;
+}
+
+.post-marquee-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+.post-marquee-card.why-post {
+  margin-top: 0;
+  width: 100%;
+}

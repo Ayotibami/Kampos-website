@@ -1,0 +1,275 @@
+.roster {
+  width: 100%;
+  max-width: 1080px;
+  margin: 3.5rem auto 0;
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: stretch;
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+}
+
+/* ---- Roles selector ---- */
+.roster-roles {
+  flex: 0 0 clamp(240px, 26%, 320px);
+  background: linear-gradient(165deg, #2064cf 0%, #124aa0 100%);
+  border-radius: 26px;
+  padding: clamp(1.5rem, 2vw, 2rem) clamp(1rem, 1.6vw, 1.4rem);
+  box-shadow: 0 22px 46px rgba(11, 32, 94, 0.22);
+}
+
+.roster-roles-title {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0 0 1.25rem 0;
+}
+
+.roster-roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.roster-role {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.9rem 1.35rem;
+  border-radius: 999px;
+  text-align: left;
+  font-family: inherit;
+}
+
+.roster-role-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(6, 20, 48, 0.22);
+  z-index: 0;
+}
+
+.roster-role-label {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.roster-role:hover .roster-role-label {
+  color: #ffffff;
+}
+
+.roster-role.is-active .roster-role-label {
+  color: #165abf;
+}
+
+/* ---- Detail card ---- */
+.roster-detail {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  background: #eef3fc;
+  border: 1px solid #e0e9f8;
+  border-radius: 26px;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.roster-index {
+  position: absolute;
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  bottom: clamp(0.25rem, 2vw, 1rem);
+  font-weight: 900;
+  font-size: clamp(5rem, 12vw, 9rem);
+  line-height: 1;
+  color: rgba(22, 90, 191, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.roster-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(22, 90, 191, 0.12);
+}
+
+.roster-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #165abf, #4a90e2);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.roster-detail-inner {
+  position: relative;
+  z-index: 1;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+/* photo with rotating gradient ring */
+.roster-photo {
+  position: relative;
+  width: clamp(120px, 15vw, 180px);
+  height: clamp(120px, 15vw, 180px);
+  flex-shrink: 0;
+}
+
+.roster-photo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #165abf;
+}
+
+.roster-photo-hole {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(6, 20, 48, 0.2);
+}
+
+.roster-photo-hole img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes roster-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.roster-text {
+  max-width: 640px;
+}
+
+.roster-head h3 {
+  margin: 0 0 0.7rem 0;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  color: #16233f;
+  line-height: 1.15;
+}
+
+.roster-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.roster-role-tag {
+  background: #165abf;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.roster-nick {
+  color: #8792a8;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+}
+
+.roster-socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.roster-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #16233f;
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.roster-social:hover {
+  transform: translateY(-2px);
+  background: #000000;
+}
+
+.roster-intro {
+  margin: 1.1rem auto 0;
+  max-width: 600px;
+  color: #59637a;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 860px) {
+  .roster {
+    flex-direction: column;
+    width: 92%;
+  }
+
+  .roster-roles {
+    flex: none;
+  }
+
+  .roster-roles-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .roster-role {
+    padding: 0.6rem 1rem;
+  }
+
+  .roster-detail-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .roster-tags {
+    justify-content: center;
+  }
+
+  .roster-intro {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roster-photo-ring {
+    animation: none;
+  }
+}
