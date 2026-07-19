@@ -3,13 +3,20 @@
   overflow-x: hidden;
 }
 
-.contact-page-main section img {
+/* Keep image rules scoped to this page's own content classes only,
+   never a bare `img`/`section` selector, so the shared Header and
+   KappyHomeFooter components are never affected. */
+.contact-page-first-sec figure img,
+.contact-page-third-sec figure img,
+.contact-page-fourth-sec figure img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.contact-page-main section figure {
+.contact-page-first-sec figure,
+.contact-page-third-sec figure,
+.contact-page-fourth-sec figure {
   margin: 0;
 }
 
