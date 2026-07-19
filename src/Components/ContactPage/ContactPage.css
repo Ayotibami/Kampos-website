@@ -154,6 +154,8 @@
   margin: 5rem auto;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
 .contact-page-third-sec > div {
@@ -162,8 +164,9 @@
 
 .contact-page-third-sec figure,
 .contact-page-fourth-sec figure {
+  flex-shrink: 0;
   width: 100%;
-  max-width: 480px;
+  max-width: 360px;
 }
 
 .contact-page-third-sec h1 {
@@ -194,7 +197,9 @@
 .contact-page-fourth-sec {
   display: flex;
   justify-content: space-around;
-  margin: 0 auto;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin: 5rem auto;
   width: 90%;
 }
 

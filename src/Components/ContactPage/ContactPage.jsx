@@ -76,14 +76,14 @@ const ContactPage = () => {
           <button>Request a Feature</button>
         </div>
         <figure>
-          <img src="Images/green papers.png" alt="Newspaper" />
+          <img src="Images/feature-request-3d.png" alt="Feature request" />
         </figure>
       </section>
 
       {/* Fourth Section */}
       <section className="contact-page-fourth-sec">
         <figure>
-          <img src="Images/warning sign.png" alt="Newspaper" />
+          <img src="Images/bug-report-3d.png" alt="Bug report" />
         </figure>
         <div>
           <h1>Bug report</h1>
