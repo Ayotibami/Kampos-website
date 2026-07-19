@@ -1,5 +1,9 @@
 @media (max-width: 1000px) {
   /* Second Section */
+  .contact-page-second-sec {
+    min-height: auto;
+  }
+
   .contact-page-second-sec h1 {
     text-align: center;
   }
@@ -9,14 +13,33 @@
     gap: 1rem;
   }
 
+  .contact-page-second-sec-input-div input {
+    max-width: 100%;
+  }
+
+  .contact-page-second-sec-main-input {
+    padding-bottom: 14rem;
+  }
+
+  .contact-page-second-sec button {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
   /* Third Section */
   .contact-page-third-sec {
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
   }
 
   .contact-page-third-sec > div {
     text-align: center;
+  }
+
+  .contact-page-third-sec figure {
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .contact-page-third-sec button {
@@ -28,14 +51,82 @@
   .contact-page-fourth-sec {
     flex-direction: column-reverse;
     gap: 2rem;
+    align-items: center;
   }
 
   .contact-page-fourth-sec > div {
     text-align: center;
   }
 
+  .contact-page-fourth-sec figure {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
   .contact-page-fourth-sec button {
     /* display: block; */
     margin: auto;
+  }
+
+  /* Fifth Section */
+  .contact-page-fifth-sec {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-page-main {
+    margin-top: 1rem;
+  }
+
+  .contact-page-first-sec {
+    margin-top: 1.5rem;
+  }
+
+  .contact-page-first-sec p {
+    margin: 2rem 0;
+  }
+
+  .contact-page-second-sec {
+    padding-block: 2.5rem;
+  }
+
+  .contact-page-second-sec-input-div {
+    margin: 2rem 0;
+  }
+
+  .contact-page-second-sec-input-div input {
+    padding: 1.1rem;
+  }
+
+  .contact-page-second-sec-main-input {
+    padding-bottom: 10rem;
+  }
+
+  .contact-page-second-sec button {
+    width: 100%;
+    text-align: center;
+    padding: 1.1rem 0;
+    margin-top: 2.5rem;
+  }
+
+  .contact-page-third-sec,
+  .contact-page-fourth-sec {
+    margin: 3.5rem auto;
+  }
+
+  .contact-page-third-sec p,
+  .contact-page-fourth-sec p,
+  .contact-page-fifth-sec p {
+    margin: 2rem 0;
+  }
+
+  .contact-page-third-sec button,
+  .contact-page-fourth-sec button {
+    max-width: 100%;
+  }
+
+  .contact-page-fifth-sec {
+    margin: 3.5rem auto;
   }
 }

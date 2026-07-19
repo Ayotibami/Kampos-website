@@ -98,7 +98,7 @@ const ContactPage = () => {
       </section>
 
       {/* Fifth Section */}
-      <section>
+      <section className="contact-page-fifth-sec">
         <div>
           <h1>Support center</h1>
           <p>

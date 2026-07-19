@@ -1,5 +1,16 @@
 .contact-page-main {
   margin-top: 2rem;
+  overflow-x: hidden;
+}
+
+.contact-page-main img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contact-page-main figure {
+  margin: 0;
 }
 
 /* First Section */
@@ -45,14 +56,25 @@
   margin: 3rem 0;
 }
 
+.contact-page-first-sec figure {
+  width: 100%;
+  max-width: 420px;
+}
+
+.contact-page-first-sec figure img {
+  width: 100%;
+}
+
 /* Second Section */
 .contact-page-second-sec {
   display: flex;
   background-image: url("middle section.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 935px;
+  min-height: 935px;
   max-width: 1920px;
+  padding-block: 4rem;
+  box-sizing: border-box;
 }
 
 .contact-page-second-sec h1 {
@@ -131,6 +153,12 @@
   max-width: 606px;
 }
 
+.contact-page-third-sec figure,
+.contact-page-fourth-sec figure {
+  width: 100%;
+  max-width: 480px;
+}
+
 .contact-page-third-sec h1 {
   color: #2f2e2e;
   font-size: clamp(1.2rem, 5vw, 3rem);
@@ -189,4 +217,25 @@
   border-radius: 16px;
   width: 100%;
   max-width: 262px;
+}
+
+/* Fifth Section */
+.contact-page-fifth-sec {
+  width: 90%;
+  max-width: 888px;
+  margin: 5rem auto;
+}
+
+.contact-page-fifth-sec h1 {
+  color: #2f2e2e;
+  font-size: clamp(1.2rem, 5vw, 3rem);
+  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.contact-page-fifth-sec p {
+  color: #767575;
+  margin: 3rem 0;
+  line-height: 2.2rem;
 }
