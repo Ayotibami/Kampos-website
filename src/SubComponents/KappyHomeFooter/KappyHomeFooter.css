@@ -39,6 +39,11 @@
   max-width: 320px;
 }
 
+.kappy-footer-logo-link {
+  display: inline-block;
+  line-height: 0;
+}
+
 .kappy-footer-logo {
   height: clamp(88px, 11vw, 120px);
   width: auto;

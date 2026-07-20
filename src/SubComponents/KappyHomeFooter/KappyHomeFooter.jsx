@@ -36,7 +36,9 @@ const KappyHomeFooter = () => {
       <main className="kappy-home-footer-main">
         <section className="kappy-footer-top">
           <div className="kappy-footer-brand">
-            <img src="Images/logo.png" alt="Kampos" className="kappy-footer-logo" />
+            <Link to="/" className="kappy-footer-logo-link" aria-label="Kampos home">
+              <img src="Images/logo.png" alt="Kampos" className="kappy-footer-logo" />
+            </Link>
             <p className="kappy-footer-tagline">
               Your campus life in one app — gist, news, and vibes, all in one
               place.
