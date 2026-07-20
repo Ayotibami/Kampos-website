@@ -1,19 +1,35 @@
 import "./ContactPage.css";
 import "./ContactPage1.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from "../../SubComponents/Header/Header";
+import ContactOrbit from "../../SubComponents/ContactOrbit/ContactOrbit";
+import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
+
+const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
 
 const ContactPage = () => {
   const location = useLocation();
+  const reduce = useReducedMotion();
+  const [greetIndex, setGreetIndex] = useState(0);
 
   useEffect(() => {
     if (!location.hash) return;
     const el = document.getElementById(location.hash.slice(1));
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }, [location]);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(
+      () => setGreetIndex((i) => (i + 1) % greetings.length),
+      3000,
+    );
+    return () => clearInterval(id);
+  }, [reduce]);
 
   return (
     <main className="contact-page-main">
@@ -22,24 +38,38 @@ const ContactPage = () => {
       {/* First Section */}
 
       <section className="contact-page-first-sec">
-        <div>
-          <h1 className="contact-page-first-sec-h1-1">Wasssuppp , </h1>
+        <div className="contact-page-first-sec-text">
+          <h1 className="contact-page-first-sec-h1-1">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={greetings[greetIndex]}
+                className="contact-greeting-word"
+                initial={
+                  reduce ? false : { opacity: 0, y: 20, filter: "blur(8px)" }
+                }
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                {greetings[greetIndex]}
+              </motion.span>
+            </AnimatePresence>
+            {" , "}
+          </h1>
 
-          <h1 className="contact-page-first-sec-h1-2">Whats popping</h1>
+          <h1 className="contact-page-first-sec-h1-2">Whats popping?</h1>
 
           <p>
-            Hey! Do you have questions, feedback, need support, or maybe you
-            just want to rant about your day? Don’t worry — we’re always easy to
+            Do you have questions, feedback, need support, or maybe you just
+            want to rant about your day? Don’t worry — we’re always easy to
             reach. Feel free to contact us anytime.
           </p>
         </div>
-        <figure>
-          <img src="Images/kappy group 10.png" alt="Kappy" />
-        </figure>
+        <ContactOrbit />
       </section>
 
       {/* Second Section */}
-      <section id="contact-form" className="contact-page-second-sec">
+      <TornPanel id="contact-form" className="contact-page-second-sec">
         <div>
           <h1>Contact form</h1>
           {/* <p>
@@ -54,14 +84,14 @@ const ContactPage = () => {
             <input type="text" placeholder="Full name" />
             <input type="text" placeholder="Email" />
           </div>
-          <input
-            type="text"
+          <textarea
             placeholder="Message"
+            rows="6"
             className="contact-page-second-sec-main-input"
           />
           <button>Submit</button>
         </div>
-      </section>
+      </TornPanel>
 
       {/* Third Section */}
       <section className="contact-page-third-sec">
@@ -75,16 +105,36 @@ const ContactPage = () => {
           </p>
           <button>Request a Feature</button>
         </div>
-        <figure>
-          <img src="Images/feature-request-3d.png" alt="Feature request" />
-        </figure>
+        <motion.figure
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ type: "spring", stiffness: 170, damping: 15 }}
+        >
+          <motion.img
+            src="Images/feature-request-3d.png"
+            alt="Feature request"
+            animate={reduce ? {} : { y: [0, -12, 0], rotate: [0, -2, 0, 2, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.figure>
       </section>
 
       {/* Fourth Section */}
       <section className="contact-page-fourth-sec">
-        <figure>
-          <img src="Images/bug-report-3d.png" alt="Bug report" />
-        </figure>
+        <motion.figure
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ type: "spring", stiffness: 170, damping: 15 }}
+        >
+          <motion.img
+            src="Images/bug-report-3d.png"
+            alt="Bug report"
+            animate={reduce ? {} : { y: [0, -10, 0], scale: [1, 1.05, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.figure>
         <div>
           <h1>Bug report</h1>
           <p>

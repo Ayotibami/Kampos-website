@@ -11,6 +11,7 @@ import PostMarquee from "../../SubComponents/PostMarquee/PostMarquee";
 import AppShowcase from "../../SubComponents/AppShowcase/AppShowcase";
 import CountUp from "../../SubComponents/CountUp/CountUp";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
+import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiHeart, FiBarChart2, FiFlag } from "react-icons/fi";
@@ -354,9 +355,9 @@ const KappyHome = () => {
       <section className="kappy-home-second-sec">
         <HeroOrbit />
       </section>
-      <section className="kappy-home-third-sec">
+      <TornPanel className="kappy-home-third-sec">
         <div></div>
-      </section>
+      </TornPanel>
 
       <section className="kappy-home-fourth-sec">
         <h1>
@@ -409,7 +410,7 @@ const KappyHome = () => {
         </Link>
       </section>
 
-      <section className="kappy-home-sixth-sec">
+      <TornPanel className="kappy-home-sixth-sec">
         <div className="kappy-home-sixth-sec-div-1">
           <h1>Testimonials</h1>
           <p>
@@ -426,7 +427,7 @@ const KappyHome = () => {
         <div className="kappy-home-sixth-sec-div-2">
           <TestimonialMarquee testimonials={testimonials} />
         </div>
-      </section>
+      </TornPanel>
 
       <section className="kappy-home-seventh-sec">
         <motion.h1

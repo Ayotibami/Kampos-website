@@ -31,7 +31,9 @@
   text-align: center;
 }
 
-.contact-page-first-sec div {
+/* Scoped to the text block only — a bare `div` selector here would also
+   match the ContactOrbit root and cap the hero's width. */
+.contact-page-first-sec-text {
   max-width: 888px;
   text-align: center;
 }
@@ -44,6 +46,11 @@
   letter-spacing: -0.02em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
+}
+
+.contact-greeting-word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
 }
 
 .contact-page-first-sec-h1-2 {
@@ -75,12 +82,9 @@
 /* Second Section */
 .contact-page-second-sec {
   display: flex;
-  background-image: url("middle section.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 935px;
   max-width: 1920px;
-  padding-block: 4rem;
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
   box-sizing: border-box;
 }
 
@@ -112,50 +116,89 @@
   margin: 3rem 0;
 }
 
-.contact-page-second-sec-input-div input {
-  padding: 1.5rem;
+/* Shared field styling */
+.contact-page-second-sec input,
+.contact-page-second-sec textarea {
   width: 100%;
-  max-width: 503px;
-  border: 0;
+  border: 2px solid transparent;
   border-radius: 16px;
   background-color: #d6e3f5;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.contact-page-second-sec input::placeholder {
+.contact-page-second-sec input:hover,
+.contact-page-second-sec textarea:hover {
+  background-color: #cddcf1;
+}
+
+.contact-page-second-sec input:focus,
+.contact-page-second-sec textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #165abf;
+  box-shadow: 0 0 0 4px rgba(22, 90, 191, 0.15);
+}
+
+.contact-page-second-sec-input-div input {
+  padding: 1.5rem;
+  max-width: 503px;
+}
+
+.contact-page-second-sec input::placeholder,
+.contact-page-second-sec textarea::placeholder {
   color: #767575;
-  /* font-weight: 700; */
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
 
 .contact-page-second-sec-main-input {
-  padding: 1rem 0.5rem 26rem 0.5rem;
-  border: 0;
-  border-radius: 16px;
-  background-color: #d6e3f5;
-  box-sizing: border-box;
+  padding: 1.25rem 1.5rem;
+  min-height: 240px;
+  resize: vertical;
+  line-height: 1.6;
 }
 
 .contact-page-second-sec button {
   width: fit-content;
   margin-left: auto;
+  margin-top: 4rem;
   background-color: #ffffff;
   color: #165abf;
   padding: 1.1rem 3.6rem;
   border: 0;
-  border-radius: 16px;
-  margin-top: 4rem;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page-second-sec button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+.contact-page-second-sec button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Third Section */
 .contact-page-third-sec {
   width: 90%;
-  margin: 3rem auto;
+  margin: 1.5rem auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .contact-page-third-sec > div {
@@ -179,18 +222,39 @@
 
 .contact-page-third-sec p {
   color: #767575;
-  margin: 3rem 0;
+  margin: 1.25rem 0;
   line-height: 2.2rem;
 }
 
-.contact-page-third-sec button {
-  color: #ffffff;
-  background-color: #165abf;
-  padding: 1rem;
+/* Same button treatment as the site-wide CTA (.kappy-home-cta-btn) */
+.contact-page-third-sec button,
+.contact-page-fourth-sec button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.25rem;
   border: 0;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 256px;
+  border-radius: 999px;
+  background-color: #165abf;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(22, 90, 191, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page-third-sec button:hover,
+.contact-page-fourth-sec button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(22, 90, 191, 0.45);
+}
+
+.contact-page-third-sec button:active,
+.contact-page-fourth-sec button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(22, 90, 191, 0.3);
 }
 
 /* Fourth Section */
@@ -198,8 +262,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
-  margin: 3rem auto;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin: 1.5rem auto;
   width: 90%;
 }
 
@@ -213,7 +277,7 @@
 
 .contact-page-fourth-sec p {
   color: #767575;
-  margin: 3rem 0;
+  margin: 1.25rem 0;
   line-height: 2.2rem;
 }
 
@@ -221,21 +285,11 @@
   max-width: 623px;
 }
 
-.contact-page-fourth-sec button {
-  color: #ffffff;
-  background-color: #165abf;
-  padding: 1rem;
-  border: 0;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 262px;
-}
-
 /* Fifth Section */
 .contact-page-fifth-sec {
   width: 90%;
   max-width: 888px;
-  margin: 3rem auto;
+  margin: 1.5rem auto;
 }
 
 .contact-page-fifth-sec h1 {
@@ -248,6 +302,13 @@
 
 .contact-page-fifth-sec p {
   color: #767575;
-  margin: 3rem 0;
+  margin: 1.25rem 0;
   line-height: 2.2rem;
+}
+
+/* Trim default heading margins so section blocks stay compact */
+.contact-page-third-sec h1,
+.contact-page-fourth-sec h1,
+.contact-page-fifth-sec h1 {
+  margin: 0;
 }

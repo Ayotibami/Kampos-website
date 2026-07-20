@@ -44,13 +44,10 @@
 }
 
 .chefs-second-sec-div {
-  background-image: url("middle section.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 549px;
+  min-height: clamp(320px, 44vw, 549px);
   display: flex;
   align-items: center;
-  padding-block: 3rem;
+  padding-block: clamp(2rem, 5vw, 3rem);
 }
 
 .chefs-second-sec-div > div {
@@ -114,11 +111,8 @@
 
 /* Fourth Section */
 .chefs-fourth-sec {
-  background-image: url("middle section.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 600px;
-  padding-block: 3rem;
+  min-height: clamp(340px, 48vw, 600px);
+  padding-block: clamp(2rem, 5vw, 3rem);
   display: flex;
   align-items: center;
 }

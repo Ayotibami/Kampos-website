@@ -18,7 +18,7 @@
   }
 
   .contact-page-second-sec-main-input {
-    padding-bottom: 14rem;
+    min-height: 200px;
   }
 
   .contact-page-second-sec button {
@@ -29,7 +29,7 @@
   /* Third Section */
   .contact-page-third-sec {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: center;
   }
 
@@ -50,7 +50,7 @@
   /* Fourth Section */
   .contact-page-fourth-sec {
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: center;
   }
 
@@ -100,7 +100,7 @@
   }
 
   .contact-page-second-sec-main-input {
-    padding-bottom: 10rem;
+    min-height: 170px;
   }
 
   .contact-page-second-sec button {
@@ -112,13 +112,13 @@
 
   .contact-page-third-sec,
   .contact-page-fourth-sec {
-    margin: 3.5rem auto;
+    margin: 2rem auto;
   }
 
   .contact-page-third-sec p,
   .contact-page-fourth-sec p,
   .contact-page-fifth-sec p {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
 
   .contact-page-third-sec button,
@@ -127,6 +127,6 @@
   }
 
   .contact-page-fifth-sec {
-    margin: 3.5rem auto;
+    margin: 2rem auto;
   }
 }

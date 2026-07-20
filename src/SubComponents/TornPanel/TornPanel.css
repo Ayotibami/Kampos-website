@@ -1,0 +1,34 @@
+.torn-panel {
+  position: relative;
+  background-color: #165abf;
+  /* Creates a stacking context so the edges (z-index -1) sit above this
+     background but stay behind the panel's own content. */
+  isolation: isolate;
+}
+
+.torn-panel-edge {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  /* The original artwork's tear is ~40px deep at 1440px wide (~2.8%), so the
+     depth tracks the width to keep the same proportion, with sane bounds. */
+  height: clamp(14px, 2.8vw, 42px);
+  display: block;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Override on a page that isn't on a white background. */
+.torn-panel-edge path {
+  fill: var(--torn-panel-bg, #ffffff);
+}
+
+.torn-panel-edge-top {
+  top: -1px;
+}
+
+/* No transform: the bottom tear is its own traced path, already oriented
+   with the torn edge facing up and the fill along the bottom. */
+.torn-panel-edge-bottom {
+  bottom: -1px;
+}

@@ -9,6 +9,7 @@ import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter
 import ChefOrbit from "../../SubComponents/ChefOrbit/ChefOrbit";
 import Cards1 from "../../SubComponents/Cards1/Cards1";
 import ChefsRoster from "../../SubComponents/ChefsRoster/ChefsRoster";
+import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 
 const Chefs = () => {
   const reduce = useReducedMotion();
@@ -31,7 +32,7 @@ const Chefs = () => {
 
       {/* Second Section */}
       <section className="chefs-second-sec">
-        <div className="chefs-second-sec-div">
+        <TornPanel as="div" className="chefs-second-sec-div">
           <div>
             <div className="chefs-second-sec-child-div">
               <h1>Mission Statement</h1>
@@ -57,7 +58,7 @@ const Chefs = () => {
               />
             </motion.figure>
           </div>
-        </div>
+        </TornPanel>
       </section>
       {/* Third Section */}
       <section className="chefs-third-sec">
@@ -75,7 +76,7 @@ const Chefs = () => {
       </section>
 
       {/* Fourth Section */}
-      <section className="chefs-fourth-sec">
+      <TornPanel className="chefs-fourth-sec">
         <div>
           <div>
             <h1>Vision Statement</h1>
@@ -95,7 +96,7 @@ const Chefs = () => {
             />
           </motion.figure>
         </div>
-      </section>
+      </TornPanel>
 
       {/* Fifth Section */}
       <section className="chefs-fifth-sec">

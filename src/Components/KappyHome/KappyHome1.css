@@ -22,17 +22,10 @@
     grid-template-columns: minmax(0, 350px);
   }
 
-  /* Sixth Section */
-  .kappy-home-sixth-sec {
-    background-image: none;
-  }
-
-  .kappy-home-sixth-sec-div-1 h1 {
-    color: #2f2e2e;
-  }
-  .kappy-home-sixth-sec-div-1 p {
-    color: #767575;
-  }
+  /* Sixth Section — the blue panel used to be dropped on mobile (the raster
+     background didn't hold up at narrow widths) and the text darkened to
+     suit white. TornPanel scales cleanly now, so the panel stays and the
+     text keeps the light colour it uses on desktop. */
 
   /* Seventh Section */
   .kappy-home-seventh-sec {

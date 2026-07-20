@@ -1,7 +1,7 @@
 .chef-orbit {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   aspect-ratio: 1120 / 640;
   overflow: hidden;
@@ -14,7 +14,7 @@
   left: 50%;
   bottom: -46%;
   transform: translateX(-50%);
-  width: 42%;
+  width: 44%;
   height: auto;
   z-index: 1;
   filter: drop-shadow(0 18px 26px rgba(6, 20, 48, 0.22));
