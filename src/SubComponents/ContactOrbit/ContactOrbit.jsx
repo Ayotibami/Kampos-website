@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-/* Only WhatsApp, Instagram and email are real Kampos channels — every other
+/* Only X, WhatsApp, Instagram and email are real Kampos channels — every other
    icon here is a generic communication glyph, not a third-party brand mark. */
 import {
   FaWhatsapp,
@@ -14,7 +14,7 @@ import {
   FaBell,
   FaLocationDot,
   FaComments,
-  FaCircleQuestion,
+  FaXTwitter,
   FaMicrophone,
 } from "react-icons/fa6";
 import "./ContactOrbit.css";
@@ -122,7 +122,7 @@ const rawElements = [
   { group: 1, top: "7%", left: "38%", amp: 6, duration: 3.5, rotate: -5,
     render: () => <Reaction emoji="👋" /> },
   { group: 1, top: "32%", left: "94%", amp: 7, duration: 4.1, rotate: 5,
-    render: () => (<Social brand="question"><FaCircleQuestion /></Social>) },
+    render: () => (<Social brand="x"><FaXTwitter /></Social>) },
 
   /* --- group 2 --- */
   { group: 2, top: "5%", left: "46%", amp: 6, duration: 3.8, rotate: -4,

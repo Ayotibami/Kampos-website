@@ -1,6 +1,7 @@
 import "./KappyHomeFooter.css";
 import { Link } from "react-router-dom";
 import { FaXTwitter, FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa6";
+import { CONTACT } from "../../constants/contactLinks";
 
 const linkColumns = [
   {
@@ -28,10 +29,10 @@ const linkTargets = {
 };
 
 const socials = [
-  { icon: FaXTwitter, label: "X", href: "https://x.com" },
-  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com" },
-  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me" },
-  { icon: FaEnvelope, label: "Email", href: "mailto:hello@kampos.app" },
+  { icon: FaXTwitter, label: "X", href: CONTACT.x },
+  { icon: FaInstagram, label: "Instagram", href: CONTACT.instagram },
+  { icon: FaWhatsapp, label: "WhatsApp", href: CONTACT.whatsapp },
+  { icon: FaEnvelope, label: "Email", href: CONTACT.email },
 ];
 
 const KappyHomeFooter = () => {

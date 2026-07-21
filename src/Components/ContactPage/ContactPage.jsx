@@ -9,6 +9,7 @@ import Header from "../../SubComponents/Header/Header";
 import ContactOrbit from "../../SubComponents/ContactOrbit/ContactOrbit";
 import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import FaqAccordion from "../../SubComponents/FaqAccordion/FaqAccordion";
+import { CONTACT } from "../../constants/contactLinks";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
 
 const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
@@ -216,21 +217,17 @@ const ContactPage = () => {
             Oya do you need to reach us directly?
           </p>
 
-          {/* TODO: swap in the real WhatsApp number and support address. */}
           <div className="contact-page-faq-actions">
             <a
               className="contact-page-faq-action"
-              href="https://wa.me/2340000000000"
+              href={CONTACT.whatsapp}
               target="_blank"
               rel="noreferrer"
             >
               <FaWhatsapp aria-hidden="true" />
               Chat on WhatsApp
             </a>
-            <a
-              className="contact-page-faq-action"
-              href="mailto:hello@kampos.app"
-            >
+            <a className="contact-page-faq-action" href={CONTACT.email}>
               <FaEnvelope aria-hidden="true" />
               Email us
             </a>

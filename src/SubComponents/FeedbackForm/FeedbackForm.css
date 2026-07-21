@@ -26,16 +26,18 @@
 
 /* ---------- Hero ---------- */
 
+/* Header → crumb → hero totals ~3rem, matching the hero offset the Contact
+   page opens with, so the pages start at the same height. */
 .fb-crumb {
   width: 90%;
   max-width: var(--fb-max);
-  margin: 2.5rem auto 0;
+  margin: 2rem auto 0;
 }
 
 .fb-hero {
   width: 90%;
   max-width: var(--fb-max);
-  margin: 1rem auto 0;
+  margin: 0.75rem auto 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,11 +107,21 @@
 /* ---------- Lower band ---------- */
 
 /* A soft tint behind the form and the steps so the white form card reads as
-   a card. Full-bleed, while its children stay on the shared content width. */
+   a card. Full-bleed, while its children stay on the shared content width.
+
+   The band's own padding is the *only* thing spacing it from the hero above
+   and the footer below — no margin here, or the two stack into a gap roughly
+   twice the size it looks like in the CSS. */
 .fb-lower {
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
-  background: linear-gradient(180deg, #ffffff 0%, #f4f8fd 22%, #f4f8fd 100%);
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fd 40%, #f4f8fd 100%);
+}
+
+/* The band already ends in its own padding, and the footer is a solid dark
+   block — running them together reads as intentional, where the footer's
+   default top margin leaves a stripe of stray tint. */
+.fb-lower + .kappy-home-footer {
+  margin-top: 0;
 }
 
 /* ---------- Form card ---------- */
@@ -184,11 +196,13 @@
   font-weight: 800;
 }
 
+/* No bottom margin: `.fb-group-body`'s margin-top owns the gap to the fields,
+   so groups with a hint and groups without one space out identically. */
 .fb-group-hint {
   color: #767575;
   font-size: 0.95rem;
   line-height: 1.7;
-  margin: 0 0 0.5rem 2.75rem;
+  margin: 0 0 0 2.75rem;
 }
 
 .fb-group-body {
@@ -402,13 +416,15 @@
 
 /* ---------- Submit ---------- */
 
+/* margin-top spaces the rule from the last field, padding-top spaces the row
+   from the rule — they are two different gaps, so they read as one step. */
 .fb-submit-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-top: 2.5rem;
-  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
   border-top: 1px solid #eef2f8;
 }
 
@@ -483,7 +499,9 @@
 .fb-steps-sec {
   width: 90%;
   max-width: var(--fb-max);
-  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  /* Slightly tighter than the band's own padding, so the form and the steps
+     group together inside the band instead of floating apart in it. */
+  margin: clamp(2.5rem, 5.5vw, 4rem) auto 0;
   text-align: center;
 }
 
@@ -535,10 +553,12 @@
 
 /* ---------- Success ---------- */
 
+/* Bottom spacing is left to the footer's own margin-top rather than added
+   here, which is what made the old success page trail off into dead space. */
 .fb-success {
   width: 90%;
   max-width: 700px;
-  margin: clamp(3rem, 8vw, 6rem) auto clamp(3rem, 8vw, 5rem);
+  margin: clamp(2.5rem, 7vw, 4.5rem) auto 0;
 }
 
 .fb-success-card {
