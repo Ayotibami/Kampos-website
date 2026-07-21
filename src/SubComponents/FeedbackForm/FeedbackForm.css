@@ -156,15 +156,20 @@
 
 /* ---------- Field groups ---------- */
 
+/* The divider needs space on BOTH sides: margin-top holds it off the previous
+   group's last field, padding-top holds the heading off the divider. With
+   margin:0 the rule sits flush against the field above it. */
 .fb-group {
   border: 0;
-  border-top: 1px solid #eef2f8;
-  margin: 0;
-  padding: 2rem 0 0;
+  border-top: 1px solid #e6edf7;
+  margin: 2.5rem 0 0;
+  padding: 2.5rem 0 0;
+  min-inline-size: 0;
 }
 
 .fb-group:first-of-type {
   border-top: 0;
+  margin-top: 0;
   padding-top: 0;
 }
 

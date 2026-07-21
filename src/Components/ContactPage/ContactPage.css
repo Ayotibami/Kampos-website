@@ -399,3 +399,19 @@
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
+
+/* Fallback for visitors whose device has no mail app bound to mailto: */
+.contact-page-fifth-sec .contact-page-faq-card .contact-page-faq-email {
+  margin: clamp(0.9rem, 2vw, 1.2rem) auto 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.85rem, 1.6vw, 0.98rem);
+  line-height: 1.6;
+}
+
+.contact-page-faq-email span {
+  color: #ffffff;
+  font-weight: 700;
+  /* Lets a double-click grab the whole address in one go. */
+  user-select: all;
+  word-break: break-word;
+}

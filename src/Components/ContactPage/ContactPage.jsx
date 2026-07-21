@@ -9,7 +9,7 @@ import Header from "../../SubComponents/Header/Header";
 import ContactOrbit from "../../SubComponents/ContactOrbit/ContactOrbit";
 import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import FaqAccordion from "../../SubComponents/FaqAccordion/FaqAccordion";
-import { CONTACT } from "../../constants/contactLinks";
+import { CONTACT, EMAIL_ADDRESS } from "../../constants/contactLinks";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
 
 const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
@@ -232,6 +232,13 @@ const ContactPage = () => {
               Email us
             </a>
           </div>
+
+          {/* mailto: only opens if the visitor has a mail app registered, which
+              plenty of desktops don't — so show the address as selectable text
+              too, and it can always be copied. */}
+          <p className="contact-page-faq-email">
+            or email us directly at <span>{EMAIL_ADDRESS}</span>
+          </p>
         </div>
       </section>
       <KappyHomeFooter />

@@ -1,7 +1,7 @@
 import "./KappyHomeFooter.css";
 import { Link } from "react-router-dom";
 import { FaXTwitter, FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa6";
-import { CONTACT } from "../../constants/contactLinks";
+import { CONTACT, EMAIL_ADDRESS } from "../../constants/contactLinks";
 
 const linkColumns = [
   {
@@ -28,11 +28,29 @@ const linkTargets = {
   "Feature Requests": "/request-feature",
 };
 
+/* `title` shows the actual destination on hover. It matters most for Email:
+   mailto: silently does nothing on devices with no mail app registered, so the
+   tooltip is the only way to read the address from an icon-only link. */
 const socials = [
-  { icon: FaXTwitter, label: "X", href: CONTACT.x },
-  { icon: FaInstagram, label: "Instagram", href: CONTACT.instagram },
-  { icon: FaWhatsapp, label: "WhatsApp", href: CONTACT.whatsapp },
-  { icon: FaEnvelope, label: "Email", href: CONTACT.email },
+  { icon: FaXTwitter, label: "X", title: "Kampos on X (@Kamposapp)", href: CONTACT.x },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    title: "Kampos on Instagram (@Kamposapp)",
+    href: CONTACT.instagram,
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    title: "Chat with Kampos on WhatsApp",
+    href: CONTACT.whatsapp,
+  },
+  {
+    icon: FaEnvelope,
+    label: "Email",
+    title: EMAIL_ADDRESS,
+    href: CONTACT.email,
+  },
 ];
 
 const KappyHomeFooter = () => {
@@ -74,8 +92,14 @@ const KappyHomeFooter = () => {
         <div className="kappy-footer-bottom">
           <p>© {new Date().getFullYear()} Ayoti. All rights reserved.</p>
           <div className="kappy-footer-socials">
-            {socials.map(({ icon: Icon, label, href }) => (
-              <a href={href} aria-label={label} key={label} className="kappy-footer-social">
+            {socials.map(({ icon: Icon, label, title, href }) => (
+              <a
+                href={href}
+                aria-label={label}
+                title={title}
+                key={label}
+                className="kappy-footer-social"
+              >
                 <Icon />
               </a>
             ))}
