@@ -42,8 +42,7 @@
     margin: 0 auto;
   }
 
-  .contact-page-third-sec button {
-    /* display: block; */
+  .contact-page-third-sec a {
     margin: auto;
   }
 
@@ -63,8 +62,7 @@
     margin: 0 auto;
   }
 
-  .contact-page-fourth-sec button {
-    /* display: block; */
+  .contact-page-fourth-sec a {
     margin: auto;
   }
 
@@ -121,8 +119,8 @@
     margin: 1rem 0;
   }
 
-  .contact-page-third-sec button,
-  .contact-page-fourth-sec button {
+  .contact-page-third-sec a,
+  .contact-page-fourth-sec a {
     max-width: 100%;
   }
 

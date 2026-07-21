@@ -226,9 +226,15 @@
   line-height: 2.2rem;
 }
 
-/* Same button treatment as the site-wide CTA (.kappy-home-cta-btn) */
+/* Same button treatment as the site-wide CTA (.kappy-home-cta-btn). These
+   two CTAs are router <Link>s rather than <button>s — they navigate to the
+   /request-feature and /report-bug pages, so they need to behave like real
+   links (open in a new tab, show the URL) while looking like the buttons. */
+.contact-page-third-sec a,
+.contact-page-fourth-sec a,
 .contact-page-third-sec button,
 .contact-page-fourth-sec button {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -245,12 +251,16 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.contact-page-third-sec a:hover,
+.contact-page-fourth-sec a:hover,
 .contact-page-third-sec button:hover,
 .contact-page-fourth-sec button:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 34px rgba(22, 90, 191, 0.45);
 }
 
+.contact-page-third-sec a:active,
+.contact-page-fourth-sec a:active,
 .contact-page-third-sec button:active,
 .contact-page-fourth-sec button:active {
   transform: translateY(-1px);

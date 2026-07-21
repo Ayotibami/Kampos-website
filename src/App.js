@@ -3,6 +3,8 @@ import "./App.css";
 import KappyHome from "./Components/KappyHome/KappyHome";
 import Chefs from "./Components/Chefs/Chefs";
 import ContactPage from "./Components/ContactPage/ContactPage";
+import BugReportPage from "./Components/BugReportPage/BugReportPage";
+import FeatureRequestPage from "./Components/FeatureRequestPage/FeatureRequestPage";
 import RootLayout from "./SubComponents/RootLayout/RootLayout";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -27,6 +29,16 @@ const App = () => {
         {
           path: "/contactPage",
           element: <ContactPage />,
+        },
+
+        {
+          path: "/report-bug",
+          element: <BugReportPage />,
+        },
+
+        {
+          path: "/request-feature",
+          element: <FeatureRequestPage />,
         },
       ],
     },

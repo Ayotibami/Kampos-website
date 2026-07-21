@@ -15,9 +15,8 @@ const chefs = [
     role: "Mascot",
     name: "Kappy Avi",
     nick: "Blue Clown",
-    // TODO: draft intro in Kappy's voice — swap in the real one.
     intro:
-      "Heyyyy, na me be Kappy — the face of Kampos. You go see me for your feed, for your notifications, and probably for your head too. Dem dey call me ragebaiter; I prefer 'conversation starter' 😌. My job na simple: make sure campus life sweet you every single day. Blue clown, certified. 💙",
+      "Hey, I be Kappy. First of all, can you believe the team no want put my introduction first? And when they finally agreed, they say make dem put me for bottom. Omo, I no gree sha — and na so I take end up first on the list, even above the CEO.\n\nTo be honest, I be the face of the brand, the one and only Kampos clown, so no play with me abeg. My job no pass to dey find una trouble and to dey ragebait the team. But lowkey, na me dey give Kampos the spice and energy wey you dey feel.\n\nSee you on Kampos jorr 💙",
   },
   {
     img: "Ellipse 29.png",

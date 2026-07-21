@@ -2,7 +2,7 @@ import "./ContactPage.css";
 import "./ContactPage1.css";
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaWhatsapp, FaEnvelope } from "react-icons/fa6";
 import Header from "../../SubComponents/Header/Header";
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: "How do I create a profile on Kampos?",
-    a: "To create your profile, we just need the basics — your name, your school name (obviously), your level, and your major. These help Kampos tailor your experience on the app and give you your identity within the community. Then you'll need a unique name on Kampos — your Avitag — that helps everyone, and Kampos itself, uniquely know you.",
+    a: "To create your profile, we just need the basics — your name, your school's name (obviously), your level, and your major. These help Kampos tailor your experience on the app and give you your identity within the community. Then you'll need a unique name on Kampos — your Avitag — that helps everyone, and Kampos itself, uniquely know you.",
   },
   {
     q: "Is Kampos affiliated with my university?",
@@ -156,7 +156,7 @@ const ContactPage = () => {
             there’s a feature or functionality you want us to add, just let us
             know—we’re listening.
           </p>
-          <button>Request a Feature</button>
+          <Link to="/request-feature">Request a Feature</Link>
         </div>
         <motion.figure
           initial={{ opacity: 0, scale: 0.7 }}
@@ -196,7 +196,7 @@ const ContactPage = () => {
             working on it immediately. We want you to have the smoothest
             experience possible while using Kampos
           </p>
-          <button>Report a bug</button>
+          <Link to="/report-bug">Report a bug</Link>
         </div>
       </section>
 
