@@ -6,10 +6,16 @@
     <meta name="theme-color" content="#165abf" />
 
     <title>Kampos - Your campus life in one app</title>
+    <!-- Kept under ~155 chars so Google shows it whole. The longer, punchier
+         version is used for social cards below, where there's more room. -->
     <meta
       name="description"
-      content="Kampos connects students to their campuses. From official updates and announcements to wild rants, gists, and hot takes, Kampos drops you right in the middle of all the vibes — bringing your entire campus life straight to your phone."
+      content="Kampos connects Nigerian students to their campuses — official updates, announcements, gists and hot takes, all in one place."
     />
+
+    <!-- Homepage canonical. RootLayout rewrites this per route on navigation,
+         otherwise every page would claim to be the homepage. -->
+    <link rel="canonical" href="%REACT_APP_SITE_URL%/" />
 
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />

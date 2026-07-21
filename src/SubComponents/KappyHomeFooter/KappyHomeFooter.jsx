@@ -17,10 +17,14 @@ const linkColumns = [
   },
 ];
 
+/* Labels without an entry here have no page yet, so they render as plain text
+   rather than an anchor that goes nowhere. */
 const linkTargets = {
   "Contact us": "/contactPage#contact-form",
   "About us": "/chefs",
   FAQ: "/contactPage#faq",
+  "Bug report": "/report-bug",
+  "Feature Requests": "/request-feature",
 };
 
 const socials = [
@@ -56,7 +60,7 @@ const KappyHomeFooter = () => {
                       {linkTargets[label] ? (
                         <Link to={linkTargets[label]}>{label}</Link>
                       ) : (
-                        <Link>{label}</Link>
+                        <span className="kappy-footer-soon">{label}</span>
                       )}
                     </li>
                   ))}

@@ -93,6 +93,13 @@
   color: #ffffff;
 }
 
+/* Labels whose page doesn't exist yet — same look as the links around them,
+   minus the hover and pointer, so nothing invites a click that goes nowhere. */
+.kappy-footer-soon {
+  color: #c7cddb;
+  font-size: 1.05rem;
+}
+
 /* ---- bottom bar ---- */
 
 .kappy-footer-bottom {

@@ -126,13 +126,18 @@ const FeedbackShell = ({
         </section>
       ) : (
         <>
+          {/* Sits above the hero rather than inside its text column, so it
+              stays the first thing on the page once the hero stacks. */}
+          <nav className="fb-crumb">
+            <Link className="fb-back" to="/contactPage">
+              <FaArrowLeft aria-hidden="true" />
+              Back to contact
+            </Link>
+          </nav>
+
           {/* Hero */}
           <section className="fb-hero">
             <div className="fb-hero-text">
-              <Link className="fb-back" to="/contactPage">
-                <FaArrowLeft aria-hidden="true" />
-                Back to contact
-              </Link>
               <p className="fb-eyebrow">{eyebrow}</p>
               <h1>{title}</h1>
               <p className="fb-hero-intro">{intro}</p>
@@ -148,64 +153,73 @@ const FeedbackShell = ({
                 src={image}
                 alt={imageAlt}
                 animate={reduce ? {} : { y: [0, -12, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             </motion.figure>
           </section>
 
-          {/* Form */}
-          <motion.section className="fb-form-sec" {...reveal}>
-            <div className="fb-form-card">
-              <h2>{formTitle}</h2>
-              <p className="fb-form-intro">{formIntro}</p>
+          {/* Tinted band holding the form and the steps */}
+          <div className="fb-lower">
+            {/* Form */}
+            <motion.section className="fb-form-sec" {...reveal}>
+              <div className="fb-form-card">
+                <h2>{formTitle}</h2>
+                <p className="fb-form-intro">{formIntro}</p>
 
-              <form onSubmit={handleSubmit} noValidate>
-                {children({ values, setField, errors })}
+                <form onSubmit={handleSubmit} noValidate>
+                  {children({ values, setField, errors })}
 
-                {/* Honeypot — hidden from people, irresistible to bots. */}
-                <div className="fb-honeypot" aria-hidden="true">
-                  <label htmlFor={HONEYPOT}>Leave this empty</label>
-                  <input
-                    id={HONEYPOT}
-                    name={HONEYPOT}
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={values[HONEYPOT]}
-                    onChange={(e) => setField(HONEYPOT, e.target.value)}
-                  />
-                </div>
+                  {/* Honeypot — hidden from people, irresistible to bots. */}
+                  <div className="fb-honeypot" aria-hidden="true">
+                    <label htmlFor={HONEYPOT}>Leave this empty</label>
+                    <input
+                      id={HONEYPOT}
+                      name={HONEYPOT}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={values[HONEYPOT]}
+                      onChange={(e) => setField(HONEYPOT, e.target.value)}
+                    />
+                  </div>
 
-                <div className="fb-submit-row">
-                  <p className="fb-privacy">
-                    By sending this you agree we can contact you about it. We
-                    never share your details.
-                  </p>
-                  <button
-                    className="fb-btn fb-btn-primary fb-submit"
-                    type="submit"
-                    disabled={status === "submitting"}
-                  >
-                    {status === "submitting" ? "Sending…" : submitLabel}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </motion.section>
+                  <div className="fb-submit-row">
+                    <p className="fb-privacy">
+                      By sending this you agree we can contact you about it. We
+                      never share your details.
+                    </p>
+                    <button
+                      className="fb-btn fb-btn-primary fb-submit"
+                      type="submit"
+                      disabled={status === "submitting"}
+                    >
+                      {status === "submitting" ? "Sending…" : submitLabel}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </motion.section>
 
-          {/* What happens next */}
-          <motion.section className="fb-steps-sec" {...reveal}>
-            <h2>What happens next</h2>
-            <ol className="fb-steps">
-              {steps.map((step, i) => (
-                <li key={step.title} className="fb-step">
-                  <span className="fb-step-num">{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
-                </li>
-              ))}
-            </ol>
-          </motion.section>
+            {/* What happens next */}
+            <motion.section className="fb-steps-sec" {...reveal}>
+              <h2>What happens next</h2>
+              <ol className="fb-steps">
+                {steps.map((step, i) => (
+                  <li key={step.title} className="fb-step">
+                    <span className="fb-step-num">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </li>
+                ))}
+              </ol>
+            </motion.section>
+          </div>
         </>
       )}
 
