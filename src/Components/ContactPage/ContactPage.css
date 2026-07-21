@@ -312,3 +312,80 @@
 .contact-page-fifth-sec h1 {
   margin: 0;
 }
+
+/* FAQ card — blue panel holding the heading, intro and accordion.
+   Selectors are extra-specific so they win over the .contact-page-fifth-sec
+   h1/p colours above, which are set for dark-on-white. */
+.contact-page-fifth-sec .contact-page-faq-card {
+  background-color: #165abf;
+  border-radius: clamp(16px, 2.5vw, 28px);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.1rem, 3vw, 2.5rem);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contact-page-fifth-sec .contact-page-faq-card h1 {
+  color: #ffffff;
+}
+
+.contact-page-fifth-sec .contact-page-faq-card p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: clamp(0.85rem, 2vw, 1.25rem) auto clamp(1.5rem, 3vw, 2rem);
+  max-width: 620px;
+  line-height: 1.8;
+}
+
+/* Extra-specific so it beats the card's generic `p` rule above. */
+.contact-page-fifth-sec .contact-page-faq-card .contact-page-faq-actions-lead {
+  margin: clamp(1.75rem, 3.5vw, 2.5rem) auto clamp(0.85rem, 2vw, 1.1rem);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.5;
+}
+
+/* The lead already provides the spacing above the buttons. */
+.contact-page-faq-actions-lead + .contact-page-faq-actions {
+  margin-top: 0;
+}
+
+/* Direct contact routes, so the FAQ has an obvious way out when it doesn't
+   answer the question. Same white-on-blue treatment as the form's Submit. */
+.contact-page-faq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.contact-page-faq-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.9rem;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #165abf;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page-faq-action svg {
+  font-size: 1.25em;
+}
+
+.contact-page-faq-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+.contact-page-faq-action:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}

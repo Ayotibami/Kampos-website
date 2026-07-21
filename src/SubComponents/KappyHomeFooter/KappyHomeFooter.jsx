@@ -9,7 +9,7 @@ const linkColumns = [
   },
   {
     heading: "Support",
-    links: ["Bug report", "Feature Requests", "Support center"],
+    links: ["Bug report", "Feature Requests", "FAQ"],
   },
   {
     heading: "Legal",
@@ -20,6 +20,7 @@ const linkColumns = [
 const linkTargets = {
   "Contact us": "/contactPage#contact-form",
   "About us": "/chefs",
+  FAQ: "/contactPage#faq",
 };
 
 const socials = [

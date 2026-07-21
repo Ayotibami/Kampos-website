@@ -1,0 +1,80 @@
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+}
+
+.faq-item {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  overflow: hidden;
+  transition: background-color 0.25s ease, border-radius 0.25s ease;
+}
+
+.faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Open item relaxes from a pill into a rounded card to make room. */
+.faq-item-open {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+}
+
+/* The <h3> is only there for document outline — it carries no visual style. */
+.faq-question-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.85rem, 2vw, 1.05rem) clamp(1.1rem, 3vw, 1.6rem);
+  background: none;
+  border: 0;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -3px;
+  border-radius: inherit;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  font-size: 1.25em;
+  transition: transform 0.25s ease;
+}
+
+.faq-item-open .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* overflow:hidden is what lets framer-motion animate height:auto cleanly. */
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 clamp(1.1rem, 3vw, 1.6rem) clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  line-height: 1.7;
+}

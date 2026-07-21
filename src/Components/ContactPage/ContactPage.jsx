@@ -4,12 +4,65 @@ import "./ContactPage1.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa6";
 import Header from "../../SubComponents/Header/Header";
 import ContactOrbit from "../../SubComponents/ContactOrbit/ContactOrbit";
 import TornPanel from "../../SubComponents/TornPanel/TornPanel";
+import FaqAccordion from "../../SubComponents/FaqAccordion/FaqAccordion";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
 
 const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
+
+const faqs = [
+  {
+    q: "What is Kampos?",
+    a: "Kampos is a one-stop campus ecosystem for Nigerian students. It brings official updates and announcements, gists, rants and hot takes together in one place, so your entire campus life lives on your phone.",
+  },
+  {
+    q: "Who can use Kampos?",
+    a: "Kampos is built primarily for students in Nigerian universities and tertiary institutions. If you're a student at a university, polytechnic, college of education, or any tertiary institution — Kampos is for you. We're also working to expand access to alumni, aspirants, and a wider range of audiences over time.",
+  },
+  {
+    q: "Is Kampos available now?",
+    a: "Yes — Kampos is live as a web app. There's nothing to install: just open Kampos in your browser on your phone or laptop, sign up, and you're in.",
+  },
+  {
+    q: "Is there a Kampos mobile app?",
+    a: "Not yet — for now Kampos runs as a web app, so you just open it in your browser and go. A mobile app is coming soon, so keep an eye out.",
+  },
+  {
+    q: "Is my school on Kampos?",
+    a: "We're not on every campus just yet, but we're expanding rapidly. If your school isn't there when you sign up, hang tight — we're adding new institutions all the time. You can also reach out and let us know your school so we can prioritise it.",
+  },
+  {
+    q: "What features does Kampos offer?",
+    a: "Kampos gives you access to everything happening on your campus and beyond — from campus updates, info, stories, and gists to circulars and announcements, so you never miss what matters. You can even get updates from other schools, not just your own, keeping you plugged into the wider student community. On top of that, Kampos is a platform for student creators to showcase their work, giving talent a real stage to be seen.",
+  },
+  {
+    q: "Is Kampos free to use?",
+    a: "Yes, Kampos is completely free for students to use.",
+  },
+  {
+    q: "How do I create a profile on Kampos?",
+    a: "To create your profile, we just need the basics — your name, your school name (obviously), your level, and your major. These help Kampos tailor your experience on the app and give you your identity within the community. Then you'll need a unique name on Kampos — your Avitag — that helps everyone, and Kampos itself, uniquely know you.",
+  },
+  {
+    q: "Is Kampos affiliated with my university?",
+    a: "No — Kampos is an independent platform and is not owned by, endorsed by, or officially affiliated with any university or institution. We bring campus updates and announcements together in one place, but we operate independently of the schools themselves.",
+  },
+  {
+    q: "What happens when I flag a post?",
+    a: "When you flag a post, it comes straight to our team for review. If it goes against our community guidelines, we take it down as fast as possible. Flagging is what helps us keep Kampos a space everybody can enjoy.",
+  },
+  {
+    q: "How is my data protected?",
+    a: "Your privacy matters to us. For the full details on what we collect, how we use it and how we keep it safe, please read our Privacy Policy and Terms and Conditions.",
+  },
+  {
+    q: "How do I get support if I face issues?",
+    a: "You can reach out to Kampos through the contact form, email, or WhatsApp. Our team is always ready to respond quickly and help resolve any problems.",
+  },
+];
 
 const ContactPage = () => {
   const location = useLocation();
@@ -148,15 +201,40 @@ const ContactPage = () => {
       </section>
 
       {/* Fifth Section */}
-      <section className="contact-page-fifth-sec">
-        <div>
-          <h1>Support center</h1>
+      <section id="faq" className="contact-page-fifth-sec">
+        <div className="contact-page-faq-card">
+          <h1>FAQ</h1>
           <p>
             This is Kampos — we know you’ve got lectures, deadlines, and maybe
             even crush problems to worry about 🤭. So we made this FAQ to keep
-            things simple.If it’s about Kampos, chances are the answer is right
+            things simple. If it’s about Kampos, chances are the answer is right
             here. And if not… well, we’re just a WhatsApp ping away. 🚀
           </p>
+          <FaqAccordion items={faqs} />
+
+          <p className="contact-page-faq-actions-lead">
+            Oya do you need to reach us directly?
+          </p>
+
+          {/* TODO: swap in the real WhatsApp number and support address. */}
+          <div className="contact-page-faq-actions">
+            <a
+              className="contact-page-faq-action"
+              href="https://wa.me/2340000000000"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaWhatsapp aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
+            <a
+              className="contact-page-faq-action"
+              href="mailto:hello@kampos.app"
+            >
+              <FaEnvelope aria-hidden="true" />
+              Email us
+            </a>
+          </div>
         </div>
       </section>
       <KappyHomeFooter />
