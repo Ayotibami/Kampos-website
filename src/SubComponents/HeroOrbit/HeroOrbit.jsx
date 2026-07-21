@@ -356,7 +356,7 @@ const HeroOrbit = () => {
 
   return (
     <div className="hero-orbit">
-      <img src="Images/Kappy Mascot.png" alt="Kappy" className="hero-orbit-kappy" />
+      <img src="Images/Kappy Mascot.webp" alt="Kappy" className="hero-orbit-kappy" />
 
       {cardDefs.map((card, i) => (
         <motion.div

@@ -51,8 +51,10 @@ const Chefs = () => {
               transition={{ type: "spring", stiffness: 170, damping: 15 }}
             >
               <motion.img
-                src="Images/mission-target-3d.png"
+                src="Images/mission-target-3d.webp"
                 alt="Mission target"
+                loading="lazy"
+                decoding="async"
                 animate={reduce ? {} : { y: [0, -14, 0], rotate: [0, 3, 0, -3, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -89,8 +91,10 @@ const Chefs = () => {
             transition={{ type: "spring", stiffness: 170, damping: 15 }}
           >
             <motion.img
-              src="Images/vision-bulb-3d.png"
+              src="Images/vision-bulb-3d.webp"
               alt="Vision lightbulb"
+              loading="lazy"
+              decoding="async"
               animate={reduce ? {} : { y: [0, -10, 0], scale: [1, 1.05, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -138,8 +142,10 @@ const Chefs = () => {
       <section className="chefs-sixth-sec">
         <figure className="chefs-hand-figure" ref={handRef}>
           <motion.img
-            src="Images/hand-phone-3d.png"
+            src="Images/hand-phone-3d.webp"
             alt="Kappy holding a phone"
+            loading="lazy"
+            decoding="async"
             initial={{ opacity: reduce ? 1 : 0, x: reduce ? 0 : "-80%" }}
             animate={
               handInView || reduce ? { opacity: 1, x: 0 } : undefined

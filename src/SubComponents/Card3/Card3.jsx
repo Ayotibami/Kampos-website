@@ -31,7 +31,7 @@ const Card3 = ({ slides }) => {
         >
           <h2>{slide.title}</h2>
           <figure className="card-3-icon">
-            <img src={`Images/${slide.icon}.png`} alt="" />
+            <img src={`Images/${slide.icon}.webp`} alt="" loading="lazy" decoding="async" />
           </figure>
           <p>{slide.text}</p>
         </motion.div>

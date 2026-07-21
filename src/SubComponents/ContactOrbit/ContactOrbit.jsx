@@ -221,7 +221,7 @@ const ContactOrbit = () => {
   return (
     <div className="contact-orbit">
       <img
-        src="Images/kappy-contact.png"
+        src="Images/kappy-contact.webp"
         alt="Kappy"
         className="contact-orbit-kappy"
       />

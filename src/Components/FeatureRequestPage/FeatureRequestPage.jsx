@@ -62,7 +62,7 @@ const FeatureRequestPage = () => {
       eyebrow="Feature request"
       title="Got an idea? We're listening."
       intro="We're cooking Kampos for you, so your opinion actually moves things. Even Kappy fit chop sack letter if you say so 😅. Tell us what you want and why — the why is the part that gets it built."
-      image="Images/feature-request-3d.png"
+      image="Images/feature-request-3d.webp"
       imageAlt="Feature request"
       formTitle="Request a feature"
       formIntro="Three required fields. The rest helps us understand the problem behind the idea."

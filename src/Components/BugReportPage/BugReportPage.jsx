@@ -93,7 +93,7 @@ const BugReportPage = () => {
       eyebrow="Bug report"
       title="Something broke? Tell us."
       intro="Omo, no vex 😅 — making apps no easy at all. The more you tell us here, the faster we can find it and kill it. Nothing is too small to report."
-      image="Images/bug-report-3d.png"
+      image="Images/bug-report-3d.webp"
       imageAlt="Bug report"
       formTitle="Report a bug"
       formIntro="Only three things are required. Everything else just helps us find it faster."

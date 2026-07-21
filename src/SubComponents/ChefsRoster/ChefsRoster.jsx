@@ -3,23 +3,19 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 import "./ChefsRoster.css";
 
-/* Real team data.
-   TODO from user:
-   - Confirm which face (Ellipse 29 / 30 / 36) belongs to Masterpiece Ayobami,
-     Eric Alfred, Victor Abdul — assigned tentatively below.
-   - Provide their intros + nicknames (placeholders for now).
-   - Confirm the roles for the first five (inferred from their bios). */
+/* The team, in display order — Kappy leads, then the rest. `x` and `ig` are
+   optional; a social icon only renders when its link is present. */
 const chefs = [
   {
-    img: "kappy.png",
+    img: "kappy.webp",
     role: "Mascot",
     name: "Kappy Avi",
     nick: "Blue Clown",
     intro:
-      "Hey, I be Kappy. First of all, can you believe the team no want put my introduction first? And when they finally agreed, they say make dem put me for bottom. Omo, I no gree sha — and na so I take end up first on the list, even above the CEO.\n\nTo be honest, I be the face of the brand, the one and only Kampos clown, so no play with me abeg. My job no pass to dey find una trouble and to dey ragebait the team. But lowkey, na me dey give Kampos the spice and energy wey you dey feel.\n\nSee you on Kampos jorr 💙",
+      "Hey, I be Kappy. First of all, can you believe the team no wan add my introduction for here? And when they finally agreed, they say make dem put me for bottom. Omo, I no gree sha — and na so I take end up first on the list, even above the CEO.\n\nTo be honest, I be the face of the brand, the one and only Kampos clown, so no play with me abeg. My job no pass to dey find una trouble and to dey ragebait the team. But lowkey, na me dey give Kampos the spice and energy wey you dey feel.\n\nSee you on Kampos jorr 💙",
   },
   {
-    img: "Ellipse 29.png",
+    img: "Ellipse 29.webp",
     role: "Anything",
     name: "Masterpiece Ayobami",
     nick: "CookingApps",
@@ -28,7 +24,7 @@ const chefs = [
       "Heyyyyy. I'm the guy on the team who handles everything and anything — I thought up this whole Kampos thing, and every day I've got to make sure it works. From making sure Kampos is so good you feel like eating it (literally), to ensuring things keep moving smoothly every day, to giving the team boring speeches to motivate them. I'm everywhere. Many would call me the CEO, but I'm simply just your boi. And yeah, I'm Kappy's best friend — no one else on the team can handle his ragebaits.",
   },
   {
-    img: "Ellipse 36.png",
+    img: "Ellipse 36.webp",
     role: "Engineering",
     name: "Eric Alfred",
     nick: "Alfred",
@@ -38,7 +34,7 @@ const chefs = [
       "Heyyyyy. I'm the guy behind the screen making sure Kampos doesn't fall apart when you're not looking. Code, bugs, chaos, repeat. I don't do boring speeches — I do boring stack traces. I'm simply just the guy holding it all together, but the CEO thinks that's his job. To be honest, Kappy is actually a ragebaiter.",
   },
   {
-    img: "Ellipse 30.png",
+    img: "Ellipse 30.webp",
     role: "Product",
     name: "Victor Abdul",
     nick: "Oluwa_techie",
@@ -48,7 +44,7 @@ const chefs = [
       "Product designer by profession, anime fan by choice, music addict by default. I love creating things people genuinely enjoy using—and I'm probably already working on the next crazy idea.",
   },
   {
-    img: "Ellipse 34.png",
+    img: "Ellipse 34.webp",
     role: "Technology",
     name: "Peace Oloruntoba",
     nick: "PeaceCodes",
@@ -58,7 +54,7 @@ const chefs = [
       "I'm a growing software engineer who has been in the tech space for more than 4 years. Building, Scaling, and Maintaining Tech products, with a passion for building tech solutions for everyone. PS: I love cars",
   },
   {
-    img: "Ellipse 35.png",
+    img: "Ellipse 35.webp",
     role: "Animations",
     name: "Emmanuel Omotunwase",
     nick: "Emmysam",
@@ -68,7 +64,7 @@ const chefs = [
       "I'm Emmanuel Omotunwase, a 2D animator with a deep love for storytelling. Through motion and design, I blend creativity with technical skill to bring characters and ideas to life in ways that feel engaging and real.",
   },
   {
-    img: "Ellipse 28.png",
+    img: "Ellipse 28.webp",
     role: "Visuals",
     name: "Abraham Gabriel",
     nick: "DOXA",
@@ -78,7 +74,7 @@ const chefs = [
       "Hello guys my name is Abraham Gabriel I am honored to introduce myself as one amongst the very amazing team here on Kampos. I'm responsible for the amazing graphic visuals you see here on Kampos, na me dey cook the design, and the design dey done wella before I serve am to una 😌. Asides designing, I love drumming, amebo 👀, and analyzing movies... And luckily for me Kampos is a platform for me to connect with more friends who loves the same thing...\n\nI love you all, see you on Kampos",
   },
   {
-    img: "Ellipse 31.png",
+    img: "Ellipse 31.webp",
     role: "Operations",
     name: "Alhassan Chenemi",
     nick: "Chensy",
@@ -87,7 +83,7 @@ const chefs = [
       "Hey, I'm Chensy 👋. At Kampos, I'm basically the glue holding everything together. Events, deadlines, random chaos — I keep it all running smooth (or at least looking smooth 😅). Call me the logistics plug.",
   },
   {
-    img: "Ellipse 32.png",
+    img: "Ellipse 32.webp",
     role: "Content & Community",
     name: "Favour Odokina",
     nick: "Tenuojo",
@@ -204,7 +200,9 @@ const ChefsRoster = () => {
                 <h3>{chef.name}</h3>
                 <div className="roster-tags">
                   <span className="roster-role-tag">{chef.role}</span>
-                  {chef.nick && <span className="roster-nick">{chef.nick}</span>}
+                  {chef.nick && (
+                    <span className="roster-nick">{chef.nick}</span>
+                  )}
                   {/* Only render a handle that actually links somewhere, so
                       chefs without socials don't show dead icons. */}
                   {(chef.x || chef.ig) && (

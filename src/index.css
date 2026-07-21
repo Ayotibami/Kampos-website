@@ -1,15 +1,16 @@
+/* font-display: swap renders text immediately in a fallback and swaps Nunito
+   in when it arrives. Without it the browser hides text for up to 3s while the
+   font downloads, which on a slow connection reads as a blank page.
+
+   The italic variable font was dropped: nothing on the site renders italic
+   (the single <em> is explicitly set to font-style: normal), so it was 274 KB
+   for nothing. If italic is ever needed the browser will synthesise it. */
 @font-face {
   font-family: "Nunito";
   src: url("./fonts/Nunito-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 1000;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Nunito";
-  src: url("./fonts/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: 200 1000;
-  font-style: italic;
+  font-display: swap;
 }
 
 body {

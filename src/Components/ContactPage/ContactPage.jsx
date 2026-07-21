@@ -166,8 +166,10 @@ const ContactPage = () => {
           transition={{ type: "spring", stiffness: 170, damping: 15 }}
         >
           <motion.img
-            src="Images/feature-request-3d.png"
+            src="Images/feature-request-3d.webp"
             alt="Feature request"
+            loading="lazy"
+            decoding="async"
             animate={reduce ? {} : { y: [0, -12, 0], rotate: [0, -2, 0, 2, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -183,8 +185,10 @@ const ContactPage = () => {
           transition={{ type: "spring", stiffness: 170, damping: 15 }}
         >
           <motion.img
-            src="Images/bug-report-3d.png"
+            src="Images/bug-report-3d.webp"
             alt="Bug report"
+            loading="lazy"
+            decoding="async"
             animate={reduce ? {} : { y: [0, -10, 0], scale: [1, 1.05, 1] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />

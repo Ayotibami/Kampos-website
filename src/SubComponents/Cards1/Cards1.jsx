@@ -9,7 +9,9 @@ const Cards1 = ({ card1Heading, card1Text, card1Img }) => {
       </div>
 
       <figure className="cards1-figure">
-        {card1Img && <img src={`Images/${card1Img}.png`} alt="" />}
+        {card1Img && (
+          <img src={`Images/${card1Img}.webp`} alt="" loading="lazy" decoding="async" />
+        )}
       </figure>
     </div>
   );

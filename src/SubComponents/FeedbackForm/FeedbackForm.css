@@ -17,10 +17,26 @@
    would also match the shared Header and KappyHomeFooter and blow their logos
    up to full size — same trap the comment at the top of ContactPage.css calls
    out. Never widen these selectors. */
-.fb-hero-figure img,
 .fb-success-card figure img {
   max-width: 100%;
   height: auto;
+  display: block;
+}
+
+/* The two hero PNGs are 1024x1536 with the artwork sitting in the middle —
+   roughly 33% of the height is transparent above it and 23% below. Left to
+   its natural aspect the figure was 540px tall to show ~240px of artwork,
+   which is where the hero's dead space came from.
+
+   `aspect-ratio` + `object-fit: cover` crops those empty bands off instead of
+   scaling the art down, and the 56% vertical position accounts for the art
+   sitting slightly below the PNG's centre. Both illustrations share the same
+   padding, so one set of numbers covers them. */
+.fb-hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 56%;
   display: block;
 }
 
@@ -98,10 +114,11 @@
 }
 
 .fb-hero-figure {
-  flex: 0 1 360px;
+  flex: 0 1 380px;
   margin: 0;
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
+  aspect-ratio: 11 / 10;
 }
 
 /* ---------- Lower band ---------- */
@@ -173,12 +190,16 @@
   padding-top: 0;
 }
 
-.fb-group-legend {
+.fb-group-head {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0;
-  margin-bottom: 0.35rem;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+/* Title and hint share the column beside the number badge, so the hint lines
+   up under the title on its own without a hard-coded indent. */
+.fb-group-heading {
+  min-width: 0;
 }
 
 .fb-group-step {
@@ -188,6 +209,8 @@
   width: 2rem;
   height: 2rem;
   flex-shrink: 0;
+  /* Optically centres the badge against the first line of the title. */
+  margin-top: 0.1rem;
   border-radius: 999px;
   background-color: #165abf;
   color: #ffffff;
@@ -196,9 +219,11 @@
 }
 
 .fb-group-title {
+  margin: 0;
   color: #2f2e2e;
   font-size: clamp(1.05rem, 2.5vw, 1.3rem);
   font-weight: 800;
+  line-height: 2rem;
 }
 
 /* No bottom margin: `.fb-group-body`'s margin-top owns the gap to the fields,
@@ -207,7 +232,7 @@
   color: #767575;
   font-size: 0.95rem;
   line-height: 1.7;
-  margin: 0 0 0 2.75rem;
+  margin: 0.3rem 0 0;
 }
 
 .fb-group-body {
@@ -234,29 +259,50 @@
   flex-direction: column;
 }
 
+/* Block, not flex: as a centred flex row a wrapping label pushed the OPTIONAL
+   chip out to the right edge and centred it across both lines, so it read as
+   a separate thing floating beside the label. Inline, it just follows the
+   last word and wraps with it. */
 .fb-label {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: block;
   color: #2f2e2e;
   font-weight: 700;
   font-size: 1rem;
-  margin-bottom: 0.4rem;
+  line-height: 1.45;
+  margin-bottom: 0.45rem;
 }
 
 .fb-optional {
+  display: inline-block;
+  margin-left: 0.55rem;
   color: #9aa2ac;
   font-weight: 600;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  vertical-align: 1px;
 }
 
+/* Sits under its control (see the note in FeedbackFields.jsx), so the margin
+   is on top. */
 .fb-hint {
   color: #767575;
   font-size: 0.88rem;
   line-height: 1.6;
-  margin: 0 0 0.6rem;
+  margin: 0.45rem 0 0;
+}
+
+/* `.fb-field` is a flex column, so sibling margins never collapse — the
+   label's bottom margin and the hint's top margin would otherwise add up to
+   double the gap that label→input gets. */
+.fb-label + .fb-hint {
+  margin-top: 0;
+}
+
+/* The exception: a textarea's hint stays above the box, so the gap has to be
+   re-created underneath it. */
+.fb-hint + .fb-textarea {
+  margin-top: 0.45rem;
 }
 
 .fb-input {
@@ -501,9 +547,12 @@
 
 /* ---------- What happens next ---------- */
 
+/* Matches the form card's width, not the page width: the card and the steps
+   are one column inside the tinted band, so they share a left/right edge.
+   At --fb-max the steps ran wider than the card and the band looked ragged. */
 .fb-steps-sec {
   width: 90%;
-  max-width: var(--fb-max);
+  max-width: 880px;
   /* Slightly tighter than the band's own padding, so the form and the steps
      group together inside the band instead of floating apart in it. */
   margin: clamp(2.5rem, 5.5vw, 4rem) auto 0;
@@ -634,9 +683,13 @@
   /* The figure stays *after* the text here on purpose: the back link is the
      first thing in the reading order, so the page still opens with a way out
      rather than a decorative image. */
+  /* `flex: none` + a plain max-width: with a flex-basis in play the column
+     layout resolved aspect-ratio against the basis rather than the rendered
+     width, leaving the box taller than the ratio asks for. */
   .fb-hero-figure {
-    flex: 0 1 auto;
-    max-width: clamp(200px, 45vw, 300px);
+    flex: none;
+    width: 100%;
+    max-width: min(300px, 62vw);
   }
 
   .fb-steps {
@@ -664,13 +717,17 @@
     gap: 1.5rem;
   }
 
-  /* No step badge to indent under once the legend wraps. */
-  .fb-group-hint {
-    margin-left: 0;
+  /* Field-to-field spacing must match `.fb-row`'s stacked gap exactly, or the
+     two halves of a row end up further apart than two unrelated fields. */
+  .fb-group-body {
+    gap: 1.5rem;
   }
 
-  .fb-group-body {
-    gap: 1.35rem;
+  /* Tighter section break on a narrow screen: at 2.5rem each side the jump
+     from a 1.5rem field gap to an 5rem group gap was far too abrupt. */
+  .fb-group {
+    margin-top: 2rem;
+    padding-top: 2rem;
   }
 
   .fb-submit-row {
@@ -691,6 +748,12 @@
 
   .fb-success-actions .fb-btn {
     width: 100%;
+  }
+
+  /* At 240px Kappy dominated the success card and pushed the two actions
+     below the fold on a phone. */
+  .fb-success-card figure {
+    max-width: 180px;
   }
 }
 

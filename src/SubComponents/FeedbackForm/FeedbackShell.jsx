@@ -85,12 +85,19 @@ const FeedbackShell = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  /* Scroll reveal for the steps strip only.
+     It is never applied to the form: `whileInView` starts the element at
+     opacity 0 and only reveals it once the viewport observer fires, and the
+     form card is taller than the viewport, so on a phone the whole form could
+     sit invisible. Decoration may fade in; the thing the page exists for may
+     not. `amount: "some"` fires as soon as any part is visible, which a tall
+     element can always satisfy. */
   const reveal = reduce
     ? {}
     : {
         initial: { opacity: 0, y: 24 },
         whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, amount: 0.2 },
+        viewport: { once: true, amount: "some" },
         transition: { duration: 0.5, ease: "easeOut" },
       };
 
@@ -112,7 +119,7 @@ const FeedbackShell = ({
             <h1>{successTitle}</h1>
             <p>{successBody}</p>
             <figure>
-              <img src="Images/kappy-contact.png" alt="" />
+              <img src="Images/kappy-contact.webp" alt="" />
             </figure>
             <div className="fb-success-actions">
               <Link className="fb-btn fb-btn-primary" to="/">
@@ -164,8 +171,8 @@ const FeedbackShell = ({
 
           {/* Tinted band holding the form and the steps */}
           <div className="fb-lower">
-            {/* Form */}
-            <motion.section className="fb-form-sec" {...reveal}>
+            {/* Form — no reveal, see the note on `reveal` above. */}
+            <section className="fb-form-sec">
               <div className="fb-form-card">
                 <h2>{formTitle}</h2>
                 <p className="fb-form-intro">{formIntro}</p>
@@ -202,7 +209,7 @@ const FeedbackShell = ({
                   </div>
                 </form>
               </div>
-            </motion.section>
+            </section>
 
             {/* What happens next */}
             <motion.section className="fb-steps-sec" {...reveal}>

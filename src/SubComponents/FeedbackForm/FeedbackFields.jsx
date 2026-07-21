@@ -6,17 +6,26 @@
 
 const fieldClass = (error) => `fb-field${error ? " fb-field-invalid" : ""}`;
 
-/* A numbered block of related questions ("01 — About you"). The eyebrow gives
-   a long form a sense of progress without a real multi-step wizard. */
+/* A numbered block of related questions ("01 — About you"). The number gives
+   a long form a sense of progress without a real multi-step wizard.
+
+   Deliberately NOT a <fieldset>/<legend>: a legend is pulled out of normal
+   flow and painted over the fieldset's border, which notched a gap in the
+   divider and left the heading sitting on the line with nothing above it.
+   No amount of margin fixes that — the element has to be in flow. */
 export const FieldGroup = ({ step, title, hint, children }) => (
-  <fieldset className="fb-group">
-    <legend className="fb-group-legend">
-      <span className="fb-group-step">{step}</span>
-      <span className="fb-group-title">{title}</span>
-    </legend>
-    {hint && <p className="fb-group-hint">{hint}</p>}
+  <section className="fb-group">
+    <div className="fb-group-head">
+      <span className="fb-group-step" aria-hidden="true">
+        {step}
+      </span>
+      <div className="fb-group-heading">
+        <h3 className="fb-group-title">{title}</h3>
+        {hint && <p className="fb-group-hint">{hint}</p>}
+      </div>
+    </div>
     <div className="fb-group-body">{children}</div>
-  </fieldset>
+  </section>
 );
 
 /* Two fields side by side on desktop, stacked on mobile. */
@@ -38,6 +47,24 @@ const Error = ({ id, error }) =>
     </p>
   ) : null;
 
+/* Hints sit BELOW the control, not between the label and it. Above, a hint on
+   one field of a two-column row pushed that field's input down while its
+   neighbour's stayed put, so the inputs in a row never lined up.
+
+   A hint hides while an error is showing: stacking both puts two lines of
+   small print under one field, and the error copy already says what the hint
+   would have. It comes back as soon as the field is fixed. */
+const Hint = ({ id, hint, error }) =>
+  hint && !error ? (
+    <p className="fb-hint" id={id}>
+      {hint}
+    </p>
+  ) : null;
+
+/* Ties the control to whichever of the two is actually on screen. */
+const describedBy = (id, hint, error) =>
+  (error ? `${id}-error` : hint ? `${id}-hint` : undefined);
+
 export const TextField = ({
   id,
   label,
@@ -50,20 +77,24 @@ export const TextField = ({
 }) => (
   <div className={fieldClass(error)}>
     <Label htmlFor={id} label={label} optional={optional} />
-    {hint && <p className="fb-hint">{hint}</p>}
     <input
       id={id}
       className="fb-input"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       aria-invalid={error ? true : undefined}
-      aria-describedby={error ? `${id}-error` : undefined}
+      aria-describedby={describedBy(id, hint, error)}
       {...rest}
     />
+    <Hint id={`${id}-hint`} hint={hint} error={error} />
     <Error id={`${id}-error`} error={error} />
   </div>
 );
 
+/* The one place a hint stays ABOVE its control: a textarea's hint is a prompt
+   for what to write, so it has to be read before the box, and a textarea is
+   always full-width here — never in a row — so it can't knock a neighbour
+   out of alignment. */
 export const TextArea = ({
   id,
   label,
@@ -77,7 +108,7 @@ export const TextArea = ({
 }) => (
   <div className={fieldClass(error)}>
     <Label htmlFor={id} label={label} optional={optional} />
-    {hint && <p className="fb-hint">{hint}</p>}
+    <Hint id={`${id}-hint`} hint={hint} error={error} />
     <textarea
       id={id}
       className="fb-input fb-textarea"
@@ -85,7 +116,7 @@ export const TextArea = ({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       aria-invalid={error ? true : undefined}
-      aria-describedby={error ? `${id}-error` : undefined}
+      aria-describedby={describedBy(id, hint, error)}
       {...rest}
     />
     <Error id={`${id}-error`} error={error} />
@@ -105,7 +136,6 @@ export const SelectField = ({
 }) => (
   <div className={fieldClass(error)}>
     <Label htmlFor={id} label={label} optional={optional} />
-    {hint && <p className="fb-hint">{hint}</p>}
     <div className="fb-select-wrap">
       <select
         id={id}
@@ -113,7 +143,7 @@ export const SelectField = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={error ? true : undefined}
-        aria-describedby={error ? `${id}-error` : undefined}
+        aria-describedby={describedBy(id, hint, error)}
       >
         <option value="">{placeholder}</option>
         {options.map((opt) => (
@@ -123,6 +153,7 @@ export const SelectField = ({
         ))}
       </select>
     </div>
+    <Hint id={`${id}-hint`} hint={hint} error={error} />
     <Error id={`${id}-error`} error={error} />
   </div>
 );
@@ -144,7 +175,6 @@ export const ChoiceGroup = ({
       {label}
       {optional && <span className="fb-optional">optional</span>}
     </span>
-    {hint && <p className="fb-hint">{hint}</p>}
     <div className="fb-choices">
       {options.map((opt) => {
         const optValue = typeof opt === "string" ? opt : opt.value;
@@ -169,6 +199,7 @@ export const ChoiceGroup = ({
         );
       })}
     </div>
+    <Hint id={`${name}-hint`} hint={hint} error={error} />
     <Error id={`${name}-error`} error={error} />
   </div>
 );

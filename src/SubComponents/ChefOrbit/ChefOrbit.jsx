@@ -2,14 +2,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import "./ChefOrbit.css";
 
 const avatars = [
-  "Ellipse 28.png",
-  "Ellipse 29.png",
-  "Ellipse 30.png",
-  "Ellipse 31.png",
-  "Ellipse 32.png",
-  "Ellipse 34.png",
-  "Ellipse 35.png",
-  "Ellipse 36.png",
+  "Ellipse 28.webp",
+  "Ellipse 29.webp",
+  "Ellipse 30.webp",
+  "Ellipse 31.webp",
+  "Ellipse 32.webp",
+  "Ellipse 34.webp",
+  "Ellipse 35.webp",
+  "Ellipse 36.webp",
 ];
 
 /* Elliptical arc geometry, as percentages of the container box.
@@ -67,7 +67,7 @@ const ChefOrbit = () => {
         );
       })}
 
-      <img src="Images/kappy-chef.png" alt="Kappy" className="chef-orbit-kappy" />
+      <img src="Images/kappy-chef.webp" alt="Kappy" className="chef-orbit-kappy" />
     </div>
   );
 };
