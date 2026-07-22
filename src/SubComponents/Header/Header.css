@@ -57,19 +57,27 @@
 }
 
 .kappy-header-korner {
-  font-family: "Nunito", sans-serif;
-  font-style: normal;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   border: 2px solid #165abf;
-  color: #165abf;
   background-color: #ffffff;
-  padding: 0.75rem 1.75rem;
+  padding: 0.5rem 1.35rem;
   border-radius: 999px;
-  font-weight: 700;
-  font-size: 1rem;
   white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kappy-header-korner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(22, 90, 191, 0.22);
+}
+
+.kappy-header-korner-logo {
+  display: block;
+  height: clamp(18px, 2vw, 22px);
+  width: auto;
 }
 
 .kappy-header-menu-btn {
@@ -158,9 +166,12 @@
 }
 
 .kappy-header-menu-panel-korner {
-  color: #252528;
+  display: inline-flex;
+  align-items: center;
 }
 
-.kappy-header-menu-panel-korner:visited {
-  color: #1555b3;
+.kappy-header-menu-panel-korner-logo {
+  display: block;
+  height: 26px;
+  width: auto;
 }

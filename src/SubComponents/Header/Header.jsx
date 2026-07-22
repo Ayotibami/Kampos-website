@@ -120,8 +120,15 @@ const Header = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="kappy-header-korner"
+        aria-label="Korner"
       >
-        Korner
+        <img
+          src="Images/korner-logo.webp"
+          alt="Korner"
+          className="kappy-header-korner-logo"
+          width="520"
+          height="178"
+        />
       </a>
       {!menuOpen && (
         <nav className="kappy-header-mobile-nav">
@@ -170,8 +177,15 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="kappy-header-menu-panel-korner"
                 onClick={closeMenu}
+                aria-label="Korner"
               >
-                Korner
+                <img
+                  src="Images/korner-logo.webp"
+                  alt="Korner"
+                  className="kappy-header-menu-panel-korner-logo"
+                  width="520"
+                  height="178"
+                />
               </a>
             </motion.div>
           </>
