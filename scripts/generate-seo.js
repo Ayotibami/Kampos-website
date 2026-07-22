@@ -40,6 +40,9 @@ const routes = [
   { path: "/contactPage", priority: "0.8", changefreq: "monthly" },
   { path: "/request-feature", priority: "0.6", changefreq: "monthly" },
   { path: "/report-bug", priority: "0.6", changefreq: "monthly" },
+  { path: "/privacy", priority: "0.4", changefreq: "yearly" },
+  { path: "/terms", priority: "0.4", changefreq: "yearly" },
+  { path: "/community-guidelines", priority: "0.4", changefreq: "yearly" },
 ];
 
 const today = new Date().toISOString().slice(0, 10);

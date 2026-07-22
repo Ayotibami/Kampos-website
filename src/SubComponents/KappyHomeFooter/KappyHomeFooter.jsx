@@ -14,7 +14,7 @@ const linkColumns = [
   },
   {
     heading: "Legal",
-    links: ["Privacy Policy"],
+    links: ["Privacy Policy", "Community Guidelines"],
   },
 ];
 
@@ -26,6 +26,9 @@ const linkTargets = {
   FAQ: "/contactPage#faq",
   "Bug report": "/report-bug",
   "Feature Requests": "/request-feature",
+  "Terms and conditions": "/terms",
+  "Privacy Policy": "/privacy",
+  "Community Guidelines": "/community-guidelines",
 };
 
 /* `title` shows the actual destination on hover. It matters most for Email:

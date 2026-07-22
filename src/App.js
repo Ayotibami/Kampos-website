@@ -5,6 +5,9 @@ import Chefs from "./Components/Chefs/Chefs";
 import ContactPage from "./Components/ContactPage/ContactPage";
 import BugReportPage from "./Components/BugReportPage/BugReportPage";
 import FeatureRequestPage from "./Components/FeatureRequestPage/FeatureRequestPage";
+import PrivacyPolicy from "./Components/PrivacyPolicy/PrivacyPolicy";
+import TermsConditions from "./Components/TermsConditions/TermsConditions";
+import CommunityGuidelines from "./Components/CommunityGuidelines/CommunityGuidelines";
 import RootLayout from "./SubComponents/RootLayout/RootLayout";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -39,6 +42,21 @@ const App = () => {
         {
           path: "/request-feature",
           element: <FeatureRequestPage />,
+        },
+
+        {
+          path: "/privacy",
+          element: <PrivacyPolicy />,
+        },
+
+        {
+          path: "/terms",
+          element: <TermsConditions />,
+        },
+
+        {
+          path: "/community-guidelines",
+          element: <CommunityGuidelines />,
         },
       ],
     },

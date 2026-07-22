@@ -1,0 +1,89 @@
+import "./LegalPage.css";
+
+import { useEffect, useState } from "react";
+import Header from "../Header/Header";
+import KappyHomeFooter from "../KappyHomeFooter/KappyHomeFooter";
+
+/* Shared shell for the long-form legal pages (Privacy, Terms, Community
+   Guidelines). Gives them a branded hero, a sticky "on this page" table of
+   contents with scroll-spy, and a readable content column. Pages pass their
+   section list (for the TOC) and write the body as children. */
+const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) => {
+  const [active, setActive] = useState(sections[0]?.id);
+
+  // Highlight the TOC entry for whichever section is currently in view.
+  useEffect(() => {
+    if (!sections.length) return;
+    const els = sections
+      .map((s) => document.getElementById(s.id))
+      .filter(Boolean);
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, [sections]);
+
+  return (
+    <main className="legal-page">
+      <Header />
+
+      <header className="legal-hero">
+        <div className="legal-hero-inner">
+          {eyebrow && <p className="legal-eyebrow">{eyebrow}</p>}
+          <h1>{title}</h1>
+          {updated && <p className="legal-updated">Last updated · {updated}</p>}
+          {intro && <p className="legal-intro">{intro}</p>}
+        </div>
+      </header>
+
+      <div className={`legal-body${sections.length ? "" : " legal-body-solo"}`}>
+        {sections.length > 0 && (
+          <aside className="legal-toc" aria-label="On this page">
+            <p className="legal-toc-title">On this page</p>
+            <nav>
+              <ul>
+                {sections.map((s) => (
+                  <li key={s.id}>
+                    <a
+                      href={`#${s.id}`}
+                      className={active === s.id ? "is-active" : ""}
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
+        <article className="legal-content">{children}</article>
+      </div>
+
+      <KappyHomeFooter />
+    </main>
+  );
+};
+
+/* A titled, anchor-linked section. `id` must match the TOC entry. */
+export const LegalSection = ({ id, title, children }) => (
+  <section id={id} className="legal-section">
+    <h2>{title}</h2>
+    {children}
+  </section>
+);
+
+/* Highlighted note box for the docs' "Important Note" / "Example" asides. */
+export const Callout = ({ label = "Important note", tone = "note", children }) => (
+  <aside className={`legal-callout legal-callout-${tone}`}>
+    <span className="legal-callout-badge">{label}</span>
+    <div className="legal-callout-body">{children}</div>
+  </aside>
+);
+
+export default LegalPage;
