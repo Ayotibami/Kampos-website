@@ -107,6 +107,22 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #8792a8;
+  list-style: none;
+}
+.legal-toc-title::-webkit-details-marker {
+  display: none;
+}
+/* Desktop: the sidebar is always expanded and can't be toggled, so the
+   details' open-state is irrelevant — force the nav visible and disable the
+   summary. Mobile styles below re-enable the accordion. */
+@media (min-width: 901px) {
+  .legal-toc > nav {
+    display: block !important;
+  }
+  .legal-toc-title {
+    pointer-events: none;
+    cursor: default;
+  }
 }
 .legal-toc ul {
   list-style: none;
@@ -144,6 +160,15 @@
   font-size: clamp(1rem, 1.5vw, 1.08rem);
   line-height: 1.75;
   color: #3a4256;
+  /* long emails/URLs wrap instead of forcing horizontal scroll on phones */
+  overflow-wrap: break-word;
+}
+.legal-content a {
+  word-break: break-word;
+}
+
+.legal-page {
+  overflow-x: hidden; /* belt-and-braces against any stray wide child */
 }
 
 .legal-section {
@@ -323,7 +348,49 @@
   .legal-body {
     grid-template-columns: minmax(0, 1fr);
   }
+  /* collapsible "On this page" card, closed by default to save space */
   .legal-toc {
-    display: none;
+    position: static;
+    margin-bottom: 1.75rem;
+    border: 1px solid #e6ebf3;
+    border-radius: 14px;
+    background: #f7f9fc;
+    padding: 0 1rem;
+  }
+  .legal-toc-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0.95rem 0;
+    cursor: pointer;
+  }
+  .legal-toc-title::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #8792a8;
+    border-bottom: 2px solid #8792a8;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  .legal-toc[open] .legal-toc-title::after {
+    transform: rotate(-135deg);
+  }
+  .legal-toc[open] .legal-toc-title {
+    border-bottom: 1px solid #e6ebf3;
+  }
+  .legal-toc nav {
+    padding: 0.5rem 0 0.9rem;
+  }
+  .legal-toc ul {
+    border-left: none;
+  }
+  .legal-toc a {
+    padding-left: 0.25rem;
+    border-left: none;
+  }
+  .legal-toc a.is-active {
+    border-left: none;
   }
 }

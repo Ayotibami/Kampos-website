@@ -44,8 +44,10 @@ const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) 
 
       <div className={`legal-body${sections.length ? "" : " legal-body-solo"}`}>
         {sections.length > 0 && (
-          <aside className="legal-toc" aria-label="On this page">
-            <p className="legal-toc-title">On this page</p>
+          /* A sticky sidebar on desktop; a collapsible accordion on mobile
+             (CSS shows the nav regardless of open-state above 900px). */
+          <details className="legal-toc" aria-label="On this page">
+            <summary className="legal-toc-title">On this page</summary>
             <nav>
               <ul>
                 {sections.map((s) => (
@@ -60,7 +62,7 @@ const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) 
                 ))}
               </ul>
             </nav>
-          </aside>
+          </details>
         )}
         <article className="legal-content">{children}</article>
       </div>
