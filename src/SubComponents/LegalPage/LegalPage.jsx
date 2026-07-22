@@ -10,6 +10,7 @@ import KappyHomeFooter from "../KappyHomeFooter/KappyHomeFooter";
    section list (for the TOC) and write the body as children. */
 const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) => {
   const [active, setActive] = useState(sections[0]?.id);
+  const [tocOpen, setTocOpen] = useState(false); // only affects mobile
 
   // Highlight the TOC entry for whichever section is currently in view.
   useEffect(() => {
@@ -44,17 +45,26 @@ const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) 
 
       <div className={`legal-body${sections.length ? "" : " legal-body-solo"}`}>
         {sections.length > 0 && (
-          /* A sticky sidebar on desktop; a collapsible accordion on mobile
-             (CSS shows the nav regardless of open-state above 900px). */
-          <details className="legal-toc" aria-label="On this page">
-            <summary className="legal-toc-title">On this page</summary>
-            <nav>
+          /* Always-visible sticky sidebar on desktop; on mobile the button
+             collapses the nav (React-controlled, so it works regardless of the
+             browser's native <details> quirks). */
+          <aside className={`legal-toc${tocOpen ? " is-open" : ""}`}>
+            <button
+              type="button"
+              className="legal-toc-title"
+              aria-expanded={tocOpen}
+              onClick={() => setTocOpen((v) => !v)}
+            >
+              On this page
+            </button>
+            <nav className="legal-toc-nav">
               <ul>
                 {sections.map((s) => (
                   <li key={s.id}>
                     <a
                       href={`#${s.id}`}
                       className={active === s.id ? "is-active" : ""}
+                      onClick={() => setTocOpen(false)}
                     >
                       {s.label}
                     </a>
@@ -62,7 +72,7 @@ const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) 
                 ))}
               </ul>
             </nav>
-          </details>
+          </aside>
         )}
         <article className="legal-content">{children}</article>
       </div>

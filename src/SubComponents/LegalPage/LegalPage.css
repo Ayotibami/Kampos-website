@@ -99,30 +99,47 @@
   position: sticky;
   top: 96px;
   align-self: start;
+  /* never taller than the viewport; the list scrolls on its own if the page
+     has more sections than fit. */
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
 }
+/* The toggle button is a plain uppercase label on desktop (inert), and a real
+   accordion control on mobile (see media query below). */
 .legal-toc-title {
+  display: block;
+  width: 100%;
   margin: 0 0 0.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
   font-weight: 800;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #8792a8;
-  list-style: none;
+  text-align: left;
+  cursor: default;
+  pointer-events: none;
+  flex-shrink: 0; /* keep the "On this page" label pinned while the list scrolls */
 }
-.legal-toc-title::-webkit-details-marker {
-  display: none;
+/* Desktop: the nav is always visible and scrolls on its own if it overflows. */
+.legal-toc-nav {
+  display: block;
+  min-height: 0;
+  overflow-y: auto;
+  /* subtle scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #cdd6e5 transparent;
 }
-/* Desktop: the sidebar is always expanded and can't be toggled, so the
-   details' open-state is irrelevant — force the nav visible and disable the
-   summary. Mobile styles below re-enable the accordion. */
-@media (min-width: 901px) {
-  .legal-toc > nav {
-    display: block !important;
-  }
-  .legal-toc-title {
-    pointer-events: none;
-    cursor: default;
-  }
+.legal-toc-nav::-webkit-scrollbar {
+  width: 6px;
+}
+.legal-toc-nav::-webkit-scrollbar-thumb {
+  background: #cdd6e5;
+  border-radius: 99px;
 }
 .legal-toc ul {
   list-style: none;
@@ -348,14 +365,19 @@
   .legal-body {
     grid-template-columns: minmax(0, 1fr);
   }
-  /* collapsible "On this page" card, closed by default to save space */
+  /* collapsible "On this page" card, collapsed by default to save space */
   .legal-toc {
     position: static;
+    max-height: none;
+    display: block;
     margin-bottom: 1.75rem;
     border: 1px solid #e6ebf3;
     border-radius: 14px;
     background: #f7f9fc;
     padding: 0 1rem;
+  }
+  .legal-toc-nav {
+    overflow-y: visible;
   }
   .legal-toc-title {
     display: flex;
@@ -364,6 +386,7 @@
     margin: 0;
     padding: 0.95rem 0;
     cursor: pointer;
+    pointer-events: auto; /* re-enable the toggle on mobile */
   }
   .legal-toc-title::after {
     content: "";
@@ -374,14 +397,19 @@
     transform: rotate(45deg);
     transition: transform 0.2s ease;
   }
-  .legal-toc[open] .legal-toc-title::after {
+  .legal-toc.is-open .legal-toc-title::after {
     transform: rotate(-135deg);
   }
-  .legal-toc[open] .legal-toc-title {
+  .legal-toc.is-open .legal-toc-title {
     border-bottom: 1px solid #e6ebf3;
   }
-  .legal-toc nav {
+  /* nav hidden until the card is opened */
+  .legal-toc-nav {
+    display: none;
     padding: 0.5rem 0 0.9rem;
+  }
+  .legal-toc.is-open .legal-toc-nav {
+    display: block;
   }
   .legal-toc ul {
     border-left: none;
