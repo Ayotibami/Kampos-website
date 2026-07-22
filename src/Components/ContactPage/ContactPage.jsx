@@ -127,11 +127,14 @@ const ContactPage = () => {
     try {
       await submitFeedback({
         subject: `[Contact] Message from ${contact.name}`,
+        fromName: contact.name,
+        replyTo: contact.email,
+        // Keys are the friendly labels shown as Web3Forms dashboard columns.
         fields: {
-          form_type: "Contact",
-          name: contact.name,
-          email: contact.email,
-          message: contact.message,
+          Form: "Contact",
+          Name: contact.name,
+          Email: contact.email,
+          Message: contact.message,
         },
       });
     } catch (err) {

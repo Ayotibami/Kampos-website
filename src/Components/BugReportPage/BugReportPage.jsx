@@ -87,18 +87,21 @@ const BugReportPage = () => {
       subject: `[Bug] ${fields.area || "Report"}${
         fields.email ? ` — ${fields.email}` : ""
       }`,
+      fromName: fields.fullName,
+      replyTo: fields.email,
+      // Keys are the friendly labels shown as Web3Forms dashboard columns.
       fields: {
-        form_type: "Bug report",
-        name: fields.fullName,
-        email: fields.email,
-        avitag: fields.avitag,
-        school: fields.school,
-        area: fields.area,
-        what_happened: fields.whatHappened,
-        steps_to_reproduce: fields.steps,
-        frequency: fields.frequency,
-        severity: fields.severity,
-        device: fields.device,
+        Form: "Bug report",
+        Name: fields.fullName,
+        Email: fields.email,
+        Avitag: fields.avitag,
+        School: fields.school,
+        "Where it happened": fields.area,
+        "What went wrong": fields.whatHappened,
+        "Steps to reproduce": fields.steps,
+        "How often": fields.frequency,
+        Severity: fields.severity,
+        "Device & browser": fields.device,
       },
     });
   };

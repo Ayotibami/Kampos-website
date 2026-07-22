@@ -9,23 +9,29 @@
 const ENDPOINT = "https://api.web3forms.com/submit";
 const ACCESS_KEY = process.env.REACT_APP_WEB3FORMS_KEY;
 
-/* Fields worth capturing on every submission that the user never has to type.
-   They ride along in the email body and cost nothing. */
+/* Context worth capturing on every submission that the user never types. The
+   keys are the human-readable labels Web3Forms shows as dashboard columns and
+   email lines. */
 const metadata = () => ({
-  page_url: typeof window !== "undefined" ? window.location.href : "",
-  submitted_at: new Date().toISOString(),
-  user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+  Page: typeof window !== "undefined" ? window.location.href : "",
+  Submitted:
+    typeof window !== "undefined" ? new Date().toLocaleString() : "",
+  Browser: typeof navigator !== "undefined" ? navigator.userAgent : "",
 });
 
-/* @param {string}   subject  Email subject, e.g. "[Bug] Feed — can't load".
-   @param {object}   fields   Flat map of label→value shown in the email.
+/* @param {string} subject   Email subject, e.g. "[Bug] Feed — can't load".
+   @param {string} fromName  Sender name shown on the email (optional).
+   @param {string} replyTo   Reply-to address so a reply reaches the sender.
+   @param {object} fields    label→value pairs; the KEYS become the column
+                             headers in the Web3Forms dashboard, so they are
+                             written as friendly labels ("What went wrong?").
    @returns the parsed Web3Forms response on success; throws on failure so the
             caller can surface a message and re-enable the form.
 
    Note: no file attachments — that is a paid Web3Forms tier. If Kampos moves
    to its own backend later, add a FormData file append here and nothing at the
    call sites has to change. */
-export async function submitFeedback({ subject, fields = {} }) {
+export async function submitFeedback({ subject, fromName, replyTo, fields = {} }) {
   if (!ACCESS_KEY) {
     // A misconfigured deploy should fail loudly in the console, not silently
     // swallow a student's report.
@@ -38,10 +44,10 @@ export async function submitFeedback({ subject, fields = {} }) {
   form.append("access_key", ACCESS_KEY);
   if (subject) form.append("subject", subject);
 
-  // Web3Forms uses `from_name` for the sender label and `email` as reply-to,
-  // so replies land back with the person who wrote in.
-  if (fields.name) form.append("from_name", String(fields.name));
-  if (fields.email) form.append("replyto", String(fields.email));
+  // `from_name`/`replyto` are Web3Forms control fields (not data columns): they
+  // set the email's sender label and reply-to so a reply reaches the student.
+  if (fromName) form.append("from_name", String(fromName));
+  if (replyTo) form.append("replyto", String(replyTo));
 
   // Send every mapped field on every submission — including blanks — so the
   // Web3Forms dashboard has a stable, complete set of columns. Skipping empty

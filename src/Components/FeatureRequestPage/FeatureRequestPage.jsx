@@ -56,18 +56,21 @@ const FeatureRequestPage = () => {
       subject: `[Feature] ${fields.headline || "Request"}${
         fields.email ? ` — ${fields.email}` : ""
       }`,
+      fromName: fields.fullName,
+      replyTo: fields.email,
+      // Keys are the friendly labels shown as Web3Forms dashboard columns.
       fields: {
-        form_type: "Feature request",
-        name: fields.fullName,
-        email: fields.email,
-        avitag: fields.avitag,
-        school: fields.school,
-        idea_title: fields.headline,
-        category: fields.category,
-        details: fields.details,
-        today_workaround: fields.today,
-        want_level: fields.wantLevel,
-        can_contact: fields.canContact ? "Yes" : "No",
+        Form: "Feature request",
+        Name: fields.fullName,
+        Email: fields.email,
+        Avitag: fields.avitag,
+        School: fields.school,
+        "Idea title": fields.headline,
+        Category: fields.category,
+        Details: fields.details,
+        "Current workaround": fields.today,
+        "How much they want it": fields.wantLevel,
+        "OK to contact": fields.canContact ? "Yes" : "No",
       },
     });
   };
