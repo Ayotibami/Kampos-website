@@ -8,6 +8,7 @@ import {
   TextArea,
   TextField,
   ChoiceGroup,
+  ImageUpload,
 } from "../../SubComponents/FeedbackForm/FeedbackFields";
 
 /* Best-effort browser + OS read from the user agent. It only has to be good
@@ -112,6 +113,7 @@ const BugReportPage = () => {
         frequency: "",
         severity: "",
         device,
+        screenshots: [],
       }}
       validate={validate}
       onSubmit={handleSubmit}
@@ -165,6 +167,16 @@ const BugReportPage = () => {
               onChange={(v) => setField("steps", v)}
               placeholder={"1. I opened…\n2. I tapped…\n3. Then…"}
               rows={5}
+            />
+
+            <ImageUpload
+              id="screenshots"
+              label="Add screenshots"
+              optional
+              hint="A picture of the bug says more than words. Attach up to 3."
+              files={values.screenshots}
+              onChange={(files) => setField("screenshots", files)}
+              max={3}
             />
           </FieldGroup>
 
