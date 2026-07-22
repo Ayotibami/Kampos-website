@@ -43,8 +43,13 @@ export async function submitFeedback({ subject, fields = {} }) {
   if (fields.name) form.append("from_name", String(fields.name));
   if (fields.email) form.append("replyto", String(fields.email));
 
+  // Send every mapped field on every submission — including blanks — so the
+  // Web3Forms dashboard has a stable, complete set of columns. Skipping empty
+  // values makes columns come and go between submissions, which shows up as
+  // missing or ragged columns in the table. undefined/null still drop out
+  // (those are "field not applicable to this form", not "left blank").
   for (const [key, value] of Object.entries({ ...fields, ...metadata() })) {
-    if (value === undefined || value === null || value === "") continue;
+    if (value === undefined || value === null) continue;
     form.append(key, typeof value === "string" ? value : String(value));
   }
 
