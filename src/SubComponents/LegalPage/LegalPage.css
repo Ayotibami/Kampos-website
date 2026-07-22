@@ -97,11 +97,11 @@
 /* ---------- table of contents ---------- */
 .legal-toc {
   position: sticky;
-  top: 96px;
+  top: 32px;
   align-self: start;
   /* never taller than the viewport; the list scrolls on its own if the page
-     has more sections than fit. */
-  max-height: calc(100vh - 120px);
+     has more sections than fit, so the whole TOC stays on screen. */
+  max-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
 }
@@ -182,10 +182,6 @@
 }
 .legal-content a {
   word-break: break-word;
-}
-
-.legal-page {
-  overflow-x: hidden; /* belt-and-braces against any stray wide child */
 }
 
 .legal-section {
