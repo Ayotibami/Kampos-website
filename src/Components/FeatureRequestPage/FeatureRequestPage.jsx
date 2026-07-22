@@ -1,3 +1,4 @@
+import { submitFeedback } from "../../api/feedback";
 import FeedbackShell from "../../SubComponents/FeedbackForm/FeedbackShell";
 import {
   FieldGroup,
@@ -50,11 +51,25 @@ const validate = (values) => ({
 });
 
 const FeatureRequestPage = () => {
-  const handleSubmit = async (payload) => {
-    // TODO: wire to the real endpoint. Until then the request is logged so the
-    // flow can be tested end to end, and the UI treats it as a success.
-    console.log("Feature request submitted:", payload);
-    await new Promise((resolve) => setTimeout(resolve, 700));
+  const handleSubmit = async (fields) => {
+    await submitFeedback({
+      subject: `[Feature] ${fields.headline || "Request"}${
+        fields.email ? ` — ${fields.email}` : ""
+      }`,
+      fields: {
+        form_type: "Feature request",
+        name: fields.fullName,
+        email: fields.email,
+        avitag: fields.avitag,
+        school: fields.school,
+        idea_title: fields.headline,
+        category: fields.category,
+        details: fields.details,
+        today_workaround: fields.today,
+        want_level: fields.wantLevel,
+        can_contact: fields.canContact ? "Yes" : "No",
+      },
+    });
   };
 
   return (

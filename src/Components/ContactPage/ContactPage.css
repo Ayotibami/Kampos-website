@@ -99,6 +99,9 @@
 .contact-page-second-sec p {
 }
 
+/* The form replaced the old static <div>, and the success panel is a <div> —
+   both need the same centred column the layout was built around. */
+.contact-page-second-sec > form,
 .contact-page-second-sec > div {
   align-self: center;
   display: flex;
@@ -162,6 +165,68 @@
   min-height: 240px;
   resize: vertical;
   line-height: 1.6;
+}
+
+/* Invalid fields get a red ring even on the blue panel. */
+.contact-page-second-sec input[aria-invalid="true"],
+.contact-page-second-sec textarea[aria-invalid="true"] {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.25);
+}
+
+/* Error + failure text sits on the dark blue panel, so it reads light, not the
+   dark red used on the white form pages. */
+.contact-page-field-error {
+  margin: 0.85rem 0 0;
+  color: #ffe0e0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.contact-page-submit-error {
+  margin: 2rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 224, 224, 0.5);
+  color: #ffe6e6;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Off-screen but still submittable — bots fill it, humans never see it. */
+.contact-page-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-page-second-sec button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+
+/* Success panel — replaces the form in place after a send. */
+.contact-page-second-sec-success h1 {
+  margin: 0;
+}
+
+.contact-page-second-sec-success p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.9;
+  margin: 1.25rem 0 0;
+  max-width: 640px;
+}
+
+.contact-page-second-sec-success strong {
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .contact-page-second-sec button {

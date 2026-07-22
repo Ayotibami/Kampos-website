@@ -8,6 +8,11 @@ import { NavLink } from "react-router-dom";
 
 const navLinkClass = ({ isActive }) => (isActive ? "active-link" : "link");
 
+/* Where the "Korner" button points. Set REACT_APP_KORNER_URL in .env (or Vercel)
+   to change it without touching code; falls back to the current URL. */
+const KORNER_URL =
+  process.env.REACT_APP_KORNER_URL || "https://korner-frontend.vercel.app/";
+
 const FEATHER_ORIGIN = { transformOrigin: "12px 12px" };
 
 const MenuIcon = () => (
@@ -111,7 +116,7 @@ const Header = () => {
         </NavLink>
       </nav>
       <a
-        href="https://korner-frontend.vercel.app/"
+        href={KORNER_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="kappy-header-korner"
@@ -160,7 +165,7 @@ const Header = () => {
                 Hit Us up
               </NavLink>
               <a
-                href="https://korner-frontend.vercel.app/"
+                href={KORNER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="kappy-header-menu-panel-korner"

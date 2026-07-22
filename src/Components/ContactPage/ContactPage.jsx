@@ -11,6 +11,7 @@ import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import FaqAccordion from "../../SubComponents/FaqAccordion/FaqAccordion";
 import { CONTACT, EMAIL_ADDRESS } from "../../constants/contactLinks";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
+import { submitFeedback } from "../../api/feedback";
 
 const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
 
@@ -65,10 +66,75 @@ const faqs = [
   },
 ];
 
+const emptyContact = { name: "", email: "", message: "", website: "" };
+
 const ContactPage = () => {
   const location = useLocation();
   const reduce = useReducedMotion();
   const [greetIndex, setGreetIndex] = useState(0);
+
+  const [contact, setContact] = useState(emptyContact);
+  const [contactErrors, setContactErrors] = useState({});
+  // idle → submitting → done
+  const [contactStatus, setContactStatus] = useState("idle");
+  const [contactError, setContactError] = useState("");
+
+  const setContactField = (name, value) => {
+    setContact((prev) => ({ ...prev, [name]: value }));
+    setContactErrors((prev) =>
+      prev[name] ? { ...prev, [name]: undefined } : prev,
+    );
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    if (contactStatus === "submitting") return;
+
+    // Honeypot: a bot filled a field humans can't see. Fake success.
+    if (contact.website) {
+      setContactStatus("done");
+      return;
+    }
+
+    const nextErrors = {
+      name: !contact.name.trim() ? "Let us know your name." : undefined,
+      email: !contact.email.trim()
+        ? "We need your email to reply."
+        : !/^\S+@\S+\.\S+$/.test(contact.email.trim())
+          ? "That email doesn't look right."
+          : undefined,
+      message:
+        contact.message.trim().length < 10
+          ? "Tell us a little more so we can help."
+          : undefined,
+    };
+    const firstBad = Object.keys(nextErrors).find((k) => nextErrors[k]);
+    if (firstBad) {
+      setContactErrors(nextErrors);
+      document.getElementById(`contact-${firstBad}`)?.focus();
+      return;
+    }
+
+    setContactErrors({});
+    setContactError("");
+    setContactStatus("submitting");
+    try {
+      await submitFeedback({
+        subject: `[Contact] Message from ${contact.name}`,
+        fields: {
+          form_type: "Contact",
+          name: contact.name,
+          email: contact.email,
+          message: contact.message,
+        },
+      });
+    } catch (err) {
+      setContactError(err?.message || "Something went wrong. Please try again.");
+      setContactStatus("idle");
+      return;
+    }
+    setContactStatus("done");
+  };
 
   useEffect(() => {
     if (!location.hash) return;
@@ -124,27 +190,90 @@ const ContactPage = () => {
 
       {/* Second Section */}
       <TornPanel id="contact-form" className="contact-page-second-sec">
-        <div>
-          <h1>Contact form</h1>
-          {/* <p>
-            We’re building Kampos — a one-stop campus ecosystem for Nigerian
-            students that packs all the gist, vibes, stories, learning, and
-            everything campus into one place. Our passion? Making sure every
-            student catches the best vibes and truly lives their best campus
-            life
-          </p> */}
-
-          <div className="contact-page-second-sec-input-div">
-            <input type="text" placeholder="Full name" />
-            <input type="text" placeholder="Email" />
+        {contactStatus === "done" ? (
+          <div className="contact-page-second-sec-success">
+            <h1>Message sent 🎉</h1>
+            <p>
+              Thanks for reaching out — we’ve got your message and we’ll get
+              back to you at <strong>{contact.email}</strong> soon.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setContact(emptyContact);
+                setContactStatus("idle");
+              }}
+            >
+              Send another
+            </button>
           </div>
-          <textarea
-            placeholder="Message"
-            rows="6"
-            className="contact-page-second-sec-main-input"
-          />
-          <button>Submit</button>
-        </div>
+        ) : (
+          <form onSubmit={handleContactSubmit} noValidate>
+            <h1>Contact form</h1>
+
+            <div className="contact-page-second-sec-input-div">
+              <input
+                id="contact-name"
+                type="text"
+                placeholder="Full name"
+                value={contact.name}
+                onChange={(e) => setContactField("name", e.target.value)}
+                aria-invalid={contactErrors.name ? true : undefined}
+                autoComplete="name"
+              />
+              <input
+                id="contact-email"
+                type="email"
+                placeholder="Email"
+                value={contact.email}
+                onChange={(e) => setContactField("email", e.target.value)}
+                aria-invalid={contactErrors.email ? true : undefined}
+                autoComplete="email"
+              />
+            </div>
+            {(contactErrors.name || contactErrors.email) && (
+              <p className="contact-page-field-error" role="alert">
+                {contactErrors.name || contactErrors.email}
+              </p>
+            )}
+
+            <textarea
+              id="contact-message"
+              placeholder="Message"
+              rows="6"
+              className="contact-page-second-sec-main-input"
+              value={contact.message}
+              onChange={(e) => setContactField("message", e.target.value)}
+              aria-invalid={contactErrors.message ? true : undefined}
+            />
+            {contactErrors.message && (
+              <p className="contact-page-field-error" role="alert">
+                {contactErrors.message}
+              </p>
+            )}
+
+            {/* Honeypot — hidden from people, catnip for bots. */}
+            <input
+              type="text"
+              className="contact-page-honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              value={contact.website}
+              onChange={(e) => setContactField("website", e.target.value)}
+            />
+
+            {contactError && (
+              <p className="contact-page-submit-error" role="alert">
+                {contactError}
+              </p>
+            )}
+
+            <button type="submit" disabled={contactStatus === "submitting"}>
+              {contactStatus === "submitting" ? "Sending…" : "Submit"}
+            </button>
+          </form>
+        )}
       </TornPanel>
 
       {/* Third Section */}

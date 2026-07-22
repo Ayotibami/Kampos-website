@@ -42,6 +42,8 @@ const FeedbackShell = ({
   const [errors, setErrors] = useState({});
   // idle → submitting → done
   const [status, setStatus] = useState("idle");
+  // Set when onSubmit throws — a network/service failure, not a field error.
+  const [submitError, setSubmitError] = useState("");
 
   const setField = useMemo(
     () => (name, value) => {
@@ -76,10 +78,21 @@ const FeedbackShell = ({
     }
 
     setErrors({});
+    setSubmitError("");
     setStatus("submitting");
 
     const { [HONEYPOT]: _honeypot, ...payload } = values;
-    await onSubmit({ ...payload, submittedAt: new Date().toISOString() });
+    try {
+      await onSubmit({ ...payload, submittedAt: new Date().toISOString() });
+    } catch (err) {
+      // Keep everything the user typed, re-enable the button, and tell them
+      // what happened — never drop a report on the floor.
+      setSubmitError(
+        err?.message || "Something went wrong. Please try again.",
+      );
+      setStatus("idle");
+      return;
+    }
 
     setStatus("done");
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -193,6 +206,12 @@ const FeedbackShell = ({
                       onChange={(e) => setField(HONEYPOT, e.target.value)}
                     />
                   </div>
+
+                  {submitError && (
+                    <p className="fb-submit-error" role="alert">
+                      {submitError}
+                    </p>
+                  )}
 
                   <div className="fb-submit-row">
                     <p className="fb-privacy">

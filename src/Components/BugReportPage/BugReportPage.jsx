@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { submitFeedback } from "../../api/feedback";
 import FeedbackShell from "../../SubComponents/FeedbackForm/FeedbackShell";
 import {
   FieldGroup,
@@ -8,7 +9,6 @@ import {
   TextArea,
   TextField,
   ChoiceGroup,
-  ImageUpload,
 } from "../../SubComponents/FeedbackForm/FeedbackFields";
 
 /* Best-effort browser + OS read from the user agent. It only has to be good
@@ -82,11 +82,25 @@ const BugReportPage = () => {
   // the reporter can correct rather than an empty box they'll likely skip.
   const [device] = useState(detectDevice);
 
-  const handleSubmit = async (payload) => {
-    // TODO: wire to the real endpoint. Until then the report is logged so the
-    // flow can be tested end to end, and the UI treats it as a success.
-    console.log("Bug report submitted:", payload);
-    await new Promise((resolve) => setTimeout(resolve, 700));
+  const handleSubmit = async (fields) => {
+    await submitFeedback({
+      subject: `[Bug] ${fields.area || "Report"}${
+        fields.email ? ` — ${fields.email}` : ""
+      }`,
+      fields: {
+        form_type: "Bug report",
+        name: fields.fullName,
+        email: fields.email,
+        avitag: fields.avitag,
+        school: fields.school,
+        area: fields.area,
+        what_happened: fields.whatHappened,
+        steps_to_reproduce: fields.steps,
+        frequency: fields.frequency,
+        severity: fields.severity,
+        device: fields.device,
+      },
+    });
   };
 
   return (
@@ -113,7 +127,6 @@ const BugReportPage = () => {
         frequency: "",
         severity: "",
         device,
-        screenshots: [],
       }}
       validate={validate}
       onSubmit={handleSubmit}
@@ -167,16 +180,6 @@ const BugReportPage = () => {
               onChange={(v) => setField("steps", v)}
               placeholder={"1. I opened…\n2. I tapped…\n3. Then…"}
               rows={5}
-            />
-
-            <ImageUpload
-              id="screenshots"
-              label="Add screenshots"
-              optional
-              hint="A picture of the bug says more than words. Attach up to 3."
-              files={values.screenshots}
-              onChange={(files) => setField("screenshots", files)}
-              max={3}
             />
           </FieldGroup>
 
