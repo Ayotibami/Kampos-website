@@ -16,10 +16,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiHeart, FiBarChart2, FiFlag } from "react-icons/fi";
 
+import usePageMeta from "../../hooks/usePageMeta";
+
 const MotionLink = motion(Link);
 
 const KappyHome = () => {
   const reduceMotion = useReducedMotion();
+  usePageMeta();
 
   const revealContainer = {
     hidden: {},

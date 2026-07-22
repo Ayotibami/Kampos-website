@@ -3,14 +3,25 @@ import "./LegalPage.css";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import KappyHomeFooter from "../KappyHomeFooter/KappyHomeFooter";
+import usePageMeta from "../../hooks/usePageMeta";
 
 /* Shared shell for the long-form legal pages (Privacy, Terms, Community
    Guidelines). Gives them a branded hero, a sticky "on this page" table of
    contents with scroll-spy, and a readable content column. Pages pass their
    section list (for the TOC) and write the body as children. */
-const LegalPage = ({ eyebrow, title, updated, intro, sections = [], children }) => {
+const LegalPage = ({
+  eyebrow,
+  title,
+  updated,
+  intro,
+  metaDescription,
+  sections = [],
+  children,
+}) => {
   const [active, setActive] = useState(sections[0]?.id);
   const [tocOpen, setTocOpen] = useState(false); // only affects mobile
+
+  usePageMeta({ title: `${title} - Kampos`, description: metaDescription || intro });
 
   // Highlight the TOC entry for whichever section is currently in view.
   useEffect(() => {

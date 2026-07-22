@@ -7,6 +7,7 @@ import { FaArrowLeft, FaCheck } from "react-icons/fa6";
 
 import Header from "../Header/Header";
 import KappyHomeFooter from "../KappyHomeFooter/KappyHomeFooter";
+import usePageMeta from "../../hooks/usePageMeta";
 
 /* Page shell shared by the Bug report and Feature request pages: hero,
    the form card, the "what happens next" strip and the success state.
@@ -32,9 +33,11 @@ const FeedbackShell = ({
   initialValues,
   validate,
   onSubmit,
+  metaDescription,
   children,
 }) => {
   const reduce = useReducedMotion();
+  usePageMeta({ title: `${title} - Kampos`, description: metaDescription || intro });
   const [values, setValues] = useState(() => ({
     ...initialValues,
     [HONEYPOT]: "",

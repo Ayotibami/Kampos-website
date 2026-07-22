@@ -10,9 +10,15 @@ import ChefOrbit from "../../SubComponents/ChefOrbit/ChefOrbit";
 import Cards1 from "../../SubComponents/Cards1/Cards1";
 import ChefsRoster from "../../SubComponents/ChefsRoster/ChefsRoster";
 import TornPanel from "../../SubComponents/TornPanel/TornPanel";
+import usePageMeta from "../../hooks/usePageMeta";
 
 const Chefs = () => {
   const reduce = useReducedMotion();
+  usePageMeta({
+    title: "Meet the Chefs — the team building Kampos",
+    description:
+      "Meet the students behind Kampos — the campus ecosystem connecting Nigerian students. Gist, updates, stories and vibes, all in one place.",
+  });
   const handRef = useRef(null);
   const handInView = useInView(handRef, { once: true, amount: 0.2 });
   return (

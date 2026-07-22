@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#165abf" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ayoti" />
 
     <title>Kampos - Your campus life in one app</title>
     <!-- Kept under ~155 chars so Google shows it whole. The longer, punchier
@@ -54,6 +56,32 @@
       content="%REACT_APP_SITE_URL%/og-image.jpg"
     />
     <meta name="twitter:image:alt" content="Kampos - Your campus life in one app" />
+
+    <!-- Structured data for search engines. %REACT_APP_SITE_URL% is substituted
+         at build time (see .env). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kampos",
+        "alternateName": "Kampos by Ayoti",
+        "url": "%REACT_APP_SITE_URL%/",
+        "logo": "%REACT_APP_SITE_URL%/logo512.png",
+        "description": "Kampos connects Nigerian students to their campuses — official updates, announcements, gists and hot takes, all in one place.",
+        "sameAs": [
+          "https://x.com/Kamposapp",
+          "https://instagram.com/Kamposapp"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kampos",
+        "url": "%REACT_APP_SITE_URL%/"
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run Kampos.</noscript>

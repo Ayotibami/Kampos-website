@@ -12,6 +12,7 @@ import FaqAccordion from "../../SubComponents/FaqAccordion/FaqAccordion";
 import { CONTACT, EMAIL_ADDRESS } from "../../constants/contactLinks";
 import KappyHomeFooter from "../../SubComponents/KappyHomeFooter/KappyHomeFooter";
 import { submitFeedback } from "../../api/feedback";
+import usePageMeta from "../../hooks/usePageMeta";
 
 const greetings = ["Wasssuppp", "Heyyy", "Bawo", "Kedu", "Sannu", "How far"];
 
@@ -72,6 +73,11 @@ const ContactPage = () => {
   const location = useLocation();
   const reduce = useReducedMotion();
   const [greetIndex, setGreetIndex] = useState(0);
+  usePageMeta({
+    title: "Contact Kampos — questions, feedback & support",
+    description:
+      "Get in touch with Kampos. Send a message, report a bug, request a feature, or reach us on WhatsApp and email — plus quick answers in our FAQ.",
+  });
 
   const [contact, setContact] = useState(emptyContact);
   const [contactErrors, setContactErrors] = useState({});
