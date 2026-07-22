@@ -340,17 +340,6 @@ const KappyHome = () => {
         <Link to="/" className="kappy-home-cta-btn">
           Hop into Kampos
         </Link>
-
-        <div>
-          {/* <button className="kappy-home-btn-1">
-            <img src="Images/play store.png" alt="" />
-            Download on playstore
-          </button>
-          <button className="kappy-home-btn-2">
-            <img src="Images/apple.png" alt="" />
-            Download on IOS store
-          </button> */}
-        </div>
       </section>
       <section className="kappy-home-second-sec">
         <HeroOrbit />
