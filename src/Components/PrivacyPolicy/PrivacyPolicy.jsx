@@ -431,17 +431,19 @@ const PrivacyPolicy = () => {
         </p>
         <p>
           We don’t knowingly collect or allow anyone who isn’t a bonafide student
-          to use Kampos. If you’re <strong>under 13</strong>, you’re definitely
-          not allowed here. If we find out otherwise, your account (and gist)
-          will vanish like your data never existed.
+          to use Kampos. You must be at least <strong>16 years old</strong> to use
+          Kampos — if you’re under 16, you’re definitely not allowed here. If we
+          find out otherwise, your account (and gist) will vanish like your data
+          never existed.
         </p>
         <p>
           Parents or guardians — if you discover your child is somehow using
           Kampos without being eligible, reach out to us and we’ll handle it.
         </p>
         <Callout>
-          Kampos does not knowingly collect data from individuals under the age
-          of 13, in line with international child protection regulations.
+          Kampos is for students aged 16 and above, and we do not knowingly
+          collect data from anyone under 16, in line with applicable data
+          protection and child safety regulations.
         </Callout>
       </LegalSection>
 

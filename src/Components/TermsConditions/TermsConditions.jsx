@@ -84,7 +84,7 @@ const TermsConditions = () => {
         <p>To be eligible to use Kampos, you must meet the following requirements:</p>
         <ul>
           <li>
-            You must be at least <strong>13 years old</strong>.
+            You must be at least <strong>16 years old</strong>.
           </li>
           <li>
             You must be a current student of a{" "}
