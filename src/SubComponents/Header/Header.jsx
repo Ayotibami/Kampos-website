@@ -3,7 +3,7 @@ import "./Header1.css";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import { GiFeather } from "react-icons/gi";
 
 const navLinkClass = ({ isActive }) => (isActive ? "active-link" : "link");
@@ -101,9 +101,9 @@ const Header = () => {
 
   return (
     <header className="kappy-header">
-      <div className="kappy-header-logo-badge">
+      <Link to="/" className="kappy-header-logo-badge" aria-label="Kampos home">
         <img src="Images/logo.png" alt="Kampos" className="kappy-header-logo" />
-      </div>
+      </Link>
       <nav className="kappy-header-nav">
         <NavLink to="/" className={navLinkClass}>
           Kampos

@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  text-decoration: none;
   width: clamp(56px, 7vw, 92px);
   height: clamp(56px, 7vw, 92px);
   border-radius: 50%;
