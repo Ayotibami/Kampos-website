@@ -9,6 +9,44 @@
   text-align: left;
 }
 
+/* ---- Mobile prev/next controls (hidden on desktop; roles handle it there) ---- */
+.roster-arrows {
+  display: none;
+}
+
+.roster-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #165abf;
+  color: #ffffff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(22, 90, 191, 0.3);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.roster-arrow:hover {
+  background: #124aa0;
+}
+
+.roster-arrow:active {
+  transform: scale(0.92);
+}
+
+.roster-counter {
+  min-width: 3.75rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #2f2e2e;
+}
+
 /* ---- Roles selector ---- */
 .roster-roles {
   flex: 0 0 clamp(240px, 26%, 320px);
@@ -265,6 +303,15 @@
 
   .roster-intro {
     text-align: center;
+  }
+
+  /* prev/next controls appear on mobile, below the card, alongside the roles */
+  .roster-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
   }
 }
 

@@ -11,8 +11,10 @@
     display: none;
   }
 
+  /* Nav pill is hidden and the hamburger container sits after Korner, so push
+     Korner to the far right like it is on desktop. */
   .kappy-header-korner {
-    display: none;
+    margin-left: auto;
   }
 
 }

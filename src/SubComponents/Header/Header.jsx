@@ -123,7 +123,7 @@ const Header = () => {
         aria-label="Korner"
       >
         <img
-          src="Images/korner-logo.webp"
+          src="Images/korner-logo-blue.webp"
           alt="Korner"
           className="kappy-header-korner-logo"
           width="520"
@@ -171,22 +171,6 @@ const Header = () => {
               <NavLink to="/contactPage" className={navLinkClass} onClick={closeMenu}>
                 Hit Us up
               </NavLink>
-              <a
-                href={KORNER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="kappy-header-menu-panel-korner"
-                onClick={closeMenu}
-                aria-label="Korner"
-              >
-                <img
-                  src="Images/korner-logo.webp"
-                  alt="Korner"
-                  className="kappy-header-menu-panel-korner-logo"
-                  width="520"
-                  height="178"
-                />
-              </a>
             </motion.div>
           </>
         )}

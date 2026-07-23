@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { FaXTwitter, FaInstagram } from "react-icons/fa6";
+import {
+  FaXTwitter,
+  FaInstagram,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa6";
 import "./ChefsRoster.css";
 
 /* The team, in display order — Kappy leads, then the rest. `x` and `ig` are
@@ -94,7 +99,7 @@ const chefs = [
   },
 ];
 
-const DURATION = 5000;
+const DURATION = 20000;
 
 const ChefsRoster = () => {
   const reduce = useReducedMotion();
@@ -103,10 +108,13 @@ const ChefsRoster = () => {
   const [progress, setProgress] = useState(0);
   const rafRef = useRef();
 
+  const n = chefs.length;
   const select = (i) => {
     setActive(i);
     setProgress(0);
   };
+  const goPrev = () => select((active - 1 + n) % n);
+  const goNext = () => select((active + 1) % n);
 
   useEffect(() => {
     if (paused || reduce) return;
@@ -237,6 +245,29 @@ const ChefsRoster = () => {
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Mobile-only prev/next controls (the roles selector is hidden on mobile) */}
+      <div className="roster-arrows">
+        <button
+          type="button"
+          className="roster-arrow"
+          onClick={goPrev}
+          aria-label="Previous team member"
+        >
+          <FaChevronLeft />
+        </button>
+        <span className="roster-counter" aria-hidden="true">
+          {active + 1} / {n}
+        </span>
+        <button
+          type="button"
+          className="roster-arrow"
+          onClick={goNext}
+          aria-label="Next team member"
+        >
+          <FaChevronRight />
+        </button>
       </div>
     </div>
   );
