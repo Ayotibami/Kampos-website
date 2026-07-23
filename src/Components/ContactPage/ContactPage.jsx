@@ -186,7 +186,7 @@ const ContactPage = () => {
             {" , "}
           </h1>
 
-          <h1 className="contact-page-first-sec-h1-2">Whats popping?</h1>
+          <h1 className="contact-page-first-sec-h1-2">What’s popping?</h1>
 
           <p>
             Do you have questions, feedback, need support, or maybe you just

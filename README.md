@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Kampos — marketing site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The public website for **Kampos**, a one-stop campus ecosystem for Nigerian
+students. Built with Create React App and deployed on Vercel.
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+```bash
+npm install
+npm start        # dev server on http://localhost:3000
+npm run build    # production build into build/
+```
 
-### `npm start`
+## Environment variables
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Set in `.env` (committed — none of these are secret) or overridden in Vercel's
+project settings, which win at build time.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Variable | Purpose |
+| --- | --- |
+| `REACT_APP_SITE_URL` | Absolute base URL used for `og:url` / `og:image`. Link scrapers can't resolve relative paths. No trailing slash. |
+| `REACT_APP_WEB3FORMS_KEY` | Web3Forms access key for the Contact, Bug report and Feature request forms. Public by design — Web3Forms keys live in client-side code. |
+| `REACT_APP_KORNER_URL` | Destination of the "Korner" button in the header. |
 
-### `npm test`
+Note: Create React App inlines every `REACT_APP_*` variable into the JS bundle
+at build time, so never put a real secret in one.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Layout
 
-### `npm run build`
+```
+src/
+  Components/     one folder per route (KappyHome, Chefs, ContactPage, …)
+  SubComponents/  shared pieces (Header, Footer, FeedbackForm, orbits, cards)
+  api/feedback.js single submission path for all three forms
+  constants/      real contact channels (email, WhatsApp, socials)
+  hooks/          usePageMeta — per-route <title>/description
+  fonts/          Nunito variable font (WOFF2, with TTF fallback)
+public/Images/    all artwork, WebP
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Routes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`/` · `/chefs` · `/contactPage` · `/report-bug` · `/request-feature` ·
+`/privacy` · `/terms` · `/community-guidelines`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Every route except the landing page is code-split with `React.lazy`, so a
+visitor doesn't download the legal pages and forms just to see the homepage.
 
-### `npm run eject`
+## Forms
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contact, Bug report and Feature request all funnel through `submitFeedback()`
+in [`src/api/feedback.js`](src/api/feedback.js), which posts to Web3Forms and
+emails the Kampos inbox. Field keys are written as friendly labels ("What went
+wrong") because Web3Forms uses them as dashboard column headers. Every field is
+sent on every submission — including blanks — so the columns stay consistent.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To move to a real backend later, change that one file; the pages don't care.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Conventions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- CSS is plain, one file per component, class names prefixed per component
+  (`fb-`, `kappy-footer-`, `contact-page-`). Never write bare `img`/`section`
+  selectors — the shared Header and Footer render inside every page.
+- Hero images stay eager with `fetchPriority="high"`; everything below the fold
+  is `loading="lazy"`. Images carry `width`/`height` so the browser reserves
+  space (CLS stays at 0).
+- Animations go through `framer-motion` and must respect `useReducedMotion()`.

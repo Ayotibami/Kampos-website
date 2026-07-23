@@ -49,7 +49,7 @@ const KappyHome = () => {
       text: "Ayo just bagged a 5.0 in MBBS and wants to aura farm. How will thousands of students in his school know seconds later? Or maybe your VC is at the Faculty of Arts giving out scholarships because he’s aura farming too — how do you catch that gist in time?",
     },
     {
-      heading: "What about Alexa, who wants to rant to other law students ?",
+      heading: "What about Alexa, who wants to rant to other law students?",
       name: "Alexandra",
       handle: "The_law",
       time: "8 hrs ago",
@@ -62,7 +62,7 @@ const KappyHome = () => {
       text: "“Law stress wan take my life”? Let’s be honest — students need their own online social space to vibe, gist, and stay in the know about what’s happening on their campuses (and even in other schools across Nigeria).",
     },
     {
-      heading: "And when your school drops an official circular or memo ?",
+      heading: "And when your school drops an official circular or memo?",
       name: "FUL Viral",
       handle: "Ful_viral",
       time: "1 hr ago",

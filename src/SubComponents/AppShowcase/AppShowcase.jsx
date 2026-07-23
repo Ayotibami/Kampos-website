@@ -75,11 +75,36 @@ const feedPosts = [
 ];
 
 const comments = [
-  { name: "Fresherman", school: "Federal University Lokoja", meta: "Csc  300 L", body: "Omoooo...I cant wait to connect here" },
-  { name: "Fresherman", school: "Federal University Lokoja", meta: "Csc  300 L", body: "Omoooo...I cant wait to connect here" },
-  { name: "Fresherman", school: "Federal University Lokoja", meta: "Csc  300 L", body: "Omoooo...I cant wait to connect here" },
-  { name: "Fresherman", school: "Federal University Lokoja", meta: "Csc  300 L", body: "Omoooo...I cant wait to connect here" },
-  { name: "Fresherman", school: "Federal University Lokoja", meta: "Csc  300 L", body: "Omoooo...I cant wait to connect here" },
+  {
+    name: "Fresherman",
+    school: "Federal University Lokoja",
+    meta: "Csc 300L",
+    body: "Omoooo...I can’t wait to connect here",
+  },
+  {
+    name: "Zainab O.",
+    school: "Ahmadu Bello University",
+    meta: "Law 200L",
+    body: "Finally one place for everything. No more scrolling 5 group chats 😮‍💨",
+  },
+  {
+    name: "Tunde",
+    school: "University of Ibadan",
+    meta: "Medicine 400L",
+    body: "Person wey get this idea sabi. Circulars for my phone? Say less 🙌",
+  },
+  {
+    name: "Amaka",
+    school: "Nnamdi Azikiwe University",
+    meta: "Mass Comm 100L",
+    body: "As a fresher this is exactly what I needed abeg",
+  },
+  {
+    name: "Seyi",
+    school: "Obafemi Awolowo University",
+    meta: "Eng 500L",
+    body: "Wait so I fit see gist from other schools too? 👀",
+  },
 ];
 
 const StatusBar = ({ dark }) => (
@@ -131,7 +156,7 @@ const FeedScreen = ({ pagerCss, pagerName, pagerDuration }) => (
     <div className="aps-feed-top">
       <div className="aps-compose">
         <div className="aps-compose-avatar" />
-        <span className="aps-compose-text">you no go talk yor mind ?</span>
+        <span className="aps-compose-text">you no go talk your mind?</span>
       </div>
       <div className="aps-tabs">
         <span className="aps-tab aps-tab-active">Gist</span>

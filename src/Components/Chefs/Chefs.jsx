@@ -167,7 +167,7 @@ const Chefs = () => {
         </figure>
 
         <div>
-          <h1>Anything for us ?</h1>
+          <h1>Anything for us?</h1>
           <p>
             Got ideas, feedback, or just pure vibes? Hit us up anytime — we’ll
             always reply. After all, Kampos is something we’re building together
