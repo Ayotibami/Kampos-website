@@ -186,6 +186,8 @@ const ChefsRoster = () => {
                   key={active}
                   src={`Images/${chef.img}`}
                   alt={chef.name}
+                  loading="lazy"
+                  decoding="async"
                   initial={{ opacity: 0, scale: reduce ? 1 : 0.6 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: reduce ? 1 : 0.9 }}

@@ -135,7 +135,16 @@ const FeedbackShell = ({
             <h1>{successTitle}</h1>
             <p>{successBody}</p>
             <figure>
-              <img src="Images/kappy-contact.webp" alt="" />
+              {/* Only ever seen after a successful submit, so never worth
+                  fetching up front. */}
+              <img
+                src="Images/kappy-contact.webp"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="1350"
+              />
             </figure>
             <div className="fb-success-actions">
               <Link className="fb-btn fb-btn-primary" to="/">
@@ -175,6 +184,10 @@ const FeedbackShell = ({
               <motion.img
                 src={image}
                 alt={imageAlt}
+                fetchPriority="high"
+                decoding="async"
+                width="760"
+                height="1140"
                 animate={reduce ? {} : { y: [0, -12, 0] }}
                 transition={{
                   duration: 5,

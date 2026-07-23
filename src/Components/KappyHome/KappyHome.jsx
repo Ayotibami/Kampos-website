@@ -451,6 +451,10 @@ const KappyHome = () => {
           <motion.img
             src="Images/chefs.webp"
             alt="kappy"
+            loading="lazy"
+            decoding="async"
+            width="405"
+            height="366"
             animate={reduceMotion ? {} : { y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />

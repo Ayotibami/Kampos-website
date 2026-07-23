@@ -102,7 +102,14 @@ const Header = () => {
   return (
     <header className="kappy-header">
       <Link to="/" className="kappy-header-logo-badge" aria-label="Kampos home">
-        <img src="Images/logo.png" alt="Kampos" className="kappy-header-logo" />
+        {/* In the fixed header on every page and always above the fold, so it
+            stays eager — lazy here would flash an empty badge on load. */}
+        <img
+          src="Images/logo.png"
+          alt="Kampos"
+          className="kappy-header-logo"
+          decoding="async"
+        />
       </Link>
       <nav className="kappy-header-nav">
         <NavLink to="/" className={navLinkClass}>

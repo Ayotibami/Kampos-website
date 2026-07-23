@@ -62,12 +62,27 @@ const ChefOrbit = () => {
               ease: "easeInOut",
             }}
           >
-            <img src={`Images/${src}`} alt="Kampos team member" />
+            <img
+              src={`Images/${src}`}
+              alt="Kampos team member"
+              decoding="async"
+              width="120"
+              height="120"
+            />
           </motion.div>
         );
       })}
 
-      <img src="Images/kappy-chef.webp" alt="Kappy" className="chef-orbit-kappy" />
+      {/* Hero of the chefs page — eager, and prioritised as its LCP. */}
+      <img
+        src="Images/kappy-chef.webp"
+        alt="Kappy"
+        className="chef-orbit-kappy"
+        fetchPriority="high"
+        decoding="async"
+        width="900"
+        height="1350"
+      />
     </div>
   );
 };

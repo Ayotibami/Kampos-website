@@ -64,7 +64,13 @@ const KappyHomeFooter = () => {
         <section className="kappy-footer-top">
           <div className="kappy-footer-brand">
             <Link to="/" className="kappy-footer-logo-link" aria-label="Kampos home">
-              <img src="Images/logo.png" alt="Kampos" className="kappy-footer-logo" />
+              <img
+                src="Images/logo.png"
+                alt="Kampos"
+                className="kappy-footer-logo"
+                loading="lazy"
+                decoding="async"
+              />
             </Link>
             <p className="kappy-footer-tagline">
               Your campus life in one app — gist, news, and vibes, all in one

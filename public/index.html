@@ -19,6 +19,17 @@
          otherwise every page would claim to be the homepage. -->
     <link rel="canonical" href="%REACT_APP_SITE_URL%/" />
 
+    <!-- The homepage hero (LCP). Preloading starts the fetch during HTML parse
+         instead of waiting for the JS bundle to run and mount the component,
+         which is typically a second or more earlier on a slow connection. -->
+    <link
+      rel="preload"
+      as="image"
+      href="%PUBLIC_URL%/Images/Kappy Mascot.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />

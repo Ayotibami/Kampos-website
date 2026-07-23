@@ -1,16 +1,42 @@
 import "./App.css";
 
-import KappyHome from "./Components/KappyHome/KappyHome";
-import Chefs from "./Components/Chefs/Chefs";
-import ContactPage from "./Components/ContactPage/ContactPage";
-import BugReportPage from "./Components/BugReportPage/BugReportPage";
-import FeatureRequestPage from "./Components/FeatureRequestPage/FeatureRequestPage";
-import PrivacyPolicy from "./Components/PrivacyPolicy/PrivacyPolicy";
-import TermsConditions from "./Components/TermsConditions/TermsConditions";
-import CommunityGuidelines from "./Components/CommunityGuidelines/CommunityGuidelines";
-import RootLayout from "./SubComponents/RootLayout/RootLayout";
-
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import KappyHome from "./Components/KappyHome/KappyHome";
+import RootLayout from "./SubComponents/RootLayout/RootLayout";
+import PageLoader from "./SubComponents/PageLoader/PageLoader";
+
+/* The landing page stays in the main bundle — it is the most common entry, so
+   splitting it would only add a round trip before anything renders.
+
+   Every other route is code-split: a visitor reading the homepage no longer
+   downloads the legal pages, the forms and the chefs page just to see it. Each
+   chunk is fetched on navigation and cached from then on. */
+const Chefs = lazy(() => import("./Components/Chefs/Chefs"));
+const ContactPage = lazy(() => import("./Components/ContactPage/ContactPage"));
+const BugReportPage = lazy(
+  () => import("./Components/BugReportPage/BugReportPage"),
+);
+const FeatureRequestPage = lazy(
+  () => import("./Components/FeatureRequestPage/FeatureRequestPage"),
+);
+const PrivacyPolicy = lazy(
+  () => import("./Components/PrivacyPolicy/PrivacyPolicy"),
+);
+const TermsConditions = lazy(
+  () => import("./Components/TermsConditions/TermsConditions"),
+);
+const CommunityGuidelines = lazy(
+  () => import("./Components/CommunityGuidelines/CommunityGuidelines"),
+);
+
+/* Wraps a split route so its chunk can stream in without blanking the app. */
+const split = (Page) => (
+  <Suspense fallback={<PageLoader />}>
+    <Page />
+  </Suspense>
+);
 
 const App = () => {
   const router = createBrowserRouter([
@@ -20,43 +46,41 @@ const App = () => {
         {
           path: "/",
           element: <KappyHome />,
-          // errorElement: <Error link="/login" text="Login" />,
         },
 
         {
           path: "/chefs",
-          element: <Chefs />,
-          // errorElement: <Error link="/login" text="Login" />,
+          element: split(Chefs),
         },
 
         {
           path: "/contactPage",
-          element: <ContactPage />,
+          element: split(ContactPage),
         },
 
         {
           path: "/report-bug",
-          element: <BugReportPage />,
+          element: split(BugReportPage),
         },
 
         {
           path: "/request-feature",
-          element: <FeatureRequestPage />,
+          element: split(FeatureRequestPage),
         },
 
         {
           path: "/privacy",
-          element: <PrivacyPolicy />,
+          element: split(PrivacyPolicy),
         },
 
         {
           path: "/terms",
-          element: <TermsConditions />,
+          element: split(TermsConditions),
         },
 
         {
           path: "/community-guidelines",
-          element: <CommunityGuidelines />,
+          element: split(CommunityGuidelines),
         },
       ],
     },

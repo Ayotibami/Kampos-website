@@ -356,7 +356,19 @@ const HeroOrbit = () => {
 
   return (
     <div className="hero-orbit">
-      <img src="Images/Kappy Mascot.webp" alt="Kappy" className="hero-orbit-kappy" />
+      {/* The homepage LCP element. Deliberately NOT lazy — lazy-loading the
+          largest above-the-fold image delays the very thing the score measures.
+          `fetchPriority="high"` moves it ahead of the other requests, and it is
+          preloaded in public/index.html so the fetch starts before React runs. */}
+      <img
+        src="Images/Kappy Mascot.webp"
+        alt="Kappy"
+        className="hero-orbit-kappy"
+        fetchPriority="high"
+        decoding="async"
+        width="900"
+        height="1350"
+      />
 
       {cardDefs.map((card, i) => (
         <motion.div

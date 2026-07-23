@@ -7,7 +7,13 @@
    for nothing. If italic is ever needed the browser will synthesise it. */
 @font-face {
   font-family: "Nunito";
-  src: url("./fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+  /* WOFF2 first: same variable font, Brotli-compressed, 269 KB -> 98 KB. Every
+     browser that supports variable fonts supports WOFF2, so the TTF below is
+     only a belt-and-braces fallback for anything ancient. Order matters — the
+     browser takes the first format it understands. */
+  src:
+    url("./fonts/Nunito-VariableFont_wght.woff2") format("woff2-variations"),
+    url("./fonts/Nunito-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 1000;
   font-style: normal;
   font-display: swap;

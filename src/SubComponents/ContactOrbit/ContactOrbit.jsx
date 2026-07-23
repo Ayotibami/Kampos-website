@@ -220,10 +220,15 @@ const ContactOrbit = () => {
 
   return (
     <div className="contact-orbit">
+      {/* Above the fold on the contact page, so eager rather than lazy. */}
       <img
         src="Images/kappy-contact.webp"
         alt="Kappy"
         className="contact-orbit-kappy"
+        fetchPriority="high"
+        decoding="async"
+        width="900"
+        height="1350"
       />
 
       <AnimatePresence>

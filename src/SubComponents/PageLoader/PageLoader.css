@@ -1,0 +1,54 @@
+/* Fallback for code-split routes. Holds roughly a viewport of height so the
+   footer doesn't jump up and then back down as the chunk lands. */
+.page-loader {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-loader-dot {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 3px solid #d6e3f5;
+  border-top-color: #165abf;
+  /* The 0.3s delay keeps fast chunk loads from flashing a spinner: on a warm
+     cache the route renders before this ever becomes visible. */
+  animation: page-loader-spin 0.7s linear infinite,
+    page-loader-in 0.2s ease-out 0.3s both;
+}
+
+@keyframes page-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes page-loader-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader-dot {
+    animation: page-loader-in 0.2s ease-out 0.3s both;
+    border-top-color: #165abf;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
