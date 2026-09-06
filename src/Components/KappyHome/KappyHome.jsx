@@ -17,7 +17,6 @@ import { Link } from "react-router-dom";
 import { FiHeart, FiBarChart2, FiFlag } from "react-icons/fi";
 
 import usePageMeta from "../../hooks/usePageMeta";
-import { KAMPOS_APP_URL } from "../../constants/app";
 
 const MotionLink = motion(Link);
 
@@ -341,14 +340,13 @@ const KappyHome = () => {
           text="Kampos connects students to their campuses. From official updates and announcements to wild rants, gists, and hot takes, Kampos drops you right in the middle of all the vibes — bringing your entire campus life straight to your phone."
         />
 
-        <a
-          href={KAMPOS_APP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="kappy-home-cta-btn"
-        >
+        {/* App isn't launched yet — no real destination, so this is a
+            <button>, not a link (an <a href="#"> fails CRA's a11y lint:
+            jsx-a11y/anchor-is-valid). Swap to <a href={KAMPOS_APP_URL}>
+            once it's live. */}
+        <button type="button" className="kappy-home-cta-btn">
           Hop into Kampos
-        </a>
+        </button>
       </section>
       <section className="kappy-home-second-sec">
         <HeroOrbit />
@@ -403,14 +401,13 @@ const KappyHome = () => {
             card1Img="card-identity"
           />
         </div>
-        <a
-          href={KAMPOS_APP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="kappy-home-cta-btn"
-        >
+        {/* App isn't launched yet — no real destination, so this is a
+            <button>, not a link (an <a href="#"> fails CRA's a11y lint:
+            jsx-a11y/anchor-is-valid). Swap to <a href={KAMPOS_APP_URL}>
+            once it's live. */}
+        <button type="button" className="kappy-home-cta-btn">
           Hop into Kampos
-        </a>
+        </button>
       </section>
 
       <TornPanel className="kappy-home-sixth-sec">
@@ -508,14 +505,13 @@ const KappyHome = () => {
             <h1 className="kappy-home-ninth-sec-h1">
               Ready to <span className="kappy-brand-text">vibe</span> with your campus?
             </h1>
-            <a
-              href={KAMPOS_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="kappy-home-cta-btn"
-            >
+            {/* App isn't launched yet — no real destination, so this is a
+                <button>, not a link (an <a href="#"> fails CRA's a11y
+                lint: jsx-a11y/anchor-is-valid). Swap to
+                <a href={KAMPOS_APP_URL}> once it's live. */}
+            <button type="button" className="kappy-home-cta-btn">
               Hop into Kampos
-            </a>
+            </button>
           </div>
 
           <AppShowcase />

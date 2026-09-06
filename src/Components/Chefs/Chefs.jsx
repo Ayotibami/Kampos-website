@@ -11,7 +11,6 @@ import Cards1 from "../../SubComponents/Cards1/Cards1";
 import ChefsRoster from "../../SubComponents/ChefsRoster/ChefsRoster";
 import TornPanel from "../../SubComponents/TornPanel/TornPanel";
 import usePageMeta from "../../hooks/usePageMeta";
-import { KAMPOS_APP_URL } from "../../constants/app";
 
 const Chefs = () => {
   const reduce = useReducedMotion();
@@ -28,14 +27,13 @@ const Chefs = () => {
 
       <section className="chefs-first-sec">
         <h1>Built by Students, for </h1>
-        <a
-          href={KAMPOS_APP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="kappy-home-cta-btn"
-        >
+        {/* App isn't launched yet — no real destination, so this is a
+            <button>, not a link (an <a href="#"> fails CRA's a11y lint:
+            jsx-a11y/anchor-is-valid). Swap to <a href={KAMPOS_APP_URL}>
+            once it's live. */}
+        <button type="button" className="kappy-home-cta-btn">
           Hop into Kampos
-        </a>
+        </button>
       </section>
 
       <section className="chefs-hero-orbit-sec">
